@@ -1,0 +1,30 @@
+{
+	"unit": {
+		"admin": [
+			"ampel.ingest.PhotoT2Ingester",
+			"ampel.ingest.DualPointT2Ingester",
+			"ampel.ingest.PhotoCompoundIngester"
+		],
+		"base": [
+			"ampel.test.unit.DemoPhotoPointT2Unit",
+			"ampel.test.unit.DemoFirstPhotoPointT2Unit",
+			"ampel.test.unit.DemoFirstUpperLimitT2Unit",
+			"ampel.test.unit.DemoEvery4PhotoPointT2Unit"
+		]
+	},
+	"alias": {
+		"t3": {
+			"%PHOTOPOINT": {
+				"col": "t0", "model": "PhotoPoint",
+				"queryComplement": {"_id": {"$gt": 0}}
+			},
+			"%UPPERLIMIT": {
+				"col": "t0", "model": "UpperLimit",
+				"queryComplement": {"_id": {"$lt": 0}}
+			},
+			"%PHOTOMETRY": {
+				"col": "t0", "loader": "PhotometryLoader"
+			}
+		}
+	}
+}
