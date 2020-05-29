@@ -1,0 +1,108 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# File              : Ampel-photometry/ampel/alert/PhotoAlert.py
+# License           : BSD-3-Clause
+# Author            : vb <vbrinnel@physik.hu-berlin.de>
+# Date              : 14.12.2017
+# Last Modified Date: 01.05.2020
+# Last Modified By  : vb <vbrinnel@physik.hu-berlin.de>
+
+from typing import Dict, Tuple, List, Sequence, Optional, Any, Literal, Union
+from ampel.type import StockId
+from ampel.alert.AmpelAlert import AmpelAlert, osa
+from ampel.view.ReadOnlyDict import ReadOnlyDict
+from ampel.content.DataPoint import DataPoint
+
+
+class PhotoAlert(AmpelAlert):
+	"""
+	Class with two collections (photopoints and upperlimits) of read-only dicts
+	The ampel AlertProcessor typically instantiates this class and feed T0 filters with it.
+	Note: an alert must contain at least one photopoint
+	"""
+
+	__slots__ = 'pps', 'uls', 'name', 'data'
+
+	pps: Sequence[ReadOnlyDict]
+	uls: Optional[Sequence[ReadOnlyDict]]
+	name: Optional[str]
+	data: Dict[str, Sequence[ReadOnlyDict]]
+
+	def __init__(self,
+		id: Union[int, str], stock_id: StockId,
+		dps: Sequence[Dict],
+		pps: Sequence[ReadOnlyDict],
+		uls: Optional[Sequence[ReadOnlyDict]],
+		name: Optional[str] = None
+	) -> None:
+
+		osa(self, 'id', id)
+		osa(self, 'stock_id', stock_id)
+		osa(self, 'dps', dps)
+		osa(self, 'pps', pps)
+		osa(self, 'uls', uls)
+		osa(self, 'name', name)
+		osa(self, 'data', {'pps': self.pps, 'uls': self.uls, 'all': self.dps})
+
+
+	def get_values(self, # type: ignore[override]
+		param_name: str,
+		filters: Optional[Sequence[Dict[str, Any]]] = None,
+		data: Literal['pps', 'uls', 'all'] = 'pps'
+	) -> List[Any]:
+		""" ex: get_values("mag") """
+		if seq := self.data[data]:
+			return AmpelAlert.get_values(self, param_name, seq, filters)
+		return []
+
+
+	def get_tuples(self, # type: ignore[override]
+		param1: str, param2: str,
+		filters: Optional[Sequence[Dict[str, Any]]] = None,
+		data: Literal['pps', 'uls', 'all'] = "pps"
+	) -> List[Tuple[Any, Any]]:
+		""" ex: get_tuples("obs_date", "mag") """
+		if seq := self.data[data]:
+			return AmpelAlert.get_tuples(self, param1, param2, seq, filters)
+		return []
+
+
+	def get_ntuples(self, # type: ignore[override]
+		params: List[str],
+		filters: Optional[Sequence[Dict[str, Any]]] = None,
+		data: Literal['pps', 'uls', 'all'] = "pps"
+	) -> List[Tuple]:
+		""" ex: get_ntuples(["fid", "obs_date", "mag"]) """
+		if seq := self.data[data]:
+			return AmpelAlert.get_ntuples(self, params, seq, filters)
+		return []
+
+
+	def get_photopoints(self) -> Sequence[ReadOnlyDict]:
+		return self.pps
+
+
+	def get_upperlimits(self) -> Optional[Sequence[ReadOnlyDict]]:
+		return self.uls
+
+
+	def is_new(self) -> bool:
+		return len(self.pps) == 1
+
+
+	@staticmethod
+	def _prev_det_seq(datapoints: Sequence[DataPoint]) -> Optional[Sequence[DataPoint]]:
+		""" ampel.content.DataPoint are 'ampelized' dicts,
+		i.e not the 'raw' datapoints associated with in self.dps
+		"""
+		for i in range(1, len(datapoints)):
+			if datapoints[i]['_id'] > 0:
+				return datapoints[i:]
+		return None
+
+
+	def dict(self) -> Dict:
+		return {
+			'id': self.id, 'stock_id': self.stock_id,
+			'pps': self.pps, 'uls': self.uls, 'name': self.name
+		}
