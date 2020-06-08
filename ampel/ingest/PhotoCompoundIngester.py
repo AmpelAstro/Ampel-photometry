@@ -4,7 +4,7 @@
 # License           : BSD-3-Clause
 # Author            : vb <vbrinnel@physik.hu-berlin.de>
 # Date              : 14.12.2017
-# Last Modified Date: 02.05.2020
+# Last Modified Date: 02.06.2020
 # Last Modified By  : vb <vbrinnel@physik.hu-berlin.de>
 
 from time import time
@@ -24,7 +24,7 @@ from ampel.ingest.PhotoCompoundBluePrint import PhotoCompoundBluePrint
 class PhotoCompoundIngester(AbsCompoundIngester[PhotoCompoundBluePrint]):
 
 	run_id: int
-	combiner: DataUnitModel
+	combiner: Union[DataUnitModel, str]
 	channels: Set[ChannelId] = set()
 
 
@@ -42,8 +42,8 @@ class PhotoCompoundIngester(AbsCompoundIngester[PhotoCompoundBluePrint]):
 		logger.addHandler(self.rbh)
 
 		self.engine = self.context.loader.new_base_unit(
-			model = self.combiner, logger = logger,
-			sub_type = AbsT1Unit[PhotoCompoundBluePrint],
+			unit_model = self.combiner if isinstance(self.combiner, DataUnitModel) else DataUnitModel(unit=self.combiner),
+			logger = logger, sub_type = AbsT1Unit[PhotoCompoundBluePrint]
 		)
 
 
