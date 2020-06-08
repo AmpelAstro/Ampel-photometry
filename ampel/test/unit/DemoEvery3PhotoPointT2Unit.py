@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# File              : Ampel-photometry/ampel/test/unit/DemoFirstPhotoPointT2Unit.py
+# File              : Ampel-photometry/ampel/test/unit/DemoEvery3PhotoPointT2Unit.py
 # License           : BSD-3-Clause
 # Author            : vb <vbrinnel@physik.hu-berlin.de>
 # Date              : 25.03.2020
@@ -14,9 +14,9 @@ from ampel.content.DataPoint import DataPoint
 from ampel.abstract.AbsPointT2Unit import AbsPointT2Unit
 
 
-class DemoFirstPhotoPointT2Unit(AbsPointT2Unit):
+class DemoEvery3PhotoPointT2Unit(AbsPointT2Unit):
 
-	ingest: Dict = {'eligible': {'pps': 'first'}}
+	ingest: Dict = {'eligible': {'pps': (2, None, 3)}}
 
 	def run(self, datapoint: DataPoint) -> T2UnitResult:
 		return {"id": datapoint['_id'], "time": time()}
