@@ -9,6 +9,7 @@
 			"ampel.test.unit.DemoPhotoPointT2Unit",
 			"ampel.test.unit.DemoFirstPhotoPointT2Unit",
 			"ampel.test.unit.DemoFirstUpperLimitT2Unit",
+			"ampel.test.unit.DemoEvery3PhotoPointT2Unit",
 			"ampel.test.unit.DemoEvery4PhotoPointT2Unit"
 		]
 	},
