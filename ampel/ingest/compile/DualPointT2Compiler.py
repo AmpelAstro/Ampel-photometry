@@ -7,10 +7,10 @@
 # Last Modified Date: 01.05.2020
 # Last Modified By  : vb <vbrinnel@physik.hu-berlin.de>
 
-from typing import List, Dict, Set, Union, Sequence, Any, Literal, Tuple
+from typing import List, Dict, Set, Union, Sequence, Any, Literal, Tuple, Optional
 from ampel.content.DataPoint import DataPoint
 from ampel.type import ChannelId, DataPointId
-from ampel.model.T2IngestModel import T2IngestModel
+from ampel.model.ingest.T2IngestModel import T2IngestModel
 from ampel.ingest.compile.PointT2Compiler import PointT2Compiler
 
 
@@ -28,10 +28,14 @@ class DualPointT2Compiler(PointT2Compiler):
 
 
 	def set_ingest_options(self,
-		channel: ChannelId, model: T2IngestModel, options: Dict[str, Any]
+		channel: ChannelId, model: T2IngestModel, options: Optional[Dict[str, Any]]
 	) -> None:
 
 		try:
+
+			if not options:
+				super().set_ingest_options(channel, model, {})
+				return
 
 			if 'all' in options['eligible']:
 				super().set_ingest_options(
@@ -102,6 +106,7 @@ class DualPointT2Compiler(PointT2Compiler):
 		"""
 
 		t2s_eff: Dict[Tuple[str, int, DataPointId], Set[ChannelId]] = {}
+		datapoints = list(reversed(datapoints))
 
 		for chan, ingest_model in self.get_ingest_models(chan_selection):
 
