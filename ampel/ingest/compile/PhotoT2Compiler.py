@@ -4,12 +4,12 @@
 # License           : BSD-3-Clause
 # Author            : vb <vbrinnel@physik.hu-berlin.de>
 # Date              : 14.12.2017
-# Last Modified Date: 01.05.2020
+# Last Modified Date: 05.06.2020
 # Last Modified By  : vb <vbrinnel@physik.hu-berlin.de>
 
 from typing import Dict, Set, Any, Union, Tuple, List
 from ampel.type import ChannelId
-from ampel.model.T2IngestModel import T2IngestModel
+from ampel.model.ingest.T2IngestModel import T2IngestModel
 from ampel.abstract.ingest.AbsStateT2Compiler import AbsStateT2Compiler
 from ampel.ingest.PhotoCompoundBluePrint import PhotoCompoundBluePrint
 
