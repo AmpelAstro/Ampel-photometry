@@ -25,7 +25,7 @@ class AbsLightCurveT2Unit(AbsCustomStateT2Unit[LightCurve], abstract=True):
 
 
 	@staticmethod
-	def of(compound: Compound, datapoints: Iterable[DataPoint]) -> LightCurve:
+	def build(compound: Compound, datapoints: Iterable[DataPoint]) -> LightCurve:
 		return LightCurve(
 			compound_id = compound['_id'],
 			tier = compound['tier'],
