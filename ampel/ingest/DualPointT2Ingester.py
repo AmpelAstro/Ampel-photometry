@@ -27,7 +27,7 @@ class DualPointT2Ingester(AbsPointT2Ingester):
 		Literal['eligible'],
 		Dict[
 			Literal['all', 'pps', 'uls'],
-			Optional[Union[Literal['first', 'last', Tuple[int, int, int]]]]
+			Optional[Union[Literal['first', 'last', 'all', Tuple[int, int, int]]]]
 		]
 	] = {} # Empty dict or None key means all eligible
 
