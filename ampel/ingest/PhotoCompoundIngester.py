@@ -11,20 +11,20 @@ from time import time
 from pymongo import UpdateOne
 from typing import Sequence, List, Tuple, Union, Set
 from ampel.type import StockId, ChannelId
-from ampel.log.AmpelLogger import AmpelLogger
+from ampel.log.AmpelLogger import AmpelLogger, INFO
 from ampel.log.handlers.RecordBufferingHandler import RecordBufferingHandler
 from ampel.content.PhotoCompound import PhotoCompound
 from ampel.content.DataPoint import DataPoint
 from ampel.abstract.ingest.AbsCompoundIngester import AbsCompoundIngester
 from ampel.abstract.AbsT1Unit import AbsT1Unit
-from ampel.model.DataUnitModel import DataUnitModel
+from ampel.model.UnitModel import UnitModel
 from ampel.ingest.PhotoCompoundBluePrint import PhotoCompoundBluePrint
 
 
 class PhotoCompoundIngester(AbsCompoundIngester[PhotoCompoundBluePrint]):
 
 	run_id: int
-	combiner: Union[DataUnitModel, str]
+	combiner: Union[UnitModel, str]
 	channels: Set[ChannelId] = set()
 
 
@@ -36,13 +36,14 @@ class PhotoCompoundIngester(AbsCompoundIngester[PhotoCompoundBluePrint]):
 		# like every other base units. We create a logger associated a
 		# buffering handlers whose logs are later transfered to the
 		# LogsBufferDict instance (self.logd) used and shared among ingesters
-		logger = AmpelLogger.get_unique_logger(console_logging=False)
-		self.rbh = RecordBufferingHandler()
+		logger = AmpelLogger.get_logger(console=False)
+		self.rbh = RecordBufferingHandler(level=INFO)
 		self.rec_buffer = self.rbh.buffer
-		logger.addHandler(self.rbh)
+		logger.add_handler(self.rbh)
 
 		self.engine = self.context.loader.new_base_unit(
-			unit_model = self.combiner if isinstance(self.combiner, DataUnitModel) else DataUnitModel(unit=self.combiner),
+			unit_model = self.combiner if isinstance(self.combiner, UnitModel)
+				else UnitModel(unit=self.combiner),
 			logger = logger, sub_type = AbsT1Unit[PhotoCompoundBluePrint]
 		)
 
