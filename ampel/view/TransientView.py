@@ -1,19 +1,17 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# File              : ampel/view/TransientView.py
+# File              : Ampel-photometry/ampel/view/TransientView.py
 # License           : BSD-3-Clause
 # Author            : vb <vbrinnel@physik.hu-berlin.de>
 # Date              : 13.01.2018
-# Last Modified Date: 19.12.2019
+# Last Modified Date: 09.06.2020
 # Last Modified By  : vb <vbrinnel@physik.hu-berlin.de>
 
 from typing import Optional, List
-from dataclasses import dataclass
 from ampel.content.DataPoint import DataPoint
 from ampel.view.LightCurve import LightCurve
 from ampel.view.SnapView import SnapView
 
-@dataclass(frozen=True)
 class TransientView(SnapView):
 
 	def get_photopoints(self) -> Optional[List[DataPoint]]:
