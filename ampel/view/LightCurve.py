@@ -84,7 +84,7 @@ class LightCurve:
 
 
 	def get_ntuples(self,
-		params: List[str],
+		params: Sequence[str],
 		filters: Optional[Union[Dict[str, Any], Sequence[Dict[str, Any]]]] = None,
 		of_upper_limits: bool = False
 	) -> Optional[List[Tuple]]:
