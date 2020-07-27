@@ -103,7 +103,7 @@ class PhotoCompoundIngester(AbsCompoundIngester[PhotoCompoundBluePrint]):
 				'added': time(),
 				'lastjd': datapoints[0]['body']['jd'],
 				'len': len(comp_dict),
-				'data': comp_dict
+				'body': comp_dict
 			}
 
 			if pp_comp_id != eff_comp_id:
