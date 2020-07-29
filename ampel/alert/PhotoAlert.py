@@ -52,7 +52,7 @@ class PhotoAlert(AmpelAlert):
 	) -> List[Any]:
 		""" ex: get_values("mag") """
 		if seq := self.data[data]:
-			return AmpelAlert.get_values(self, param_name, seq, filters)
+			return AmpelAlert.get_values(self, param_name, filters, seq)
 		return []
 
 
@@ -63,7 +63,7 @@ class PhotoAlert(AmpelAlert):
 	) -> List[Tuple[Any, Any]]:
 		""" ex: get_tuples("obs_date", "mag") """
 		if seq := self.data[data]:
-			return AmpelAlert.get_tuples(self, param1, param2, seq, filters)
+			return AmpelAlert.get_tuples(self, param1, param2, filters, seq)
 		return []
 
 
@@ -74,7 +74,7 @@ class PhotoAlert(AmpelAlert):
 	) -> List[Tuple]:
 		""" ex: get_ntuples(["fid", "obs_date", "mag"]) """
 		if seq := self.data[data]:
-			return AmpelAlert.get_ntuples(self, params, seq, filters)
+			return AmpelAlert.get_ntuples(self, params, filters, seq)
 		return []
 
 
