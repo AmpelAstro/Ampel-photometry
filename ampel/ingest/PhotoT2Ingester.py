@@ -46,6 +46,7 @@ class PhotoT2Ingester(AbsStateT2Ingester):
 				'stock': stock_id,
 				'unit': t2_id,
 				'config': run_config
+				# 'link' is added below
 			}
 
 			# Attributes set if no previous doc exists
@@ -66,14 +67,9 @@ class PhotoT2Ingester(AbsStateT2Ingester):
 
 				llink_id = list(link_id)
 
-				# match_dict['link'] = bifold_comp_id or
-				# match_dict['link'] = {'$in': [bifold_comp_id]}
-				# triggers the error: 'Cannot apply $addToSet to non-array field. \
-				# Field named 'link' has non-array type string'
-				# -> See https://jira.mongodb.org/browse/SERVER-3946
-
-				# First llink_id is always is the pp id
-				match_dict['link'] = llink_id[0]
+				# Note: first llink_id is always is the pp id
+				# Yes, you need $elemMatch -> See https://jira.mongodb.org/browse/SERVER-3946
+				match_dict['link'] = {"$elemMatch": {"$eq": llink_id[0]}}
 				add_to_set['link'] = {'$each': llink_id}
 
 				# Update journal: register eff id for each channel
@@ -108,10 +104,8 @@ class PhotoT2Ingester(AbsStateT2Ingester):
 			# bifold_comp_id is then an 'effective compound id'
 			else:
 
-				match_dict['link'] = link_id
-
-				# list is required for later $addToSet operations to succeed
-				set_on_insert['link'] = [link_id]
+				match_dict['link'] = {"$elemMatch": {"$eq": link_id}}
+				add_to_set['link'] = link_id
 
 				# Update journal
 				add_to_set['journal'] = {
