@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# File              : Ampel-photometry/ampel/test/unit/DemoEvery4PhotoPointT2Unit.py
+# File              : Ampel-photometry/ampel/demo/unit/base/DemoEvery4PhotoPointT2Unit.py
 # License           : BSD-3-Clause
 # Author            : vb <vbrinnel@physik.hu-berlin.de>
 # Date              : 25.03.2020
-# Last Modified Date: 08.06.2020
+# Last Modified Date: 07.08.2020
 # Last Modified By  : vb <vbrinnel@physik.hu-berlin.de>
 
 from time import time
