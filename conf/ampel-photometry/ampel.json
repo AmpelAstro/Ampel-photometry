@@ -6,11 +6,12 @@
 			"ampel.ingest.PhotoCompoundIngester"
 		],
 		"base": [
-			"ampel.test.unit.DemoPhotoPointT2Unit",
-			"ampel.test.unit.DemoFirstPhotoPointT2Unit",
-			"ampel.test.unit.DemoFirstUpperLimitT2Unit",
-			"ampel.test.unit.DemoEvery3PhotoPointT2Unit",
-			"ampel.test.unit.DemoEvery4PhotoPointT2Unit"
+			"ampel.demo.unit.base.DemoPhotoPointT2Unit",
+			"ampel.demo.unit.base.DemoFirstPhotoPointT2Unit",
+			"ampel.demo.unit.base.DemoFirstUpperLimitT2Unit",
+			"ampel.demo.unit.base.DemoEvery3PhotoPointT2Unit",
+			"ampel.demo.unit.base.DemoEvery4PhotoPointT2Unit",
+			"ampel.demo.unit.base.DemoLightCurveT2Unit",
 		]
 	},
 	"alias": {
