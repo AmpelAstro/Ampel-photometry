@@ -11,7 +11,7 @@
 			"ampel.demo.unit.base.DemoFirstUpperLimitT2Unit",
 			"ampel.demo.unit.base.DemoEvery3PhotoPointT2Unit",
 			"ampel.demo.unit.base.DemoEvery4PhotoPointT2Unit",
-			"ampel.demo.unit.base.DemoLightCurveT2Unit",
+			"ampel.demo.unit.base.DemoLightCurveT2Unit"
 		]
 	},
 	"alias": {
