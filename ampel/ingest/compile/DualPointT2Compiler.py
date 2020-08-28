@@ -24,7 +24,7 @@ class DualPointT2Compiler(PointT2Compiler):
 
 	def __init__(self) -> None:
 		super().__init__()
-		self.dual_slices: Dict[Tuple[ChannelId, str, int], Dict[bool, List[slice]]] = {}
+		self.dual_slices: Dict[Tuple[ChannelId, str, Optional[int]], Dict[bool, List[slice]]] = {}
 
 
 	def set_ingest_options(self,
@@ -80,7 +80,7 @@ class DualPointT2Compiler(PointT2Compiler):
 	def compile(self,
 		chan_selection: List[Tuple[ChannelId, Union[bool, int]]],
 		datapoints: Sequence[DataPoint]
-	) -> Dict[Tuple[str, int, DataPointId], Set[ChannelId]]:
+	) -> Dict[Tuple[str, Optional[int], DataPointId], Set[ChannelId]]:
 		"""
 		TLDR: This function computes and returns a dict structure helpful for creating T2 docs.
 		This computation is required since:
@@ -105,7 +105,7 @@ class DualPointT2Compiler(PointT2Compiler):
 		Dict values: set of channel ids
 		"""
 
-		t2s_eff: Dict[Tuple[str, int, DataPointId], Set[ChannelId]] = {}
+		t2s_eff: Dict[Tuple[str, Optional[int], DataPointId], Set[ChannelId]] = {}
 		datapoints = list(reversed(datapoints))
 
 		for chan, ingest_model in self.get_ingest_models(chan_selection):

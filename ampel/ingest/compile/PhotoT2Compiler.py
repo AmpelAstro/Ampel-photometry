@@ -7,7 +7,7 @@
 # Last Modified Date: 05.06.2020
 # Last Modified By  : vb <vbrinnel@physik.hu-berlin.de>
 
-from typing import Dict, Set, Any, Union, Tuple, List
+from typing import Dict, Set, Any, Union, Tuple, List, Optional
 from ampel.type import ChannelId
 from ampel.model.ingest.T2IngestModel import T2IngestModel
 from ampel.abstract.ingest.AbsStateT2Compiler import AbsStateT2Compiler
@@ -24,7 +24,7 @@ class PhotoT2Compiler(AbsStateT2Compiler):
 
 	def __init__(self) -> None:
 		super().__init__()
-		self.upper_limits: Dict[Tuple[ChannelId, str, int], bool] = {}
+		self.upper_limits: Dict[Tuple[ChannelId, str, Optional[int]], bool] = {}
 
 
 	def set_ingest_options(self,
@@ -44,7 +44,7 @@ class PhotoT2Compiler(AbsStateT2Compiler):
 	def compile(self,
 		chan_selection: List[Tuple[ChannelId, Union[bool, int]]],
 		compound_blueprint: PhotoCompoundBluePrint
-	) -> Dict[Tuple[str, int, Union[bytes, Tuple[bytes, ...]]], Set[ChannelId]]:
+	) -> Dict[Tuple[str, Optional[int], Union[bytes, Tuple[bytes, ...]]], Set[ChannelId]]:
 		"""
 		TLDR: This function computes and returns a dict structure helpful for creating T2 docs.
 		This computation is required since:
@@ -97,7 +97,7 @@ class PhotoT2Compiler(AbsStateT2Compiler):
 		(PHOTO_Z, 123, d4c3b2a1): {"CHANNEL_GRB"}
 		"""
 
-		fd: Dict[Tuple[str, int, bool], Set[ChannelId]] = {}
+		fd: Dict[Tuple[str, Optional[int], bool], Set[ChannelId]] = {}
 
 		# Loop 1
 		########
@@ -119,7 +119,7 @@ class PhotoT2Compiler(AbsStateT2Compiler):
 
 
 
-		t2s_eff: Dict[Tuple[str, int, Union[bytes, Tuple[bytes, ...]]], Set[ChannelId]] = {}
+		t2s_eff: Dict[Tuple[str, Optional[int], Union[bytes, Tuple[bytes, ...]]], Set[ChannelId]] = {}
 
 		# Loop 2
 		########
