@@ -90,7 +90,7 @@ class LightCurve:
 	) -> Optional[List[Tuple]]:
 		"""
 		params: list of strings
-		ex: get_ntuples(["fid", "obs_date", "mag"])
+		ex: get_ntuples(["fid", "jd", "magpsf"])
 		:param filters: example: {'attribute': 'magpsf', 'operator': '<', 'value': 18}
 		'of_upper_limits': if set to True, upper limits are returned instead of photo points
 		"""

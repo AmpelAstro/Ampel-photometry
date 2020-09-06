@@ -50,7 +50,7 @@ class PhotoAlert(AmpelAlert):
 		filters: Optional[Sequence[Dict[str, Any]]] = None,
 		data: Literal['pps', 'uls', 'all'] = 'pps'
 	) -> List[Any]:
-		""" ex: get_values("mag") """
+		""" ex: get_values("magpsf") """
 		if seq := self.data[data]:
 			return AmpelAlert.get_values(self, param_name, filters, seq)
 		return []
@@ -61,7 +61,7 @@ class PhotoAlert(AmpelAlert):
 		filters: Optional[Sequence[Dict[str, Any]]] = None,
 		data: Literal['pps', 'uls', 'all'] = "pps"
 	) -> List[Tuple[Any, Any]]:
-		""" ex: get_tuples("obs_date", "mag") """
+		""" ex: get_tuples("jd", "magpsf") """
 		if seq := self.data[data]:
 			return AmpelAlert.get_tuples(self, param1, param2, filters, seq)
 		return []
@@ -72,7 +72,7 @@ class PhotoAlert(AmpelAlert):
 		filters: Optional[Sequence[Dict[str, Any]]] = None,
 		data: Literal['pps', 'uls', 'all'] = "pps"
 	) -> List[Tuple]:
-		""" ex: get_ntuples(["fid", "obs_date", "mag"]) """
+		""" ex: get_ntuples(["fid", "jd", "magpsf"]) """
 		if seq := self.data[data]:
 			return AmpelAlert.get_ntuples(self, params, filters, seq)
 		return []
