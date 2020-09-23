@@ -16,9 +16,11 @@ from ampel.abstract.AbsCustomStateT2Unit import AbsCustomStateT2Unit
 
 class AbsLightCurveT2Unit(AbsCustomStateT2Unit[LightCurve], abstract=True):
 	"""
+	Base class for T2s that operate on light curves.
+	
 	upper_limits:
-	-> True: compound id computed using PPs & ULs IDs
-	-> False: compound id computed using PPs IDs only
+		- True: compound id computed using PPs & ULs IDs
+		- False: compound id computed using PPs IDs only
 	"""
 
 	ingest: ClassVar[Dict[str, Any]] = {'upper_limits': True}

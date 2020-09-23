@@ -28,8 +28,9 @@ ops: Dict[str, Callable[[str, Any], bool]] = {
 @dataclass(frozen=True)
 class LightCurve:
 	"""
-	Contains a collection of DataPoint (typed) dicts (photo points and upper limits),
-	and a few convenience methods to return values from internal collections.
+	Contains a collection of :class:`~ampel.content.DataPoint.DataPoint` (photo
+	points and upper limits), and a few convenience methods to return values
+	from internal collections.
 	"""
 
 	compound_id: bytes
@@ -50,13 +51,21 @@ class LightCurve:
 		)
 
 
+	def __len__(self):
+		return (len(self.photopoints) if self.photopoints else 0) + \
+			(len(self.upperlimits) if self.upperlimits else 0)
+
+
 	def get_values(self,
 		key: str,
 		filters: Optional[Union[Dict[str, Any], Sequence[Dict[str, Any]]]] = None,
 		of_upper_limits: bool = False
 	) -> Optional[List[Any]]:
 		"""
-		usage example: get_values('obs_date')
+		usage example::
+			
+			get_values('obs_date')
+		
 		:param filters: example: {'attribute': 'magpsf', 'operator': '<', 'value': 18}
 		:param of_upper_limits: if True, upper limits are returned instead of photo points
 		"""
@@ -71,9 +80,12 @@ class LightCurve:
 		of_upper_limits: bool = False
 	) -> Optional[List[Tuple[Any, Any]]]:
 		"""
-		usage example: get_tuples('obs_date', 'mag')
-		:param filters: example: {'attribute': 'magpsf', 'operator': '<', 'value': 18}
-		'of_upper_limits': if True, upper limits are returned instead of photo points
+		usage example::
+			
+			get_tuples('obs_date', 'mag', {'attribute': 'magpsf', 'operator': '<', 'value': 18})
+		
+		:param filters: filter criteria for datapoints
+		:param of_upper_limits: if True, return upper limits instead of photo points
 		"""
 		if datapoints := self._get_datapoints(filters, of_upper_limits):
 			return [
@@ -89,10 +101,13 @@ class LightCurve:
 		of_upper_limits: bool = False
 	) -> Optional[List[Tuple]]:
 		"""
-		params: list of strings
-		ex: get_ntuples(["fid", "jd", "magpsf"])
-		:param filters: example: {'attribute': 'magpsf', 'operator': '<', 'value': 18}
-		'of_upper_limits': if set to True, upper limits are returned instead of photo points
+		ex::
+			
+			get_ntuples(["fid", "jd", "magpsf"], {'attribute': 'magpsf', 'operator': '<', 'value': 18})
+		
+		:param params: list of strings
+		:param filters: filter criteria for datapoints
+		:param of_upper_limits: if True, return upper limits instead of photo points
 		"""
 		if datapoints := self._get_datapoints(filters, of_upper_limits):
 			return [
@@ -132,20 +147,20 @@ class LightCurve:
 			- mean: returns (<ra>, <dec>)
 			- brightest: returns (ra, dec)
 			- latest: returns (ra, dec)
+		
+		example::
+			
+			instance.get_pos(
+				"brightest",
+				{'attribute': 'alTags', 'operator': 'in', 'value': 'ZTF_G'}
+			)
 
-		example:
-
-		instance.get_pos(
-			"brightest",
-			{'attribute': 'alTags', 'operator': 'in', 'value': 'ZTF_G'}
-		)
-
-		returns the position of the brightest PhotoPoint in the ZTF G band
-
-		instance.get_pos(
-			"lastest",
-			{'attribute': 'magpsf', 'operator': '<', 'value': 18}
-		)
+		returns the position of the brightest PhotoPoint in the ZTF G band::
+			
+			instance.get_pos(
+				"lastest",
+				{'attribute': 'magpsf', 'operator': '<', 'value': 18}
+			)
 
 		returns the position of the latest photopoint with a magnitude brighter than 18
 		(or an empty array if no photopoint matches this criteria)
@@ -202,7 +217,7 @@ class LightCurve:
 		filters: Union[Dict[str, Any], Sequence[Dict[str, Any]]]
 	) -> Sequence[DataPoint]:
 		"""
-		:raises: ValueError if datapoints is None or in case of bad filter values
+		:raises ValueError: if datapoints is None or in case of bad filter values
 		"""
 
 		if isinstance(filters, dict):

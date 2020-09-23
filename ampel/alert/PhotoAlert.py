@@ -16,16 +16,17 @@ from ampel.content.DataPoint import DataPoint
 
 class PhotoAlert(AmpelAlert):
 	"""
-	Class with two collections (photopoints and upperlimits) of read-only dicts
+	Class with two collections (photopoints and upperlimits) of read-only dicts.
 	The ampel AlertProcessor typically instantiates this class and feed T0 filters with it.
-	Note: an alert must contain at least one photopoint
+	
+	.. note:: an alert must contain at least one photopoint
 	"""
 
 	__slots__ = 'pps', 'uls', 'name', 'data'
 
-	pps: Sequence[ReadOnlyDict]
-	uls: Optional[Sequence[ReadOnlyDict]]
-	name: Optional[str]
+	pps: Sequence[ReadOnlyDict] #: photopoints (positive detections)
+	uls: Optional[Sequence[ReadOnlyDict]] #: upper limits
+	name: Optional[str] #: transient name
 	data: Dict[str, Sequence[ReadOnlyDict]]
 
 	def __init__(self,
