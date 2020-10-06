@@ -24,34 +24,19 @@ class TransientView(SnapView):
 
 	__slots__ = "lightcurve",
 
-	def __init__(self,
-		id: StockId,
-		stock: Optional[StockRecord] = None,
-		t0: Optional[Sequence[DataPoint]] = None,
-		t1: Optional[Sequence[Compound]] = None,
-		t2: Optional[Sequence[T2Record]] = None,
-		log: Optional[Sequence[LogRecord]] = None,
-		extra: Optional[Dict[str, Any]] = None,
-		freeze: bool = True
-	):
-		if t0 and t1:
-			self.lightcurve: Optional[Sequence[LightCurve]] = tuple(
+	def __init__(self, *args, **kwargs):
+		super().__init__(*args, **kwargs)
+
+		if self.t0 and self.t1:
+			lightcurve: Optional[Sequence[LightCurve]] = tuple(
 				LightCurve.build(
 					comp, tuple(el for el in t0 if el['_id'] in get_datapoint_ids(comp)),
 				)
 				for comp in t1
 			)
 		else:
-			self.lightcurve = None
-
-		self.stock = stock
-		self.t0 = t0
-		self.t1 = t1
-		self.t2 = t2
-		self.log = log
-		self.extra = extra
-		self.id = id
-		self._frozen = freeze
+			lightcurve = None
+		object.__setattr__(self, "lightcurve", lightcurve)
 
 
 	def get_photopoints(self) -> Optional[Sequence[DataPoint]]:
