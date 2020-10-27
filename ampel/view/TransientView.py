@@ -24,15 +24,17 @@ class TransientView(SnapView):
 
 	__slots__ = "lightcurve",
 
-	def __init__(self, *args, **kwargs):
+	lightcurve: Optional[Sequence[LightCurve]]
+
+	def __init__(self, *args, **kwargs) -> None:
 		super().__init__(*args, **kwargs)
 
 		if self.t0 and self.t1:
 			lightcurve: Optional[Sequence[LightCurve]] = tuple(
 				LightCurve.build(
-					comp, tuple(el for el in t0 if el['_id'] in get_datapoint_ids(comp)),
+					comp, tuple(el for el in self.t0 if el['_id'] in get_datapoint_ids(comp)),
 				)
-				for comp in t1
+				for comp in self.t1
 			)
 		else:
 			lightcurve = None
