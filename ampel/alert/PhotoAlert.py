@@ -46,6 +46,10 @@ class PhotoAlert(AmpelAlert):
 		osa(self, 'data', {'pps': self.pps, 'uls': self.uls, 'all': self.dps})
 
 
+	def __reduce__(self):
+		return (type(self), (self.id, self.stock_id, self.dps, self.pps, self.uls, self.name))
+
+
 	def get_values(self, # type: ignore[override]
 		param_name: str,
 		filters: Optional[Sequence[Dict[str, Any]]] = None,
