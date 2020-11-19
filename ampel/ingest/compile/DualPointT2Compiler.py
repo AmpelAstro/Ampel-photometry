@@ -62,7 +62,7 @@ class DualPointT2Compiler(PointT2Compiler):
 	):
 
 		s = self.get_slice(slice_arg)
-		k = (chan, model.unit, model.config)
+		k = (chan, model.unit_id, model.config)
 
 		if k not in self.dual_slices:
 			self.dual_slices[k] = {}
@@ -110,7 +110,7 @@ class DualPointT2Compiler(PointT2Compiler):
 
 		for chan, ingest_model in self.get_ingest_models(chan_selection):
 
-			t2_id = ingest_model.unit
+			t2_id = ingest_model.unit_id
 			config = ingest_model.config
 			sk = (chan, t2_id, config)
 
