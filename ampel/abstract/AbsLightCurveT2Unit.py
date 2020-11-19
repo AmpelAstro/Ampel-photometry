@@ -17,12 +17,15 @@ from ampel.abstract.AbsCustomStateT2Unit import AbsCustomStateT2Unit
 class AbsLightCurveT2Unit(AbsCustomStateT2Unit[LightCurve], abstract=True):
 	"""
 	Base class for T2s that operate on light curves.
-	
-	upper_limits:
-		- True: compound id computed using PPs & ULs IDs
-		- False: compound id computed using PPs IDs only
 	"""
 
+	#: Light curve compilation settings.
+	#: These are extracted in :meth:`AbsT2Ingester.add_ingest_models() <ampel.abstract.ingest.AbsT2Ingester.AbsT2Ingester.add_ingest_models>`, combined
+	#: with default settings from other sources, passed to :meth:`PhotoT2Compiler.set_ingest_options() <ampel.ingest.compile.PhotoT2Compiler.PhotoT2Compiler.set_ingest_options>`, and used in :meth:`PhotoT2Compiler.compile() <ampel.ingest.compile.PhotoT2Compiler.PhotoT2Compiler.compile>`.
+	#: 
+	#: upper_limits:
+	#:   - True: compound id computed using photopoint & upperlimit ids
+	#:   - False: compound id computed using photopoint ids only
 	ingest: ClassVar[Dict[str, Any]] = {'upper_limits': True}
 
 
