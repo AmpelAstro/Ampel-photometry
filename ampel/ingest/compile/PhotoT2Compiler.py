@@ -47,38 +47,41 @@ class PhotoT2Compiler(AbsStateT2Compiler):
 	) -> Dict[Tuple[str, Optional[int], Union[bytes, Tuple[bytes, ...]]], Set[ChannelId]]:
 		"""
 		TLDR: This function computes and returns a dict structure helpful for creating T2 docs.
-		This computation is required since:
-		* A given alert can be accepted by one filter and be rejected by the other
-		* T0 filters can return a customized set of T2 units to be run (group id)
-		* An alert loaded by different channels can result in different compounds
-		----------------------------------------------------------------------------------
 
-		:param chan_selection: example: {"CHAN_SN": True, "CHAN_GRB": 1, "CHAN_BH": None}
-		CHANNEL_SN accepted the alert and requests all associated T2s to be created
-		CHANNEL_GRB accepted the alert and requests only T2s with group ID 1 to be created
-		CHANNEL_BH rejected the alert
+		This computation is required since:
+		  * A given alert can be accepted by one filter and be rejected by the other
+		  * T0 filters can return a customized set of T2 units to be run (group id)
+		  * An alert loaded by different channels can result in different compounds
+
+		:param chan_selection:
+		  example: ``{"CHANNEL_SN": True, "CHANNEL_GRB": 1, "CHANNEL_BH": None}``
+		    * CHANNEL_SN accepted the alert and requests all associated T2s to be created
+		    * CHANNEL_GRB accepted the alert and requests only T2s with group ID 1 to be created
+		    * CHANNEL_BH rejected the alert
 
 		Loop 1
-		======
 
-		Say following T2s are requested by CHAN_SN and CHAN_GRB:
-		CHAN_SN: "SNCOSMO", "PHOTO_Z"
-		CHAN_GRB: "GRB_FIT", "PHOTO_Z"
+		Say following T2s are requested by CHAN_SN and CHAN_GRB::
+		  
+		  {
+		      "CHANNEL_SN": {"T2SNCosmo", "T2PhotoZ"},
+		      "CHANNEL_GRB": {"T2GRBFit", "T2PhotoZ"}
+		  }
 
-		Loop 1 will create the following dict:
-		{
-			(SNCOSMO, 123, True): {"CHANNEL_SN"}
-			(PHOTO_Z, 123, False): {"CHANNEL_SN", "CHANNEL_GRB"}
-			(GRB_FIT, 123, True): {"CHANNEL_GRB"}
-		}
+		Loop 1 will create the following dict::
+		  
+		  {
+		      ("T2SNCosmo", 123, True): {"CHANNEL_SN"}
+		      ("T2PhotoZ", 123, False): {"CHANNEL_SN", "CHANNEL_GRB"}
+		      ("T2GRBFit", 123, True): {"CHANNEL_GRB"}
+		  }
 
-		Dict key 1st element: unit id
-		Dict key 2nd element: hashed dict value of the T2's init config dict (123)
-		Dict key 3rd element: whether upperlimits should be used to compute compoud ids
-		Dict value: set of channel ids
+		* Dict key 1st element: unit id
+		* Dict key 2nd element: hashed dict value of the T2's init config dict (123)
+		* Dict key 3rd element: whether upperlimits should be used to compute compound ids
+		* Dict value: set of channel ids
 
 		Loop 2
-		======
 
 		Computes and returns a dict structure used for creating T2 docs.
 		This loop replaces the value at depth 2 (bool) of the previously created dict
@@ -87,14 +90,19 @@ class PhotoT2Compiler(AbsStateT2Compiler):
 
 		Let's consider the example from the Loop 1 again (limited to PHOTO_Z with param 123 only)
 		Loop 2 makes sure that CHANNEL_SN & CHANNEL_GRB are associated with the same compound
-		(by checking compoundId equality), otherwise different t2 *docs* should be created:
-
-		If compound ids differ between 					If compound ids are equals,
-		CHANNEL_SN & CHANNEL_GRB, *two*					*one* t2 doc will be created
-		t2 docs will be created
-
-		(PHOTO_Z, 123, a1b2c3d4): {"CHANNEL_SN"}		(PHOTO_Z, 123, a1b2c3d4): {"CHANNEL_SN", "CHANNEL_GRB"}
-		(PHOTO_Z, 123, d4c3b2a1): {"CHANNEL_GRB"}
+		(by checking compoundId equality), otherwise different t2 *docs* should be created. For example:
+		
+		* If compound ids differ between CHANNEL_SN & CHANNEL_GRB, *two* t2 docs will be created::
+		    
+		    {
+		        ("T2PhotoZ", 123, a1b2c3d4): {"CHANNEL_SN"},
+		        ("T2PhotoZ", 123, d4c3b2a1): {"CHANNEL_GRB"}
+		    }
+		* If compound ids are equal, *one* t2 doc will be created::
+		    
+		    {
+		        ("T2PhotoZ", 123, a1b2c3d4): {"CHANNEL_SN", "CHANNEL_GRB"}
+		    }
 		"""
 
 		fd: Dict[Tuple[str, Optional[int], bool], Set[ChannelId]] = {}
