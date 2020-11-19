@@ -4,8 +4,8 @@
 # License           : BSD-3-Clause
 # Author            : vb <vbrinnel@physik.hu-berlin.de>
 # Date              : 14.12.2017
-# Last Modified Date: 05.06.2020
-# Last Modified By  : vb <vbrinnel@physik.hu-berlin.de>
+# Last Modified Date: 19.11.2020
+# Last Modified By  : Jakob van Santen <jakob.van.santen@desy.de>
 
 from typing import Dict, Set, Any, Union, Tuple, List, Optional
 from ampel.type import ChannelId
@@ -32,8 +32,7 @@ class PhotoT2Compiler(AbsStateT2Compiler):
 		model: T2IngestModel,
 		options: Dict[str, Any]
 	) -> None:
-
-		k = (channel, model.unit, model.config)
+		k = (channel, model.unit_id, model.config)
 
 		if k in self.upper_limits and self.upper_limits[k] != options["upper_limits"]:
 			raise ValueError("Invalid config")
@@ -112,11 +111,11 @@ class PhotoT2Compiler(AbsStateT2Compiler):
 
 		for chan, ingest_model in self.get_ingest_models(chan_selection):
 
-			t2_id = ingest_model.unit
+			t2_id = ingest_model.unit_id
 			config = ingest_model.config
 			k = (
-				ingest_model.unit,
-				ingest_model.config,
+				t2_id,
+				config,
 				self.upper_limits[(chan, t2_id, config)]
 			)
 
