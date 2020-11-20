@@ -9,7 +9,7 @@
 
 from time import time
 from pymongo import UpdateOne
-from typing import Sequence, List, Tuple, Union, Set
+from typing import Sequence, List, Tuple, Union, Set, Optional
 from ampel.type import StockId, ChannelId
 from ampel.log.AmpelLogger import AmpelLogger, INFO
 from ampel.log.handlers.RecordBufferingHandler import RecordBufferingHandler
@@ -56,7 +56,7 @@ class PhotoCompoundIngester(AbsCompoundIngester[PhotoCompoundBluePrint]):
 		stock_id: StockId,
 		datapoints: Sequence[DataPoint],
 		chan_selection: List[Tuple[ChannelId, Union[bool, int]]]
-	) -> PhotoCompoundBluePrint:
+	) -> Optional[PhotoCompoundBluePrint]:
 		"""
 		This method is called by the AlertProcessor for alerts
 		passing at least one T0 channel filter
