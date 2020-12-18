@@ -6,9 +6,14 @@ RUN apt-get update && \
 
 ADD .jenkins/run_mypy.sh /bin
 
-ADD .jenkins/Ampel-interface /Ampel-interface
-RUN pip install -r /Ampel-interface/requirements.txt /Ampel-interface
+ADD .jenkins /build/.jenkins
+RUN cd /build && pip install \
+    .jenkins/Ampel-interface \
+    .jenkins/Ampel-core
 
-ADD .jenkins/Ampel-core /Ampel-core
-RUN pip install -r /Ampel-core/requirements.txt /Ampel-core
+# install dependencies, but not the project itself
+ADD setup.py /build/setup.py
+RUN cd /build && \
+    python setup.py egg_info && \
+    pip install `grep -v '^\[' *.egg-info/requires.txt`
 
