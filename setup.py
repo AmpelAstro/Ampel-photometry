@@ -20,5 +20,10 @@ setup(
 			'*.yaml', '**/*.yaml', '**/**/*.yaml',
 			'*.yml', '**/*.yml', '**/**/*.yml'
 		]
-	}
+	},
+	zip_safe=False,
+	install_requires = [
+		"ampel-interface",
+		"ampel-core",
+	],
 )
