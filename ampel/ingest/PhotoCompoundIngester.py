@@ -39,7 +39,7 @@ class PhotoCompoundIngester(AbsCompoundIngester[PhotoCompoundBluePrint]):
 		logger = AmpelLogger.get_logger(console=False)
 		self.rbh = RecordBufferingHandler(level=INFO)
 		self.rec_buffer = self.rbh.buffer
-		logger.add_handler(self.rbh)
+		logger.addHandler(self.rbh)
 
 		self.engine = self.context.loader.new_base_unit(
 			unit_model = self.combiner if isinstance(self.combiner, UnitModel)
