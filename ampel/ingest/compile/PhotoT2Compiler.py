@@ -135,7 +135,7 @@ class PhotoT2Compiler(AbsStateT2Compiler):
 		for (t2_id, config, ul), chans in fd.items():
 
 			# Using PPS only (no upper limits).
-			# The first element of doc_link will always be the PP id
+			# The first element of doc_link will always be the PPS id
 			if ul is False:
 
 				links = compound_blueprint.get_ppsids_of_chans(chans)
