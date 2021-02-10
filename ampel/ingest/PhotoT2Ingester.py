@@ -4,7 +4,7 @@
 # License           : BSD-3-Clause
 # Author            : vb <vbrinnel@physik.hu-berlin.de>
 # Date              : 14.12.2017
-# Last Modified Date: 30.04.2020
+# Last Modified Date: 09.02.2021
 # Last Modified By  : vb <vbrinnel@physik.hu-berlin.de>
 
 from time import time
@@ -14,7 +14,7 @@ from typing import Dict, Any, Union, Tuple, List
 from ampel.type import StockId, ChannelId
 from ampel.util.collections import try_reduce
 from ampel.t2.T2RunState import T2RunState
-from ampel.content.T2Record import T2Record
+from ampel.content.PhotoT2Record import PhotoT2Record
 from ampel.abstract.ingest.AbsT2Ingester import AbsT2Ingester
 from ampel.abstract.ingest.AbsStateT2Ingester import AbsStateT2Ingester
 from ampel.abstract.ingest.AbsStateT2Compiler import AbsStateT2Compiler
@@ -26,7 +26,10 @@ class PhotoT2Ingester(AbsStateT2Ingester):
 
 	# Defaults override
 	compiler: AbsStateT2Compiler[PhotoCompoundBluePrint] = PhotoT2Compiler()
-	default_options: Dict[str, Any] = {"upper_limits": False}
+
+	# AbsT2Ingester override. Value (possibly overriden by sublcass attrs or config)
+	# is provied for each channel to the compiler via the method <compiler instance>.set_ingest_options(...)
+	default_ingest_config: Dict[str, Any] = {"upper_limits": False}
 
 
 	def ingest(self, # type: ignore[override]
@@ -50,27 +53,25 @@ class PhotoT2Ingester(AbsStateT2Ingester):
 			}
 
 			# Attributes set if no previous doc exists
-			set_on_insert: T2Record = {
-				'stock': stock_id,
-				'tag': self.tags,
+			set_on_insert: PhotoT2Record = {
 				'unit': t2_id,
 				'config': run_config,
+				'stock': stock_id,
+				'tag': self.tags,
 				'status': T2RunState.TO_RUN.value
 			}
 
 			jchan, chan_add_to_set = AbsT2Ingester.build_query_parts(chans)
 			add_to_set: Dict[str, Any] = {'channel': chan_add_to_set}
 
-			# A T2 not using upper limits is T2s that can be linked with multiple compounds
+			# A T2 ignoring upper limits is T2s that can be linked with multiple compounds
 			# (link_id contains the 'photopoint compound id' and the effective id)
 			if isinstance(link_id, tuple):
 
-				llink_id = list(link_id)
-
-				# Note: first llink_id is always is the pp id
-				# Yes, you need $elemMatch -> See https://jira.mongodb.org/browse/SERVER-3946
-				match_dict['link'] = {"$elemMatch": {"$eq": llink_id[0]}}
-				add_to_set['link'] = {'$each': llink_id}
+				# Note: link_id[0] is always is the pp id
+				match_dict['ppsid'] = link_id[0]
+				set_on_insert['ppsid'] = link_id[0]
+				add_to_set['link'] = {'$each': list(link_id[1:])}
 
 				# Update journal: register eff id for each channel
 				journal_entries = [
@@ -83,7 +84,7 @@ class PhotoT2Ingester(AbsStateT2Ingester):
 						),
 						'eff': eff_id
 					}
-					for eff_id in llink_id[1:]
+					for eff_id in link_id[1:]
 				]
 
 				# Update journal: register pp id common to all channels
@@ -93,17 +94,17 @@ class PhotoT2Ingester(AbsStateT2Ingester):
 						'dt': now,
 						'run': self.run_id,
 						'channel': jchan,
-						'pp': llink_id[0]
+						'pp': link_id[0]
 					}
 				)
 
 				# Update journal
 				add_to_set['journal'] = {'$each': journal_entries}
 
-			# T2 doc referencing a single compound id
-			# bifold_comp_id is then an 'effective compound id'
+			# T2 doc referencing a single compound id (link_id is then an 'effective compound id')
 			else:
 
+				# $elemMatch is needed -> See https://jira.mongodb.org/browse/SERVER-3946
 				match_dict['link'] = {"$elemMatch": {"$eq": link_id}}
 				add_to_set['link'] = link_id
 
