@@ -23,7 +23,7 @@ from ampel.ingest.compile.DualPointT2Compiler import DualPointT2Compiler
 class DualPointT2Ingester(AbsPointT2Ingester):
 
 	compiler: PointT2Compiler = DualPointT2Compiler()
-	default_options: Dict[ # type: ignore[misc]
+	default_ingest_config: Dict[ # type: ignore[misc]
 		Literal['eligible'],
 		Dict[
 			Literal['all', 'pps', 'uls'],
