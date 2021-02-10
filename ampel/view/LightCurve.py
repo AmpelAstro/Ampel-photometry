@@ -9,7 +9,7 @@
 
 import operator
 from dataclasses import dataclass
-from typing import Sequence, Dict, Optional, List, Any, Tuple, Union, Callable, Literal
+from typing import Sequence, Dict, Optional, List, Any, Tuple, Union, Callable, Literal, Iterable
 from ampel.content.Compound import Compound
 from ampel.content.DataPoint import DataPoint
 
@@ -41,7 +41,7 @@ class LightCurve:
 
 
 	@classmethod
-	def build(cls, compound: Compound, datapoints: Sequence[DataPoint]) -> 'LightCurve':
+	def build(cls, compound: Compound, datapoints: Iterable[DataPoint]) -> 'LightCurve':
 		return cls(
 			compound_id = compound['_id'],
 			tier = compound['tier'],
@@ -63,9 +63,9 @@ class LightCurve:
 	) -> Optional[List[Any]]:
 		"""
 		usage example::
-			
+
 			get_values('obs_date')
-		
+
 		:param filters: example: {'attribute': 'magpsf', 'operator': '<', 'value': 18}
 		:param of_upper_limits: if True, upper limits are returned instead of photo points
 		"""
@@ -81,9 +81,9 @@ class LightCurve:
 	) -> Optional[List[Tuple[Any, Any]]]:
 		"""
 		usage example::
-			
+
 			get_tuples('obs_date', 'mag', {'attribute': 'magpsf', 'operator': '<', 'value': 18})
-		
+
 		:param filters: filter criteria for datapoints
 		:param of_upper_limits: if True, return upper limits instead of photo points
 		"""
@@ -102,9 +102,9 @@ class LightCurve:
 	) -> Optional[List[Tuple]]:
 		"""
 		ex::
-			
+
 			get_ntuples(["fid", "jd", "magpsf"], {'attribute': 'magpsf', 'operator': '<', 'value': 18})
-		
+
 		:param params: list of strings
 		:param filters: filter criteria for datapoints
 		:param of_upper_limits: if True, return upper limits instead of photo points
@@ -147,16 +147,16 @@ class LightCurve:
 			- mean: returns (<ra>, <dec>)
 			- brightest: returns (ra, dec)
 			- latest: returns (ra, dec)
-		
+
 		example::
-			
+
 			instance.get_pos(
 				"brightest",
 				{'attribute': 'alTags', 'operator': 'in', 'value': 'ZTF_G'}
 			)
 
 		returns the position of the brightest PhotoPoint in the ZTF G band::
-			
+
 			instance.get_pos(
 				"lastest",
 				{'attribute': 'magpsf', 'operator': '<', 'value': 18}
