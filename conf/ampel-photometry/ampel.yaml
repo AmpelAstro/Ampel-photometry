@@ -10,6 +10,8 @@ unit:
   - ampel.demo.unit.base.DemoEvery3PhotoPointT2Unit
   - ampel.demo.unit.base.DemoEvery4PhotoPointT2Unit
   - ampel.demo.unit.base.DemoLightCurveT2Unit
+  - ampel.demo.unit.base.DemoLightCurveCustomIngestT2Unit
+  - ampel.demo.unit.base.DemoTiedLightCurveT2Unit
 
 alias:
   t3:
