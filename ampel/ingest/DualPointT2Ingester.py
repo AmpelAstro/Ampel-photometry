@@ -4,7 +4,7 @@
 # License           : BSD-3-Clause
 # Author            : vb <vbrinnel@physik.hu-berlin.de>
 # Date              : 23.03.2020
-# Last Modified Date: 26.03.2020
+# Last Modified Date: 11.02.2021
 # Last Modified By  : vb <vbrinnel@physik.hu-berlin.de>
 
 from time import time
@@ -14,7 +14,7 @@ from typing import Sequence, Dict, Optional, Union, Literal, Tuple, List
 from ampel.type import StockId, ChannelId
 from ampel.util.collections import try_reduce
 from ampel.content.DataPoint import DataPoint
-from ampel.t2.T2RunState import T2RunState
+from ampel.enum.T2SysRunState import T2SysRunState
 from ampel.abstract.ingest.AbsPointT2Ingester import AbsPointT2Ingester
 from ampel.ingest.compile.PointT2Compiler import PointT2Compiler
 from ampel.ingest.compile.DualPointT2Compiler import DualPointT2Compiler
@@ -66,7 +66,7 @@ class DualPointT2Ingester(AbsPointT2Ingester):
 							'unit': t2_id,
 							'link': link_id,
 							'config': run_config,
-							'status': T2RunState.TO_RUN.value,
+							'status': T2SysRunState.TO_RUN.value,
 							'col': 't0'
 						},
 						# Journal and channel update

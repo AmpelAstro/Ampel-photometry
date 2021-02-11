@@ -4,7 +4,7 @@
 # License           : BSD-3-Clause
 # Author            : vb <vbrinnel@physik.hu-berlin.de>
 # Date              : 14.12.2017
-# Last Modified Date: 09.02.2021
+# Last Modified Date: 11.02.2021
 # Last Modified By  : vb <vbrinnel@physik.hu-berlin.de>
 
 from time import time
@@ -13,8 +13,8 @@ from typing import Dict, Any, Union, Tuple, List
 
 from ampel.type import StockId, ChannelId
 from ampel.util.collections import try_reduce
-from ampel.t2.T2RunState import T2RunState
-from ampel.content.PhotoT2Record import PhotoT2Record
+from ampel.enum.T2SysRunState import T2SysRunState
+from ampel.content.PhotoT2Document import PhotoT2Document
 from ampel.abstract.ingest.AbsT2Ingester import AbsT2Ingester
 from ampel.abstract.ingest.AbsStateT2Ingester import AbsStateT2Ingester
 from ampel.abstract.ingest.AbsStateT2Compiler import AbsStateT2Compiler
@@ -53,13 +53,15 @@ class PhotoT2Ingester(AbsStateT2Ingester):
 			}
 
 			# Attributes set if no previous doc exists
-			set_on_insert: PhotoT2Record = {
+			set_on_insert: PhotoT2Document = {
 				'unit': t2_id,
 				'config': run_config,
 				'stock': stock_id,
-				'tag': self.tags,
-				'status': T2RunState.TO_RUN.value
+				'status': T2SysRunState.TO_RUN.value
 			}
+
+			if self.tags:
+				set_on_insert['tag'] = self.tags
 
 			jchan, chan_add_to_set = AbsT2Ingester.build_query_parts(chans)
 			add_to_set: Dict[str, Any] = {'channel': chan_add_to_set}
