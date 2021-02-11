@@ -4,16 +4,16 @@
 # License           : BSD-3-Clause
 # Author            : vb <vbrinnel@physik.hu-berlin.de>
 # Date              : 11.03.2020
-# Last Modified Date: 08.06.2020
+# Last Modified Date: 11.02.2021
 # Last Modified By  : vb <vbrinnel@physik.hu-berlin.de>
 
 from typing import Iterable, ClassVar, Dict, Any, Sequence, Union, Optional, Literal
 from ampel.base import abstractmethod
 from ampel.type import T2UnitResult
 from ampel.view.LightCurve import LightCurve
-from ampel.content.T2Record import T2Record
 from ampel.content.Compound import Compound
 from ampel.content.DataPoint import DataPoint
+from ampel.view.T2DocView import T2DocView
 from ampel.abstract.AbsTiedCustomStateT2Unit import AbsTiedCustomStateT2Unit
 
 
@@ -26,11 +26,12 @@ class AbsTiedLightCurveT2Unit(AbsTiedCustomStateT2Unit[LightCurve], abstract=Tru
 
 
 	@abstractmethod
-	def run(self, light_curve: LightCurve, t2_records: Sequence[T2Record]) -> T2UnitResult:
+	def run(self, light_curve: LightCurve, t2_records: Sequence[T2DocView]) -> T2UnitResult:
 		"""
 		Returned object should contain computed science results to be saved into the DB.
 		Notes: dict must have only string keys and values must be bson encodable
 		"""
+
 
 	@staticmethod
 	def get_link(
@@ -60,6 +61,7 @@ class AbsTiedLightCurveT2Unit(AbsTiedCustomStateT2Unit[LightCurve], abstract=Tru
 			return dps[-1]['_id'] if dps else None
 		else:
 			raise ValueError("Invalid value in link_override specs")
+
 
 	@staticmethod
 	def build(compound: Compound, datapoints: Iterable[DataPoint]) -> LightCurve:
