@@ -23,7 +23,6 @@ from ampel.ingest.PhotoCompoundBluePrint import PhotoCompoundBluePrint
 
 class PhotoCompoundIngester(AbsCompoundIngester[PhotoCompoundBluePrint]):
 
-	run_id: int
 	combiner: Union[UnitModel, str]
 	channels: Set[ChannelId] = set()
 
