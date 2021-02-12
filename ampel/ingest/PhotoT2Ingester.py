@@ -57,7 +57,7 @@ class PhotoT2Ingester(AbsStateT2Ingester):
 				'unit': t2_id,
 				'config': run_config,
 				'stock': stock_id,
-				'status': T2SysRunState.TO_RUN.value
+				'status': T2SysRunState.NEW.value
 			}
 
 			if self.tags:
