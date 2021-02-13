@@ -4,12 +4,13 @@
 # License           : BSD-3-Clause
 # Author            : vb <vbrinnel@physik.hu-berlin.de>
 # Date              : 13.01.2018
-# Last Modified Date: 17.02.2020
+# Last Modified Date: 13.02.2021
 # Last Modified By  : vb <vbrinnel@physik.hu-berlin.de>
 
 import operator
 from dataclasses import dataclass
 from typing import Sequence, Dict, Optional, List, Any, Tuple, Union, Callable, Literal, Iterable
+from ampel.type import StockId
 from ampel.content.Compound import Compound
 from ampel.content.DataPoint import DataPoint
 
@@ -34,6 +35,7 @@ class LightCurve:
 	"""
 
 	compound_id: bytes
+	stock_id: Union[StockId, Sequence[StockId]]
 	photopoints: Optional[Sequence[DataPoint]] = None
 	upperlimits: Optional[Sequence[DataPoint]] = None
 	tier: Optional[Literal[0, 1, 2, 3]] = None
@@ -44,6 +46,7 @@ class LightCurve:
 	def build(cls, compound: Compound, datapoints: Iterable[DataPoint]) -> 'LightCurve':
 		return cls(
 			compound_id = compound['_id'],
+			stock_id = compound['stock'],
 			tier = compound['tier'],
 			added = compound['added'],
 			photopoints = [el for el in datapoints if el['_id'] > 0],
