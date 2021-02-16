@@ -26,7 +26,7 @@ class AbsTiedLightCurveT2Unit(AbsTiedCustomStateT2Unit[LightCurve], abstract=Tru
 
 
 	@abstractmethod
-	def run(self, light_curve: LightCurve, t2_records: Sequence[T2DocView]) -> T2UnitResult:
+	def run(self, light_curve: LightCurve, t2_views: Sequence[T2DocView]) -> T2UnitResult:
 		"""
 		Returned object should contain computed science results to be saved into the DB.
 		Notes: dict must have only string keys and values must be bson encodable
