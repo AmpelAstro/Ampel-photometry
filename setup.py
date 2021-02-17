@@ -23,7 +23,7 @@ setup(
 	},
 	zip_safe=False,
 	install_requires = [
-		"ampel-interface",
-		"ampel-core",
+		"ampel-interface>=0.7.1,<0.7.2",
+		"ampel-core>=0.7.1,<0.7.2",
 	],
 )
