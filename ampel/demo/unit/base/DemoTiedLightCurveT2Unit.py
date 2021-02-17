@@ -19,7 +19,8 @@ class DemoTiedLightCurveT2Unit(AbsTiedLightCurveT2Unit):
 
 	test_parameter: int = 0
 
-	def get_tied_unit_names(self) -> List[str]:
+	@classmethod
+	def get_tied_unit_names(cls) -> List[str]:
 		return ["DemoPointT2Unit"]
 
 	def run(self, lightcurve: LightCurve, t2_views: Sequence[T2DocView]) -> T2UnitResult:
