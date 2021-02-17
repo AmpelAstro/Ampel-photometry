@@ -4,7 +4,7 @@
 # License           : BSD-3-Clause
 # Author            : vb <vbrinnel@physik.hu-berlin.de>
 # Date              : 07.08.2020
-# Last Modified Date: 11.02.2021
+# Last Modified Date: 17.02.2021
 # Last Modified By  : vb <vbrinnel@physik.hu-berlin.de>
 
 from time import time
@@ -27,7 +27,7 @@ class DemoTiedLightCurveT2Unit(AbsTiedLightCurveT2Unit):
 		return {
 			"jds": lightcurve.get_values("jd"),
 			"time": time(),
-			"linked_records": [el.serialize() for el in t2_views],
+			"linked_views": [el.serialize() for el in t2_views],
 			"linked_results": [el.get_payload() for el in t2_views],
 			"test_parameter": self.test_parameter
 		}
