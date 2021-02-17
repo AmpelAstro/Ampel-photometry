@@ -7,7 +7,7 @@
 # Last Modified Date: 01.03.2020
 # Last Modified By  : vb <vbrinnel@physik.hu-berlin.de>
 
-from typing import Sequence, ClassVar, Dict, Any
+from typing import Iterable, ClassVar, Dict, Any
 from ampel.view.LightCurve import LightCurve
 from ampel.content.Compound import Compound
 from ampel.content.DataPoint import DataPoint
@@ -30,5 +30,5 @@ class AbsLightCurveT2Unit(AbsCustomStateT2Unit[LightCurve], abstract=True):
 
 
 	@staticmethod
-	def build(compound: Compound, datapoints: Sequence[DataPoint]) -> LightCurve:
+	def build(compound: Compound, datapoints: Iterable[DataPoint]) -> LightCurve:
 		return LightCurve.build(compound, datapoints)
