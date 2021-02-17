@@ -26,4 +26,9 @@ setup(
 		"ampel-interface",
 		"ampel-core",
 	],
+	extras_require = {
+		"testing": [
+			"pytest"
+		],
+	},
 )
