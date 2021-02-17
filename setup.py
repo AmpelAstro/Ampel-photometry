@@ -9,9 +9,11 @@
 
 from setuptools import setup, find_namespace_packages
 
+import version_query
+
 setup(
 	name='ampel-photometry',
-	version='0.7',
+	version=version_query.predict_version_str(),
 	packages=find_namespace_packages(),
 	package_data = {
 		'': ['py.typed'],

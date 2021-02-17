@@ -4,3 +4,4 @@
 ampel-interface==0.7.1.dev3
 ampel-core==0.7.1.dev0
 mypy==0.800
+version_query
