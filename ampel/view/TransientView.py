@@ -14,7 +14,7 @@ from ampel.util.t1 import get_datapoint_ids
 from ampel.content.DataPoint import DataPoint
 from ampel.content.Compound import Compound
 from ampel.content.T2Record import T2Record
-from ampel.content.StockRecord import StockRecord
+from ampel.content.StockDocument import StockDocument
 from ampel.content.LogRecord import LogRecord
 from ampel.view.LightCurve import LightCurve
 from ampel.view.SnapView import SnapView
