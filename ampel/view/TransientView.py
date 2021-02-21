@@ -15,7 +15,7 @@ from ampel.content.DataPoint import DataPoint
 from ampel.content.Compound import Compound
 from ampel.content.T2Record import T2Record
 from ampel.content.StockDocument import StockDocument
-from ampel.content.LogRecord import LogRecord
+from ampel.content.LogDocument import LogDocument
 from ampel.view.LightCurve import LightCurve
 from ampel.view.SnapView import SnapView
 
