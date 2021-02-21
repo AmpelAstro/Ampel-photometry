@@ -7,15 +7,9 @@
 # Last Modified Date: 15.08.2020
 # Last Modified By  : vb <vbrinnel@physik.hu-berlin.de>
 
-from typing import Optional, Sequence, Dict, Any
-
-from ampel.type import StockId
+from typing import Optional, Sequence
 from ampel.util.t1 import get_datapoint_ids
 from ampel.content.DataPoint import DataPoint
-from ampel.content.Compound import Compound
-from ampel.content.T2Record import T2Record
-from ampel.content.StockDocument import StockDocument
-from ampel.content.LogDocument import LogDocument
 from ampel.view.LightCurve import LightCurve
 from ampel.view.SnapView import SnapView
 
