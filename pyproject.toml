@@ -1,0 +1,40 @@
+[tool.poetry]
+name = "ampel-photometry"
+version = "0.7.1-alpha.0"
+description = "Photometry add-on for the Ampel system"
+authors = ["Valery Brinnel"]
+license = "BSD-3-Clause"
+packages = [
+    {include = "ampel"}
+]
+include = [
+    'conf/*/*.json',
+    'conf/*/*/*.json',
+    'conf/*/*.yaml',
+    'conf/*/*/*.yaml',
+    'conf/*/*.yml',
+    'conf/*/*/*.yml',
+]
+
+[[tool.poetry.source]]
+name = "testpypi"
+url = "https://test.pypi.org/simple"
+
+[tool.poetry.dependencies]
+ampel-interface = {version = "^0.7.1-alpha.7", allow-prereleases = true}
+ampel-core = {version = "^0.7.1-alpha.0", allow-prereleases = true}
+python = "^3.8"
+Sphinx = {version = "^3.5.1", optional = true}
+sphinx-autodoc-typehints = {version = "^1.11.1", optional = true}
+tomlkit = {version = "^0.7.0"}
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.2"
+mypy = "^0.800"
+
+[tool.poetry.extras]
+docs = ["Sphinx", "sphinx-press-theme", "sphinx-autodoc-typehints", "tomlkit"]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
