@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ampel.abstract.AbsLightCurveT2Unit &#8212; ampel-photometry 0.7.1-alpha.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinxdoc.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">ampel-photometry 0.7.1-alpha.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">ampel.abstract.AbsLightCurveT2Unit</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for ampel.abstract.AbsLightCurveT2Unit</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># File              : Ampel-photometry/ampel/abstract/AbsLightCurveT2Unit.py</span>
+<span class="c1"># License           : BSD-3-Clause</span>
+<span class="c1"># Author            : vb &lt;vbrinnel@physik.hu-berlin.de&gt;</span>
+<span class="c1"># Date              : 13.12.2017</span>
+<span class="c1"># Last Modified Date: 01.03.2020</span>
+<span class="c1"># Last Modified By  : vb &lt;vbrinnel@physik.hu-berlin.de&gt;</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">ClassVar</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span>
+<span class="kn">from</span> <span class="nn">ampel.view.LightCurve</span> <span class="kn">import</span> <span class="n">LightCurve</span>
+<span class="kn">from</span> <span class="nn">ampel.content.Compound</span> <span class="kn">import</span> <span class="n">Compound</span>
+<span class="kn">from</span> <span class="nn">ampel.content.DataPoint</span> <span class="kn">import</span> <span class="n">DataPoint</span>
+<span class="kn">from</span> <span class="nn">ampel.abstract.AbsCustomStateT2Unit</span> <span class="kn">import</span> <span class="n">AbsCustomStateT2Unit</span>
+
+
+<div class="viewcode-block" id="AbsLightCurveT2Unit"><a class="viewcode-back" href="../../../api.html#ampel.abstract.AbsLightCurveT2Unit.AbsLightCurveT2Unit">[docs]</a><span class="k">class</span> <span class="nc">AbsLightCurveT2Unit</span><span class="p">(</span><span class="n">AbsCustomStateT2Unit</span><span class="p">[</span><span class="n">LightCurve</span><span class="p">],</span> <span class="n">abstract</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Base class for T2s that operate on light curves.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+
+	<span class="c1">#: Light curve compilation settings.</span>
+	<span class="c1">#: These are extracted in :meth:`AbsT2Ingester.add_ingest_models() &lt;ampel.abstract.ingest.AbsT2Ingester.AbsT2Ingester.add_ingest_models&gt;`, combined</span>
+	<span class="c1">#: with default settings from other sources, passed to :meth:`PhotoT2Compiler.set_ingest_options() &lt;ampel.ingest.compile.PhotoT2Compiler.PhotoT2Compiler.set_ingest_options&gt;`, and used in :meth:`PhotoT2Compiler.compile() &lt;ampel.ingest.compile.PhotoT2Compiler.PhotoT2Compiler.compile&gt;`.</span>
+	<span class="c1">#: </span>
+	<span class="c1">#: upper_limits:</span>
+	<span class="c1">#:   - True: compound id computed using photopoint &amp; upperlimit ids</span>
+	<span class="c1">#:   - False: compound id computed using photopoint ids only</span>
+	<span class="n">ingest</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;upper_limits&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+
+
+	<span class="nd">@staticmethod</span>
+	<span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="n">compound</span><span class="p">:</span> <span class="n">Compound</span><span class="p">,</span> <span class="n">datapoints</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">DataPoint</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">LightCurve</span><span class="p">:</span>
+		<span class="k">return</span> <span class="n">LightCurve</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">compound</span><span class="p">,</span> <span class="n">datapoints</span><span class="p">)</span></div>
+</pre></div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/ampel.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">ampel-photometry 0.7.1-alpha.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">ampel.abstract.AbsLightCurveT2Unit</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018-2021, Ampel Project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.1.
+    </div>
+  </body>
+</html>
