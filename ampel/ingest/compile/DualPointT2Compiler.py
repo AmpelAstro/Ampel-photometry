@@ -4,7 +4,7 @@
 # License           : BSD-3-Clause
 # Author            : vb <vbrinnel@physik.hu-berlin.de>
 # Date              : 14.12.2017
-# Last Modified Date: 01.05.2020
+# Last Modified Date: 24.02.2021
 # Last Modified By  : vb <vbrinnel@physik.hu-berlin.de>
 
 from typing import List, Dict, Set, Union, Sequence, Any, Literal, Tuple, Optional
@@ -106,7 +106,7 @@ class DualPointT2Compiler(PointT2Compiler):
 		"""
 
 		t2s_eff: Dict[Tuple[str, Optional[int], DataPointId], Set[ChannelId]] = {}
-		datapoints = list(reversed(datapoints))
+		datapoints = list(datapoints)
 
 		for chan, ingest_model in self.get_ingest_models(chan_selection):
 
