@@ -101,8 +101,8 @@ class PhotoAlert(AmpelAlert):
 		i.e not the 'raw' datapoints associated with in self.dps
 		"""
 		for i in range(1, len(datapoints)):
-			if datapoints[i]['_id'] > 0:
-				return datapoints[i:]
+			if datapoints[-(i+1)]['_id'] > 0:
+				return datapoints[:-i]
 		return None
 
 
