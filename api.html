@@ -46,8 +46,11 @@
 <dl class="py method">
 <dt id="ampel.abstract.AbsLightCurveT2Unit.AbsLightCurveT2Unit.run">
 <em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ampel.abstract.AbsLightCurveT2Unit.AbsLightCurveT2Unit.run" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returned object should contain computed science results to be saved into the DB.
-Notes: dict must have only string keys and values must be bson encodable</p>
+<dd><p>Returned object should contain computed science results to be saved into the DB.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>the returned dict must have only string keys and be BSON-encodable</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, <a class="reference external" href="https://ampelproject.github.io/Ampel-interface/api.html#ampel.struct.T2BroadUnitResult.T2BroadUnitResult" title="(in ampel-interface v0.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">T2BroadUnitResult</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>], <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]]]</p>
@@ -66,6 +69,19 @@ with default settings from other sources, passed to <code class="xref py py-meth
 <li><p>True: compound id computed using photopoint &amp; upperlimit ids</p></li>
 <li><p>False: compound id computed using photopoint ids only</p></li>
 </ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ampel.abstract.AbsLightCurveT2Unit.AbsLightCurveT2Unit.build">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">build</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compound</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datapoints</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ampel/abstract/AbsLightCurveT2Unit.html#AbsLightCurveT2Unit.build"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ampel.abstract.AbsLightCurveT2Unit.AbsLightCurveT2Unit.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the parametrized type using compound and datapoints.
+For example, AbsCustomStateT2Unit[LightCurve] would return a
+<a class="reference internal" href="#ampel.view.LightCurve.LightCurve" title="ampel.view.LightCurve.LightCurve"><code class="xref py py-class docutils literal notranslate"><span class="pre">LightCurve</span></code></a> instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#ampel.view.LightCurve.LightCurve" title="ampel.view.LightCurve.LightCurve"><code class="xref py py-class docutils literal notranslate"><span class="pre">LightCurve</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -109,8 +125,9 @@ Notes: dict must have only string keys and values must be bson encodable</p>
 <dl class="py method">
 <dt id="ampel.abstract.AbsTiedLightCurveT2Unit.AbsTiedLightCurveT2Unit.build">
 <em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">build</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compound</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datapoints</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ampel/abstract/AbsTiedLightCurveT2Unit.html#AbsTiedLightCurveT2Unit.build"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ampel.abstract.AbsTiedLightCurveT2Unit.AbsTiedLightCurveT2Unit.build" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates the parametrized type using compound and datapoints.
-For example, AbsTiedCustomStateT2Unit[LightCurve] would return a LighCurve instance</p>
+<dd><p>Create the parametrized type using compound and datapoints.
+For example, AbsTiedCustomStateT2Unit[LightCurve] would return a
+<a class="reference internal" href="#ampel.view.LightCurve.LightCurve" title="ampel.view.LightCurve.LightCurve"><code class="xref py py-class docutils literal notranslate"><span class="pre">LightCurve</span></code></a> instance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference internal" href="#ampel.view.LightCurve.LightCurve" title="ampel.view.LightCurve.LightCurve"><code class="xref py py-class docutils literal notranslate"><span class="pre">LightCurve</span></code></a></p>
@@ -671,7 +688,7 @@ Loop 2 makes sure that CHANNEL_SN &amp; CHANNEL_GRB are associated with the same
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018-2021, Ampel Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.3.
     </div>
   </body>
 </html>
