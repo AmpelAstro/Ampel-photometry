@@ -21,8 +21,8 @@ name = "testpypi"
 url = "https://test.pypi.org/simple"
 
 [tool.poetry.dependencies]
-ampel-interface = {version = "^0.7.1-alpha.7", allow-prereleases = true}
-ampel-core = {version = "^0.7.1-alpha.0", allow-prereleases = true}
+ampel-interface = {version = "^0.7.1-alpha.8"}
+ampel-core = {version = "^0.7.1-alpha.6"}
 python = "^3.8"
 Sphinx = {version = "^3.5.1", optional = true}
 sphinx-autodoc-typehints = {version = "^1.11.1", optional = true}
