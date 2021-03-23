@@ -79,7 +79,7 @@ class PhotoT2Ingester(AbsStateT2Ingester):
 				journal_entries = [
 					{
 						'tier': self.tier,
-						'dt': now,
+						'ts': now,
 						'run': self.run_id,
 						'channel': try_reduce(
 							list(comp_bp.get_chans_with_effid(eff_id))
@@ -93,7 +93,7 @@ class PhotoT2Ingester(AbsStateT2Ingester):
 				journal_entries.insert(
 					0, {
 						'tier': self.tier,
-						'dt': now,
+						'ts': now,
 						'run': self.run_id,
 						'channel': jchan,
 						'pp': link_id[0]
@@ -113,7 +113,7 @@ class PhotoT2Ingester(AbsStateT2Ingester):
 				# Update journal
 				add_to_set['journal'] = {
 					'tier': self.tier,
-					'dt': now,
+					'ts': now,
 					'channel': jchan
 				}
 

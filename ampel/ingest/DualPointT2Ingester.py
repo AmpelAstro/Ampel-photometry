@@ -74,7 +74,7 @@ class DualPointT2Ingester(AbsPointT2Ingester):
 							'channel': {'$each': eff_chan_names},
 							'journal': {
 								'tier': self.tier,
-								'dt': now,
+								'ts': now,
 								'channel': try_reduce(eff_chan_names)
 							}
 						}
