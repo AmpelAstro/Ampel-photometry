@@ -17,8 +17,8 @@ from ampel.content.DataPoint import DataPoint
 class PhotoAlert(AmpelAlert):
 	"""
 	Class with two collections (photopoints and upperlimits) of read-only dicts.
-	The ampel AlertProcessor typically instantiates this class and feed T0 filters with it.
-	
+	The ampel AlertProcessor (repository Ampel-alerts) typically instantiates this class and feed T0 filters with it.
+
 	.. note:: an alert must contain at least one photopoint
 	"""
 
