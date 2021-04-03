@@ -21,8 +21,8 @@ class AbsLightCurveT2Unit(AbsCustomStateT2Unit[LightCurve], abstract=True):
 
 	#: Light curve compilation settings.
 	#: These are extracted in :meth:`AbsT2Ingester.add_ingest_models() <ampel.abstract.ingest.AbsT2Ingester.AbsT2Ingester.add_ingest_models>`, combined
-	#: with default settings from other sources, passed to :meth:`PhotoT2Compiler.set_ingest_options() <ampel.ingest.compile.PhotoT2Compiler.PhotoT2Compiler.set_ingest_options>`, and used in :meth:`PhotoT2Compiler.compile() <ampel.ingest.compile.PhotoT2Compiler.PhotoT2Compiler.compile>`.
-	#: 
+	#: with default settings from other sources, passed to :meth:`PhotoT2Compiler.set_ingest_options() <ampel.compile.PhotoT2Compiler.PhotoT2Compiler.set_ingest_options>`, and used in :meth:`PhotoT2Compiler.compile() <ampel.compile.PhotoT2Compiler.PhotoT2Compiler.compile>`.
+	#:
 	#: upper_limits:
 	#:   - True: compound id computed using photopoint & upperlimit ids
 	#:   - False: compound id computed using photopoint ids only

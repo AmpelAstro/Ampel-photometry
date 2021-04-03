@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# File              : Ampel-photometry/ampel/ingest/PhotoCompoundBluePrint.py
+# File              : Ampel-photometry/ampel/compile/PhotoCompoundBluePrint.py
 # License           : BSD-3-Clause
 # Author            : vb <vbrinnel@physik.hu-berlin.de>
 # Date              : 01.01.2018
@@ -9,7 +9,7 @@
 
 from typing import Set, Dict
 from ampel.type import ChannelId, StrictIterable
-from ampel.ingest.CompoundBluePrint import CompoundBluePrint
+from ampel.compile.CompoundBluePrint import CompoundBluePrint
 
 
 class PhotoCompoundBluePrint(CompoundBluePrint):

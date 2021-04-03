@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# File              : Ampel-photometry/ampel/ingest/compile/PhotoT2Compiler.py
+# File              : Ampel-photometry/ampel/compile/PhotoT2Compiler.py
 # License           : BSD-3-Clause
 # Author            : vb <vbrinnel@physik.hu-berlin.de>
 # Date              : 14.12.2017
@@ -11,7 +11,7 @@ from typing import Dict, Set, Any, Union, Tuple, List, Optional
 from ampel.type import ChannelId
 from ampel.model.ingest.T2IngestModel import T2IngestModel
 from ampel.abstract.ingest.AbsStateT2Compiler import AbsStateT2Compiler
-from ampel.ingest.PhotoCompoundBluePrint import PhotoCompoundBluePrint
+from ampel.compile.PhotoCompoundBluePrint import PhotoCompoundBluePrint
 
 
 class PhotoT2Compiler(AbsStateT2Compiler):

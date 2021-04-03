@@ -11,8 +11,8 @@ import hashlib
 from typing import List, Union, ClassVar, Type
 from ampel.type import ChannelId, DataPointId
 from ampel.content.Compound import CompoundElement
-from ampel.ingest.PhotoCompoundBluePrint import PhotoCompoundBluePrint
-from ampel.ingest.T1DefaultCombiner import T1DefaultCombiner
+from ampel.compile.PhotoCompoundBluePrint import PhotoCompoundBluePrint
+from ampel.compile.T1DefaultCombiner import T1DefaultCombiner
 
 
 class T1PhotoCombiner(T1DefaultCombiner[PhotoCompoundBluePrint]):
