@@ -3,8 +3,8 @@ import logging
 import pytest
 
 from ampel.content.DataPoint import DataPoint
-from ampel.ingest.compile.PhotoT2Compiler import PhotoT2Compiler
-from ampel.ingest.T1PhotoCombiner import T1PhotoCombiner
+from ampel.compile.PhotoT2Compiler import PhotoT2Compiler
+from ampel.compile.T1PhotoCombiner import T1PhotoCombiner
 from ampel.model.ingest.T2IngestModel import T2IngestModel
 
 
