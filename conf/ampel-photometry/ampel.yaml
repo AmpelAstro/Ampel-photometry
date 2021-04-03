@@ -1,8 +1,8 @@
 unit:
   admin:
-  - ampel.ingest.PhotoT2Ingester
-  - ampel.ingest.DualPointT2Ingester
-  - ampel.ingest.PhotoCompoundIngester
+  - ampel.mongo.update.PhotoT2Ingester
+  - ampel.mongo.update.DualPointT2Ingester
+  - ampel.mongo.update.PhotoCompoundIngester
   base:
   - ampel.demo.unit.base.DemoPhotoPointT2Unit
   - ampel.demo.unit.base.DemoFirstPhotoPointT2Unit

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# File              : Ampel-photometry/ampel/ingest/DualPointT2Ingester.py
+# File              : Ampel-photometry/ampel/mongo/update/DualPointT2Ingester.py
 # License           : BSD-3-Clause
 # Author            : vb <vbrinnel@physik.hu-berlin.de>
 # Date              : 23.03.2020
@@ -16,8 +16,8 @@ from ampel.util.collections import try_reduce
 from ampel.content.DataPoint import DataPoint
 from ampel.enum.T2SysRunState import T2SysRunState
 from ampel.abstract.ingest.AbsPointT2Ingester import AbsPointT2Ingester
-from ampel.ingest.compile.PointT2Compiler import PointT2Compiler
-from ampel.ingest.compile.DualPointT2Compiler import DualPointT2Compiler
+from ampel.compile.PointT2Compiler import PointT2Compiler
+from ampel.compile.DualPointT2Compiler import DualPointT2Compiler
 
 
 class DualPointT2Ingester(AbsPointT2Ingester):

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# File              : Ampel-photometry/ampel/ingest/PhotoT2Ingester.py
+# File              : Ampel-photometry/ampel/mongo/update/PhotoT2Ingester.py
 # License           : BSD-3-Clause
 # Author            : vb <vbrinnel@physik.hu-berlin.de>
 # Date              : 14.12.2017
@@ -18,8 +18,8 @@ from ampel.content.PhotoT2Document import PhotoT2Document
 from ampel.abstract.ingest.AbsT2Ingester import AbsT2Ingester
 from ampel.abstract.ingest.AbsStateT2Ingester import AbsStateT2Ingester
 from ampel.abstract.ingest.AbsStateT2Compiler import AbsStateT2Compiler
-from ampel.ingest.PhotoCompoundBluePrint import PhotoCompoundBluePrint
-from ampel.ingest.compile.PhotoT2Compiler import PhotoT2Compiler
+from ampel.compile.PhotoCompoundBluePrint import PhotoCompoundBluePrint
+from ampel.compile.PhotoT2Compiler import PhotoT2Compiler
 
 
 class PhotoT2Ingester(AbsStateT2Ingester):

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# File              : Ampel-photometry/ampel/ingest/PhotoCompoundIngester.py
+# File              : Ampel-photometry/ampel/mongo/update/PhotoCompoundIngester.py
 # License           : BSD-3-Clause
 # Author            : vb <vbrinnel@physik.hu-berlin.de>
 # Date              : 14.12.2017
@@ -18,7 +18,7 @@ from ampel.content.DataPoint import DataPoint
 from ampel.abstract.ingest.AbsCompoundIngester import AbsCompoundIngester
 from ampel.abstract.AbsT1Unit import AbsT1Unit
 from ampel.model.UnitModel import UnitModel
-from ampel.ingest.PhotoCompoundBluePrint import PhotoCompoundBluePrint
+from ampel.compile.PhotoCompoundBluePrint import PhotoCompoundBluePrint
 
 
 class PhotoCompoundIngester(AbsCompoundIngester[PhotoCompoundBluePrint]):
