@@ -4,14 +4,14 @@ unit:
   - ampel.mongo.update.DualPointT2Ingester
   - ampel.mongo.update.PhotoCompoundIngester
   base:
-  - ampel.demo.unit.base.DemoPhotoPointT2Unit
-  - ampel.demo.unit.base.DemoFirstPhotoPointT2Unit
-  - ampel.demo.unit.base.DemoFirstUpperLimitT2Unit
-  - ampel.demo.unit.base.DemoEvery3PhotoPointT2Unit
-  - ampel.demo.unit.base.DemoEvery4PhotoPointT2Unit
-  - ampel.demo.unit.base.DemoLightCurveT2Unit
-  - ampel.demo.unit.base.DemoLightCurveCustomIngestT2Unit
-  - ampel.demo.unit.base.DemoTiedLightCurveT2Unit
+  - ampel.demo.DemoPhotoPointT2Unit
+  - ampel.demo.DemoFirstPhotoPointT2Unit
+  - ampel.demo.DemoFirstUpperLimitT2Unit
+  - ampel.demo.DemoEvery3PhotoPointT2Unit
+  - ampel.demo.DemoEvery4PhotoPointT2Unit
+  - ampel.demo.DemoLightCurveT2Unit
+  - ampel.demo.DemoLightCurveCustomIngestT2Unit
+  - ampel.demo.DemoTiedLightCurveT2Unit
 
 alias:
   t3:

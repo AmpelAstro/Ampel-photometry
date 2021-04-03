@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# File              : Ampel-photometry/ampel/demo/unit/base/DemoTiedLightCurveT2Unit.py
+# File              : Ampel-photometry/ampel/demo/DemoTiedLightCurveT2Unit.py
 # License           : BSD-3-Clause
 # Author            : vb <vbrinnel@physik.hu-berlin.de>
 # Date              : 07.08.2020
