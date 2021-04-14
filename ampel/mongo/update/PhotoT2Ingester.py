@@ -13,7 +13,7 @@ from typing import Dict, Any, Union, Tuple, List
 
 from ampel.type import StockId, ChannelId
 from ampel.util.collections import try_reduce
-from ampel.enum.T2DocumentCode import T2DocumentCode
+from ampel.enum.DocumentCode import DocumentCode
 from ampel.content.PhotoT2Document import PhotoT2Document
 from ampel.abstract.ingest.AbsT2Ingester import AbsT2Ingester
 from ampel.abstract.ingest.AbsStateT2Ingester import AbsStateT2Ingester
@@ -57,7 +57,7 @@ class PhotoT2Ingester(AbsStateT2Ingester):
 				'unit': t2_id,
 				'config': run_config,
 				'stock': stock_id,
-				'code': T2DocumentCode.NEW.value
+				'code': DocumentCode.NEW.value
 			}
 
 			if self.tags:
@@ -114,6 +114,7 @@ class PhotoT2Ingester(AbsStateT2Ingester):
 				add_to_set['journal'] = {
 					'tier': self.tier,
 					'ts': now,
+					'run': self.run_id,
 					'channel': jchan
 				}
 
