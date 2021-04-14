@@ -10,7 +10,7 @@
 import hashlib
 from typing import List, Union, ClassVar, Type
 from ampel.type import ChannelId, DataPointId
-from ampel.content.Compound import CompoundElement
+from ampel.content.T1Record import T1Record
 from ampel.compile.PhotoCompoundBluePrint import PhotoCompoundBluePrint
 from ampel.compile.T1DefaultCombiner import T1DefaultCombiner
 
@@ -26,7 +26,7 @@ class T1PhotoCombiner(T1DefaultCombiner[PhotoCompoundBluePrint]):
 
 	def combine_extra(self,
 		blue_print: PhotoCompoundBluePrint, chan_name: ChannelId, eff_id: bytes,
-		eff_comp: List[Union[DataPointId, CompoundElement]], eff_hash_payload: List[str]
+		eff_comp: List[Union[DataPointId, T1Record]], eff_hash_payload: List[str]
 	):
 		""" Override of superclass """
 

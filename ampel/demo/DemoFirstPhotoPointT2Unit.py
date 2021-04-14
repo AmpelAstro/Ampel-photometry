@@ -18,5 +18,5 @@ class DemoFirstPhotoPointT2Unit(AbsPointT2Unit):
 
 	ingest: Dict = {'eligible': {'pps': 'first'}}
 
-	def run(self, datapoint: DataPoint) -> T2UnitResult:
+	def run(self, datapoint: DataPoint) -> Union[UBson, T2RecordCode, UnitResult[UBson]]:
 		return {"id": datapoint['_id'], "time": time()}

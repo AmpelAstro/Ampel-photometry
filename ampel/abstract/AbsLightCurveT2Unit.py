@@ -9,7 +9,7 @@
 
 from typing import Iterable, ClassVar, Dict, Any
 from ampel.view.LightCurve import LightCurve
-from ampel.content.Compound import Compound
+from ampel.content.T1Document import T1Document
 from ampel.content.DataPoint import DataPoint
 from ampel.abstract.AbsCustomStateT2Unit import AbsCustomStateT2Unit
 
@@ -30,5 +30,5 @@ class AbsLightCurveT2Unit(AbsCustomStateT2Unit[LightCurve], abstract=True):
 
 
 	@staticmethod
-	def build(compound: Compound, datapoints: Iterable[DataPoint]) -> LightCurve:
+	def build(compound: T1Document, datapoints: Iterable[DataPoint]) -> LightCurve:
 		return LightCurve.build(compound, datapoints)

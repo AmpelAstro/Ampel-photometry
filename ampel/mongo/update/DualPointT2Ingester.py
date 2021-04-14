@@ -14,7 +14,7 @@ from typing import Sequence, Dict, Optional, Union, Literal, Tuple, List
 from ampel.type import StockId, ChannelId
 from ampel.util.collections import try_reduce
 from ampel.content.DataPoint import DataPoint
-from ampel.enum.T2SysRunState import T2SysRunState
+from ampel.enum.DocumentCode import DocumentCode
 from ampel.abstract.ingest.AbsPointT2Ingester import AbsPointT2Ingester
 from ampel.compile.PointT2Compiler import PointT2Compiler
 from ampel.compile.DualPointT2Compiler import DualPointT2Compiler
@@ -66,7 +66,7 @@ class DualPointT2Ingester(AbsPointT2Ingester):
 							'unit': t2_id,
 							'link': link_id,
 							'config': run_config,
-							'status': T2SysRunState.NEW.value,
+							'code': DocumentCode.NEW.value,
 							'col': 't0'
 						},
 						# Journal and channel update

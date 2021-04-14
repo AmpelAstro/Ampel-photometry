@@ -4,14 +4,16 @@
 # License           : BSD-3-Clause
 # Author            : vb <vbrinnel@physik.hu-berlin.de>
 # Date              : 11.03.2020
-# Last Modified Date: 11.02.2021
+# Last Modified Date: 04.04.2021
 # Last Modified By  : vb <vbrinnel@physik.hu-berlin.de>
 
 from typing import Iterable, ClassVar, Dict, Any, Sequence, Union, Optional, Literal
+from ampel.type import UBson
 from ampel.base import abstractmethod
-from ampel.type import T2UnitResult
+from ampel.struct.UnitResult import UnitResult
+from ampel.enum.T2RecordCode import T2RecordCode
 from ampel.view.LightCurve import LightCurve
-from ampel.content.Compound import Compound
+from ampel.content.T1Document import T1Document
 from ampel.content.DataPoint import DataPoint
 from ampel.view.T2DocView import T2DocView
 from ampel.abstract.AbsTiedCustomStateT2Unit import AbsTiedCustomStateT2Unit
@@ -26,7 +28,7 @@ class AbsTiedLightCurveT2Unit(AbsTiedCustomStateT2Unit[LightCurve], abstract=Tru
 
 
 	@abstractmethod
-	def run(self, light_curve: LightCurve, t2_views: Sequence[T2DocView]) -> T2UnitResult:
+	def run(self, light_curve: LightCurve, t2_views: Sequence[T2DocView]) -> Union[UBson, T2RecordCode, UnitResult[UBson]]:
 		"""
 		Returned object should contain computed science results to be saved into the DB.
 		Notes: dict must have only string keys and values must be bson encodable
@@ -64,5 +66,5 @@ class AbsTiedLightCurveT2Unit(AbsTiedCustomStateT2Unit[LightCurve], abstract=Tru
 
 
 	@staticmethod
-	def build(compound: Compound, datapoints: Iterable[DataPoint]) -> LightCurve:
+	def build(compound: T1Document, datapoints: Iterable[DataPoint]) -> LightCurve:
 		return LightCurve.build(compound, datapoints)

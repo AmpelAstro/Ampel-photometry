@@ -13,7 +13,7 @@ from typing import Sequence, List, Tuple, Union, Set, Optional
 from ampel.type import StockId, ChannelId
 from ampel.log.AmpelLogger import AmpelLogger, INFO
 from ampel.log.handlers.RecordBufferingHandler import RecordBufferingHandler
-from ampel.content.PhotoCompound import PhotoCompound
+from ampel.content.PhotoT1Document import PhotoT1Document
 from ampel.content.DataPoint import DataPoint
 from ampel.abstract.ingest.AbsCompoundIngester import AbsCompoundIngester
 from ampel.abstract.AbsT1Unit import AbsT1Unit
@@ -94,7 +94,7 @@ class PhotoCompoundIngester(AbsCompoundIngester[PhotoCompoundBluePrint]):
 			comp_dict = blue_print.get_eff_compound(eff_comp_id)
 			pp_comp_id = blue_print.get_ppsid_of_effid(eff_comp_id)
 
-			comp_set_on_ins: PhotoCompound = {
+			comp_set_on_ins: PhotoT1Document = {
 				'_id': eff_comp_id,
 				'stock': stock_id,
 				'tag': list(blue_print.get_comp_tags(eff_comp_id)),

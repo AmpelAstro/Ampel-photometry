@@ -11,7 +11,7 @@ import operator
 from dataclasses import dataclass
 from typing import Sequence, Dict, Optional, List, Any, Tuple, Union, Callable, Literal, Iterable
 from ampel.type import StockId
-from ampel.content.Compound import Compound
+from ampel.content.T1Document import T1Document
 from ampel.content.DataPoint import DataPoint
 
 # Do not enable operator customizations by sub-classes for now
@@ -43,7 +43,7 @@ class LightCurve:
 
 
 	@classmethod
-	def build(cls, compound: Compound, datapoints: Iterable[DataPoint]) -> 'LightCurve':
+	def build(cls, compound: T1Document, datapoints: Iterable[DataPoint]) -> 'LightCurve':
 		return cls(
 			compound_id = compound['_id'],
 			stock_id = compound['stock'],
