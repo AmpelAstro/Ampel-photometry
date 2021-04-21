@@ -26,9 +26,9 @@ class TransientView(SnapView):
 		if self.t0 and self.t1:
 			lightcurve: Optional[Sequence[LightCurve]] = tuple(
 				LightCurve.build(
-					comp, tuple(el for el in self.t0 if el['_id'] in get_datapoint_ids(comp)),
+					comp, tuple(el for el in self.t0 if el['_id'] in datapoint_ids),
 				)
-				for comp in self.t1
+				for comp in self.t1 if (datapoint_ids := set(get_datapoint_ids(comp))) or True
 			)
 		else:
 			lightcurve = None
