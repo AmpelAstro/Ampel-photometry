@@ -27,7 +27,7 @@ python-versions = "*"
 
 [[package]]
 name = "ampel-core"
-version = "0.7.1a13"
+version = "0.7.1"
 description = "Asynchronous and Modular Platform with Execution Layers"
 category = "main"
 optional = false
@@ -715,8 +715,8 @@ alabaster = [
     {file = "alabaster-0.7.12.tar.gz", hash = "sha256:a661d72d58e6ea8a57f7a86e37d86716863ee5e92788398526d58b26a4e4dc02"},
 ]
 ampel-core = [
-    {file = "ampel-core-0.7.1a13.tar.gz", hash = "sha256:b191c1b7bef984af26f7e14cff6292343273061e21c1909bf64cb7eeb6ba5928"},
-    {file = "ampel_core-0.7.1a13-py3-none-any.whl", hash = "sha256:bde80815b205ff2afa3b57243160b5311e877269af766ae99fa80b303ea4c218"},
+    {file = "ampel-core-0.7.1.tar.gz", hash = "sha256:e16c81ea616d204f449e1d109e4394e32a1a4feefa1d76f626985c754253632c"},
+    {file = "ampel_core-0.7.1-py3-none-any.whl", hash = "sha256:70135fcf2630a744792ff818be0231f7725b7f2f2d8c9e171d13b38fba2e8533"},
 ]
 ampel-interface = [
     {file = "ampel-interface-0.7.1.tar.gz", hash = "sha256:888cbea9992a4e71b7826ef6eb64d26cfbd92504b4c1fbfe8ce37cdec2f08237"},
