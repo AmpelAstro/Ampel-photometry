@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ampel.view.TransientView &#8212; ampel-photometry 0.7.1-alpha.1 documentation</title>
+    <title>ampel.view.TransientView &#8212; ampel-photometry 0.7.1 documentation</title>
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/sphinxdoc.css" type="text/css" />
     <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
@@ -21,7 +21,7 @@
         <li class="right" style="margin-right: 10px">
           <a href="../../../genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">ampel-photometry 0.7.1-alpha.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">ampel-photometry 0.7.1 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">ampel.view.TransientView</a></li> 
       </ul>
@@ -61,9 +61,9 @@
 		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">t0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">t1</span><span class="p">:</span>
 			<span class="n">lightcurve</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="n">LightCurve</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span>
 				<span class="n">LightCurve</span><span class="o">.</span><span class="n">build</span><span class="p">(</span>
-					<span class="n">comp</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">el</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">t0</span> <span class="k">if</span> <span class="n">el</span><span class="p">[</span><span class="s1">&#39;_id&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">get_datapoint_ids</span><span class="p">(</span><span class="n">comp</span><span class="p">)),</span>
+					<span class="n">comp</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">el</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">t0</span> <span class="k">if</span> <span class="n">el</span><span class="p">[</span><span class="s1">&#39;_id&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">datapoint_ids</span><span class="p">),</span>
 				<span class="p">)</span>
-				<span class="k">for</span> <span class="n">comp</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">t1</span>
+				<span class="k">for</span> <span class="n">comp</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">t1</span> <span class="k">if</span> <span class="p">(</span><span class="n">datapoint_ids</span> <span class="o">:=</span> <span class="nb">set</span><span class="p">(</span><span class="n">get_datapoint_ids</span><span class="p">(</span><span class="n">comp</span><span class="p">)))</span> <span class="ow">or</span> <span class="kc">True</span>
 			<span class="p">)</span>
 		<span class="k">else</span><span class="p">:</span>
 			<span class="n">lightcurve</span> <span class="o">=</span> <span class="kc">None</span>
@@ -121,14 +121,14 @@
         <li class="right" style="margin-right: 10px">
           <a href="../../../genindex.html" title="General Index"
              >index</a></li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">ampel-photometry 0.7.1-alpha.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">ampel-photometry 0.7.1 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">ampel.view.TransientView</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018-2021, Ampel Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.3.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
     </div>
   </body>
 </html>
