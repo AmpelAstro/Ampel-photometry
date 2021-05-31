@@ -27,7 +27,7 @@ python-versions = "*"
 
 [[package]]
 name = "ampel-core"
-version = "0.7.2"
+version = "0.7.3"
 description = "Asynchronous and Modular Platform with Execution Layers"
 category = "main"
 optional = false
@@ -48,7 +48,7 @@ yq = ">=2.12.0,<3.0.0"
 
 [package.extras]
 server = ["fastapi (>=0.63,<0.66)", "uvicorn[standard] (>=0.13.3,<0.14.0)"]
-docs = ["Sphinx (>=3.5.1,<5.0.0)", "sphinx-press-theme (>=0.5.1,<0.7.0)", "sphinx-autodoc-typehints (>=1.11.1,<2.0.0)", "tomlkit (>=0.7.0,<0.8.0)"]
+docs = ["Sphinx (>=3.5.1,<5.0.0)", "sphinx-press-theme (>=0.5.1,<0.8.0)", "sphinx-autodoc-typehints (>=1.11.1,<2.0.0)", "tomlkit (>=0.7.0,<0.8.0)"]
 plotting = ["svgutils (>=0.3.4,<0.4.0)", "CairoSVG (>=2.5.1,<3.0.0)", "matplotlib (>=3.3.4,<4.0.0)", "ipython (>=7.21.0,<8.0.0)"]
 
 [[package]]
@@ -715,8 +715,8 @@ alabaster = [
     {file = "alabaster-0.7.12.tar.gz", hash = "sha256:a661d72d58e6ea8a57f7a86e37d86716863ee5e92788398526d58b26a4e4dc02"},
 ]
 ampel-core = [
-    {file = "ampel-core-0.7.2.tar.gz", hash = "sha256:e812f38e01907ec6cec111afe0c1ef8ce363922bf09c38a11b13bdfdf8e08c30"},
-    {file = "ampel_core-0.7.2-py3-none-any.whl", hash = "sha256:3a5df3f5e1a2990a66f271ae8e562ecda13c0e0437e3d5c49646d59dc53812d6"},
+    {file = "ampel-core-0.7.3.tar.gz", hash = "sha256:d7ee280b346bb2c0f59e34c9e0c6ca3b3bcd1e90f15c11bf7aedc774abf21e01"},
+    {file = "ampel_core-0.7.3-py3-none-any.whl", hash = "sha256:502da3927ca8f158b22fd37c9db8d30f59d9e0a41e7b4be9d8f1c633451c6a0e"},
 ]
 ampel-interface = [
     {file = "ampel-interface-0.7.1.tar.gz", hash = "sha256:888cbea9992a4e71b7826ef6eb64d26cfbd92504b4c1fbfe8ce37cdec2f08237"},
