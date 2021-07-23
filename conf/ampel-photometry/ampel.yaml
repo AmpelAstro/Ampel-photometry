@@ -1,17 +1,17 @@
 unit:
-  admin:
-  - ampel.mongo.update.PhotoT2Ingester
-  - ampel.mongo.update.DualPointT2Ingester
-  - ampel.mongo.update.PhotoCompoundIngester
-  base:
-  - ampel.demo.DemoPhotoPointT2Unit
-  - ampel.demo.DemoFirstPhotoPointT2Unit
-  - ampel.demo.DemoFirstUpperLimitT2Unit
-  - ampel.demo.DemoEvery3PhotoPointT2Unit
-  - ampel.demo.DemoEvery4PhotoPointT2Unit
-  - ampel.demo.DemoLightCurveT2Unit
-  - ampel.demo.DemoLightCurveCustomIngestT2Unit
-  - ampel.demo.DemoTiedLightCurveT2Unit
+
+# Logical unit
+- ampel.demo.DemoPhotoPointT2Unit
+- ampel.demo.DemoFirstPhotoPointT2Unit
+- ampel.demo.DemoFirstUpperLimitT2Unit
+- ampel.demo.DemoEvery3PhotoPointT2Unit
+- ampel.demo.DemoEvery4PhotoPointT2Unit
+- ampel.demo.DemoLightCurveT2Unit
+- ampel.demo.DemoTiedLightCurveT2Unit
+
+# Aux unit
+- ampel.aux.PPSFilter
+- ampel.aux.ULSFilter
 
 alias:
   t3:
