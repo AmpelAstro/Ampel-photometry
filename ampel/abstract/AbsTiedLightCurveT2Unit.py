@@ -4,31 +4,25 @@
 # License           : BSD-3-Clause
 # Author            : vb <vbrinnel@physik.hu-berlin.de>
 # Date              : 11.03.2020
-# Last Modified Date: 04.04.2021
+# Last Modified Date: 30.05.2021
 # Last Modified By  : vb <vbrinnel@physik.hu-berlin.de>
 
-from typing import Iterable, ClassVar, Dict, Any, Sequence, Union, Optional, Literal
-from ampel.type import UBson
-from ampel.base import abstractmethod
+from typing import Iterable, Dict, Sequence, Union, Optional, Literal
+from ampel.types import UBson, T
 from ampel.struct.UnitResult import UnitResult
-from ampel.enum.T2RecordCode import T2RecordCode
+from ampel.base.decorator import abstractmethod
 from ampel.view.LightCurve import LightCurve
+from ampel.view.T2DocView import T2DocView
 from ampel.content.T1Document import T1Document
 from ampel.content.DataPoint import DataPoint
-from ampel.view.T2DocView import T2DocView
 from ampel.abstract.AbsTiedCustomStateT2Unit import AbsTiedCustomStateT2Unit
 
 
-class AbsTiedLightCurveT2Unit(AbsTiedCustomStateT2Unit[LightCurve], abstract=True):
-
-	#: Default class ingest option for upper_limits:
-	#:   - True: compound id computed using photopoint & upperlimit ids
-	#:   - False: compound id computed using photopoint ids only
-	ingest: ClassVar[Dict[str, Any]] = {'upper_limits': True}
+class AbsTiedLightCurveT2Unit(AbsTiedCustomStateT2Unit[LightCurve, T], abstract=True):
 
 
 	@abstractmethod
-	def run(self, light_curve: LightCurve, t2_views: Sequence[T2DocView]) -> Union[UBson, T2RecordCode, UnitResult[UBson]]:
+	def process(self, light_curve: LightCurve, t2_views: Sequence[T2DocView]) -> Union[UBson, UnitResult]:
 		"""
 		Returned object should contain computed science results to be saved into the DB.
 		Notes: dict must have only string keys and values must be bson encodable
@@ -56,11 +50,11 @@ class AbsTiedLightCurveT2Unit(AbsTiedCustomStateT2Unit[LightCurve], abstract=Tru
 			raise ValueError("Invalid key in link_override")
 
 		if v == 'first':
-			return dps[0]['_id'] if dps else None
+			return dps[0]['id'] if dps else None
 		elif v == 'middle':
-			return dps[len(dps) // 2]['_id'] if dps else None
+			return dps[len(dps) // 2]['id'] if dps else None
 		elif v == 'last':
-			return dps[-1]['_id'] if dps else None
+			return dps[-1]['id'] if dps else None
 		else:
 			raise ValueError("Invalid value in link_override specs")
 
