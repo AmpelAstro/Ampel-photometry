@@ -4,20 +4,19 @@
 # License           : BSD-3-Clause
 # Author            : vb <vbrinnel@physik.hu-berlin.de>
 # Date              : 14.12.2017
-# Last Modified Date: 01.05.2020
+# Last Modified Date: 25.05.2021
 # Last Modified By  : vb <vbrinnel@physik.hu-berlin.de>
 
 from typing import Dict, Tuple, List, Sequence, Optional, Any, Literal, Union
-from ampel.type import StockId
+from ampel.types import StockId
 from ampel.alert.AmpelAlert import AmpelAlert, osa
 from ampel.view.ReadOnlyDict import ReadOnlyDict
-from ampel.content.DataPoint import DataPoint
 
 
 class PhotoAlert(AmpelAlert):
 	"""
 	Class with two collections (photopoints and upperlimits) of read-only dicts.
-	The ampel AlertProcessor (repository Ampel-alerts) typically instantiates this class and feed T0 filters with it.
+	The ampel AlertConsumer (repository Ampel-alerts) typically instantiates this class and feed T0 filters with it.
 
 	.. note:: an alert must contain at least one photopoint
 	"""
@@ -93,17 +92,6 @@ class PhotoAlert(AmpelAlert):
 
 	def is_new(self) -> bool:
 		return len(self.pps) == 1
-
-
-	@staticmethod
-	def _prev_det_seq(datapoints: Sequence[DataPoint]) -> Optional[Sequence[DataPoint]]:
-		""" ampel.content.DataPoint are 'ampelized' dicts,
-		i.e not the 'raw' datapoints associated with in self.dps
-		"""
-		for i in range(1, len(datapoints)):
-			if datapoints[i]['_id'] > 0:
-				return datapoints[i:]
-		return None
 
 
 	def dict(self) -> Dict:
