@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ampel.abstract.AbsTiedLightCurveT2Unit &#8212; ampel-photometry 0.7.1 documentation</title>
+    <title>ampel.abstract.AbsTiedLightCurveT2Unit &#8212; ampel-photometry 0.8.0-alpha.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinxdoc.css" />
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
@@ -21,7 +21,7 @@
         <li class="right" style="margin-right: 10px">
           <a href="../../../genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">ampel-photometry 0.7.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">ampel-photometry 0.8.0-alpha.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">ampel.abstract.AbsTiedLightCurveT2Unit</a></li> 
       </ul>
@@ -39,29 +39,25 @@
 <span class="c1"># License           : BSD-3-Clause</span>
 <span class="c1"># Author            : vb &lt;vbrinnel@physik.hu-berlin.de&gt;</span>
 <span class="c1"># Date              : 11.03.2020</span>
-<span class="c1"># Last Modified Date: 11.02.2021</span>
+<span class="c1"># Last Modified Date: 30.05.2021</span>
 <span class="c1"># Last Modified By  : vb &lt;vbrinnel@physik.hu-berlin.de&gt;</span>
 
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">ClassVar</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Literal</span>
-<span class="kn">from</span> <span class="nn">ampel.base</span> <span class="kn">import</span> <span class="n">abstractmethod</span>
-<span class="kn">from</span> <span class="nn">ampel.type</span> <span class="kn">import</span> <span class="n">T2UnitResult</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Literal</span>
+<span class="kn">from</span> <span class="nn">ampel.types</span> <span class="kn">import</span> <span class="n">UBson</span><span class="p">,</span> <span class="n">T</span>
+<span class="kn">from</span> <span class="nn">ampel.struct.UnitResult</span> <span class="kn">import</span> <span class="n">UnitResult</span>
+<span class="kn">from</span> <span class="nn">ampel.base.decorator</span> <span class="kn">import</span> <span class="n">abstractmethod</span>
 <span class="kn">from</span> <span class="nn">ampel.view.LightCurve</span> <span class="kn">import</span> <span class="n">LightCurve</span>
-<span class="kn">from</span> <span class="nn">ampel.content.Compound</span> <span class="kn">import</span> <span class="n">Compound</span>
-<span class="kn">from</span> <span class="nn">ampel.content.DataPoint</span> <span class="kn">import</span> <span class="n">DataPoint</span>
 <span class="kn">from</span> <span class="nn">ampel.view.T2DocView</span> <span class="kn">import</span> <span class="n">T2DocView</span>
+<span class="kn">from</span> <span class="nn">ampel.content.T1Document</span> <span class="kn">import</span> <span class="n">T1Document</span>
+<span class="kn">from</span> <span class="nn">ampel.content.DataPoint</span> <span class="kn">import</span> <span class="n">DataPoint</span>
 <span class="kn">from</span> <span class="nn">ampel.abstract.AbsTiedCustomStateT2Unit</span> <span class="kn">import</span> <span class="n">AbsTiedCustomStateT2Unit</span>
 
 
-<div class="viewcode-block" id="AbsTiedLightCurveT2Unit"><a class="viewcode-back" href="../../../api.html#ampel.abstract.AbsTiedLightCurveT2Unit.AbsTiedLightCurveT2Unit">[docs]</a><span class="k">class</span> <span class="nc">AbsTiedLightCurveT2Unit</span><span class="p">(</span><span class="n">AbsTiedCustomStateT2Unit</span><span class="p">[</span><span class="n">LightCurve</span><span class="p">],</span> <span class="n">abstract</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-
-	<span class="c1">#: Default class ingest option for upper_limits:</span>
-	<span class="c1">#:   - True: compound id computed using photopoint &amp; upperlimit ids</span>
-	<span class="c1">#:   - False: compound id computed using photopoint ids only</span>
-	<span class="n">ingest</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;upper_limits&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+<div class="viewcode-block" id="AbsTiedLightCurveT2Unit"><a class="viewcode-back" href="../../../api.html#ampel.abstract.AbsTiedLightCurveT2Unit.AbsTiedLightCurveT2Unit">[docs]</a><span class="k">class</span> <span class="nc">AbsTiedLightCurveT2Unit</span><span class="p">(</span><span class="n">AbsTiedCustomStateT2Unit</span><span class="p">[</span><span class="n">LightCurve</span><span class="p">,</span> <span class="n">T</span><span class="p">],</span> <span class="n">abstract</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 
 
-<div class="viewcode-block" id="AbsTiedLightCurveT2Unit.run"><a class="viewcode-back" href="../../../api.html#ampel.abstract.AbsTiedLightCurveT2Unit.AbsTiedLightCurveT2Unit.run">[docs]</a>	<span class="nd">@abstractmethod</span>
-	<span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">light_curve</span><span class="p">:</span> <span class="n">LightCurve</span><span class="p">,</span> <span class="n">t2_views</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">T2DocView</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">T2UnitResult</span><span class="p">:</span>
+<div class="viewcode-block" id="AbsTiedLightCurveT2Unit.process"><a class="viewcode-back" href="../../../api.html#ampel.abstract.AbsTiedLightCurveT2Unit.AbsTiedLightCurveT2Unit.process">[docs]</a>	<span class="nd">@abstractmethod</span>
+	<span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">light_curve</span><span class="p">:</span> <span class="n">LightCurve</span><span class="p">,</span> <span class="n">t2_views</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">T2DocView</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">UBson</span><span class="p">,</span> <span class="n">UnitResult</span><span class="p">]:</span>
 		<span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">		Returned object should contain computed science results to be saved into the DB.</span>
 <span class="sd">		Notes: dict must have only string keys and values must be bson encodable</span>
@@ -89,17 +85,17 @@
 			<span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid key in link_override&quot;</span><span class="p">)</span>
 
 		<span class="k">if</span> <span class="n">v</span> <span class="o">==</span> <span class="s1">&#39;first&#39;</span><span class="p">:</span>
-			<span class="k">return</span> <span class="n">dps</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;_id&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">dps</span> <span class="k">else</span> <span class="kc">None</span>
+			<span class="k">return</span> <span class="n">dps</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">dps</span> <span class="k">else</span> <span class="kc">None</span>
 		<span class="k">elif</span> <span class="n">v</span> <span class="o">==</span> <span class="s1">&#39;middle&#39;</span><span class="p">:</span>
-			<span class="k">return</span> <span class="n">dps</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">dps</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">][</span><span class="s1">&#39;_id&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">dps</span> <span class="k">else</span> <span class="kc">None</span>
+			<span class="k">return</span> <span class="n">dps</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">dps</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">dps</span> <span class="k">else</span> <span class="kc">None</span>
 		<span class="k">elif</span> <span class="n">v</span> <span class="o">==</span> <span class="s1">&#39;last&#39;</span><span class="p">:</span>
-			<span class="k">return</span> <span class="n">dps</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;_id&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">dps</span> <span class="k">else</span> <span class="kc">None</span>
+			<span class="k">return</span> <span class="n">dps</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">dps</span> <span class="k">else</span> <span class="kc">None</span>
 		<span class="k">else</span><span class="p">:</span>
 			<span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid value in link_override specs&quot;</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="AbsTiedLightCurveT2Unit.build"><a class="viewcode-back" href="../../../api.html#ampel.abstract.AbsTiedLightCurveT2Unit.AbsTiedLightCurveT2Unit.build">[docs]</a>	<span class="nd">@staticmethod</span>
-	<span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="n">compound</span><span class="p">:</span> <span class="n">Compound</span><span class="p">,</span> <span class="n">datapoints</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">DataPoint</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">LightCurve</span><span class="p">:</span>
+	<span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="n">compound</span><span class="p">:</span> <span class="n">T1Document</span><span class="p">,</span> <span class="n">datapoints</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">DataPoint</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">LightCurve</span><span class="p">:</span>
 		<span class="k">return</span> <span class="n">LightCurve</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">compound</span><span class="p">,</span> <span class="n">datapoints</span><span class="p">)</span></div></div>
 </pre></div>
 
@@ -116,7 +112,7 @@
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -132,14 +128,14 @@
         <li class="right" style="margin-right: 10px">
           <a href="../../../genindex.html" title="General Index"
              >index</a></li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">ampel-photometry 0.7.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">ampel-photometry 0.8.0-alpha.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">ampel.abstract.AbsTiedLightCurveT2Unit</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018-2021, Ampel Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.2.
     </div>
   </body>
 </html>

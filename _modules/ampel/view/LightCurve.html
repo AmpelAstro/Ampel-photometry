@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ampel.view.LightCurve &#8212; ampel-photometry 0.7.1 documentation</title>
+    <title>ampel.view.LightCurve &#8212; ampel-photometry 0.8.0-alpha.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinxdoc.css" />
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
@@ -21,7 +21,7 @@
         <li class="right" style="margin-right: 10px">
           <a href="../../../genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">ampel-photometry 0.7.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">ampel-photometry 0.8.0-alpha.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">ampel.view.LightCurve</a></li> 
       </ul>
@@ -39,14 +39,14 @@
 <span class="c1"># License           : BSD-3-Clause</span>
 <span class="c1"># Author            : vb &lt;vbrinnel@physik.hu-berlin.de&gt;</span>
 <span class="c1"># Date              : 13.01.2018</span>
-<span class="c1"># Last Modified Date: 13.02.2021</span>
+<span class="c1"># Last Modified Date: 13.06.2021</span>
 <span class="c1"># Last Modified By  : vb &lt;vbrinnel@physik.hu-berlin.de&gt;</span>
 
 <span class="kn">import</span> <span class="nn">operator</span>
 <span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Literal</span><span class="p">,</span> <span class="n">Iterable</span>
-<span class="kn">from</span> <span class="nn">ampel.type</span> <span class="kn">import</span> <span class="n">StockId</span>
-<span class="kn">from</span> <span class="nn">ampel.content.Compound</span> <span class="kn">import</span> <span class="n">Compound</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Iterable</span>
+<span class="kn">from</span> <span class="nn">ampel.types</span> <span class="kn">import</span> <span class="n">StockId</span>
+<span class="kn">from</span> <span class="nn">ampel.content.T1Document</span> <span class="kn">import</span> <span class="n">T1Document</span>
 <span class="kn">from</span> <span class="nn">ampel.content.DataPoint</span> <span class="kn">import</span> <span class="n">DataPoint</span>
 
 <span class="c1"># Do not enable operator customizations by sub-classes for now</span>
@@ -69,23 +69,19 @@
 <span class="sd">	from internal collections.</span>
 <span class="sd">	&quot;&quot;&quot;</span>
 
-	<span class="n">compound_id</span><span class="p">:</span> <span class="nb">bytes</span>
+	<span class="n">compound_id</span><span class="p">:</span> <span class="nb">int</span>
 	<span class="n">stock_id</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">StockId</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">StockId</span><span class="p">]]</span>
 	<span class="n">photopoints</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="n">DataPoint</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
 	<span class="n">upperlimits</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="n">DataPoint</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
-	<span class="n">tier</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Literal</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
-	<span class="n">added</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
 
 	<span class="nd">@classmethod</span>
-	<span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">compound</span><span class="p">:</span> <span class="n">Compound</span><span class="p">,</span> <span class="n">datapoints</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">DataPoint</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s1">&#39;LightCurve&#39;</span><span class="p">:</span>
+	<span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">compound</span><span class="p">:</span> <span class="n">T1Document</span><span class="p">,</span> <span class="n">datapoints</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">DataPoint</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s1">&#39;LightCurve&#39;</span><span class="p">:</span>
 		<span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
-			<span class="n">compound_id</span> <span class="o">=</span> <span class="n">compound</span><span class="p">[</span><span class="s1">&#39;_id&#39;</span><span class="p">],</span>
+			<span class="n">compound_id</span> <span class="o">=</span> <span class="n">compound</span><span class="p">[</span><span class="s1">&#39;link&#39;</span><span class="p">],</span>
 			<span class="n">stock_id</span> <span class="o">=</span> <span class="n">compound</span><span class="p">[</span><span class="s1">&#39;stock&#39;</span><span class="p">],</span>
-			<span class="n">tier</span> <span class="o">=</span> <span class="n">compound</span><span class="p">[</span><span class="s1">&#39;tier&#39;</span><span class="p">],</span>
-			<span class="n">added</span> <span class="o">=</span> <span class="n">compound</span><span class="p">[</span><span class="s1">&#39;added&#39;</span><span class="p">],</span>
-			<span class="n">photopoints</span> <span class="o">=</span> <span class="p">[</span><span class="n">el</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">datapoints</span> <span class="k">if</span> <span class="n">el</span><span class="p">[</span><span class="s1">&#39;_id&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">],</span>
-			<span class="n">upperlimits</span> <span class="o">=</span> <span class="p">[</span><span class="n">el</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">datapoints</span> <span class="k">if</span> <span class="n">el</span><span class="p">[</span><span class="s1">&#39;_id&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span>
+			<span class="n">photopoints</span> <span class="o">=</span> <span class="p">[</span><span class="n">el</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">datapoints</span> <span class="k">if</span> <span class="n">el</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">],</span>
+			<span class="n">upperlimits</span> <span class="o">=</span> <span class="p">[</span><span class="n">el</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">datapoints</span> <span class="k">if</span> <span class="n">el</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span>
 		<span class="p">)</span>
 
 
@@ -295,7 +291,7 @@
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -311,14 +307,14 @@
         <li class="right" style="margin-right: 10px">
           <a href="../../../genindex.html" title="General Index"
              >index</a></li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">ampel-photometry 0.7.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">ampel-photometry 0.8.0-alpha.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">ampel.view.LightCurve</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018-2021, Ampel Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.2.
     </div>
   </body>
 </html>
