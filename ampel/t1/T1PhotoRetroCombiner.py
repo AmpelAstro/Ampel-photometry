@@ -30,7 +30,7 @@ class T1PhotoRetroCombiner(T1SimpleRetroCombiner):
 	def _prev_det_seq(self, datapoints: List[DataPointId]) -> Optional[List[DataPointId]]:
 
 		for i in range(1, len(datapoints)):
-			if datapoints[i] > 0:
-				return datapoints[i:]
+			if datapoints[-(i+1)] > 0:
+				return datapoints[:-i]
 
 		return None
