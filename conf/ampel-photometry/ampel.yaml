@@ -14,6 +14,15 @@ unit:
 - ampel.aux.ULSFilter
 
 alias:
+  t2:
+    '%SELECT_FIRST_PHOTOPOINT':
+      filter: PPSFilter
+      sort: jd
+      select: first
+    '%SELECT_FIRST_UPPER_LIMIT':
+      filter: ULSFilter
+      sort: jd
+      select: first
   t3:
     "%PHOTOPOINT":
       col: t0
