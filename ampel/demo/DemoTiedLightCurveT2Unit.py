@@ -29,6 +29,6 @@ class DemoTiedLightCurveT2Unit(AbsTiedLightCurveT2Unit):
 			"jds": lightcurve.get_values("jd"),
 			"time": time(),
 			"linked_views": [el.serialize() for el in t2_views],
-			"linked_results": [el.get_data() for el in t2_views],
+			"linked_results": [el.get_payload() for el in t2_views],
 			"test_parameter": self.test_parameter
 		}
