@@ -27,14 +27,14 @@ python-versions = "*"
 
 [[package]]
 name = "ampel-core"
-version = "0.8.0a10"
+version = "0.8.0a11"
 description = "Asynchronous and Modular Platform with Execution Layers"
 category = "main"
 optional = false
 python-versions = ">=3.9,<3.10"
 
 [package.dependencies]
-ampel-interface = ">=0.8.0-alpha.9,<0.9.0"
+ampel-interface = ">=0.8.0-alpha.12,<0.9.0"
 prometheus-client = ">=0.10,<0.12"
 psutil = ">=5.8.0,<6.0.0"
 pydantic = ">=1.8.1,<2.0.0"
@@ -751,7 +751,7 @@ docs = ["Sphinx", "sphinx-autodoc-typehints", "tomlkit"]
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.9,<3.10"
-content-hash = "bceb0cdbdb51c13e4b2d97dd54faaf6b9a0fa4618e463109df22e031cb1b268a"
+content-hash = "1871688e8ec79726703269c9cf765543f925af6a33bd5e168f1f5525fab4699b"
 
 [metadata.files]
 aiohttp = [
@@ -798,8 +798,8 @@ alabaster = [
     {file = "alabaster-0.7.12.tar.gz", hash = "sha256:a661d72d58e6ea8a57f7a86e37d86716863ee5e92788398526d58b26a4e4dc02"},
 ]
 ampel-core = [
-    {file = "ampel-core-0.8.0a10.tar.gz", hash = "sha256:d7ea23ad29ab7d0c1f7f77c246097ccf9b2e4eb837d13c0ffcba62494864a7d8"},
-    {file = "ampel_core-0.8.0a10-py3-none-any.whl", hash = "sha256:d5dce6ddfabf00c57155c09c1a966cef5ae9daa6a947beb2a3e564f1837ea5cd"},
+    {file = "ampel-core-0.8.0a11.tar.gz", hash = "sha256:ce981fda241be19a62fd603b5a3b24d68c03ce0af076eaa7b6c480faf20d04d3"},
+    {file = "ampel_core-0.8.0a11-py3-none-any.whl", hash = "sha256:f6aef2dc5b3229f13dc02b80345868e3877e4393c7e80c2208b042e6be44bd85"},
 ]
 ampel-interface = [
     {file = "ampel-interface-0.8.0a12.tar.gz", hash = "sha256:dbe3f5d3f2f6a07327a8f5a7569a835e69fcbe13eee80d2329f6535a221cde73"},
