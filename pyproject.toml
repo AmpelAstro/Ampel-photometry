@@ -29,7 +29,7 @@ ampel-interface = {version = "^0.8.0-alpha.12"}
 ampel-core = {version = "^0.8.0-alpha.11"}
 
 [tool.poetry.dev-dependencies]
-pytest = "^6.2.4"
+pytest = "^6.2.5"
 mypy = "^0.910"
 pytest-cov = "^2.12.1"
 
