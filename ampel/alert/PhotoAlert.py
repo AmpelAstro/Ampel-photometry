@@ -4,11 +4,11 @@
 # License           : BSD-3-Clause
 # Author            : vb <vbrinnel@physik.hu-berlin.de>
 # Date              : 14.12.2017
-# Last Modified Date: 25.05.2021
+# Last Modified Date: 01.10.2021
 # Last Modified By  : vb <vbrinnel@physik.hu-berlin.de>
 
 from typing import Dict, Tuple, List, Sequence, Optional, Any, Literal, Union
-from ampel.types import StockId
+from ampel.types import StockId, Tag
 from ampel.alert.AmpelAlert import AmpelAlert, osa
 from ampel.view.ReadOnlyDict import ReadOnlyDict
 
@@ -27,13 +27,15 @@ class PhotoAlert(AmpelAlert):
 	uls: Optional[Sequence[ReadOnlyDict]] #: upper limits
 	name: Optional[str] #: transient name
 	data: Dict[str, Sequence[ReadOnlyDict]]
+	tag: Optional[Union[Tag, List[Tag]]] #: Optional tag associated with this alert
 
 	def __init__(self,
 		id: Union[int, str], stock_id: StockId,
 		dps: Sequence[Dict],
 		pps: Sequence[ReadOnlyDict],
 		uls: Optional[Sequence[ReadOnlyDict]],
-		name: Optional[str] = None
+		name: Optional[str] = None,
+		tag: Optional[Union[Tag, List[Tag]]] = None
 	) -> None:
 
 		osa(self, 'id', id)
@@ -42,6 +44,7 @@ class PhotoAlert(AmpelAlert):
 		osa(self, 'pps', pps)
 		osa(self, 'uls', uls)
 		osa(self, 'name', name)
+		osa(self, 'tag', tag)
 		osa(self, 'data', {'pps': self.pps, 'uls': self.uls, 'all': self.dps})
 
 
