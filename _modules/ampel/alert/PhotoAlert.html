@@ -39,11 +39,11 @@
 <span class="c1"># License           : BSD-3-Clause</span>
 <span class="c1"># Author            : vb &lt;vbrinnel@physik.hu-berlin.de&gt;</span>
 <span class="c1"># Date              : 14.12.2017</span>
-<span class="c1"># Last Modified Date: 25.05.2021</span>
+<span class="c1"># Last Modified Date: 01.10.2021</span>
 <span class="c1"># Last Modified By  : vb &lt;vbrinnel@physik.hu-berlin.de&gt;</span>
 
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Literal</span><span class="p">,</span> <span class="n">Union</span>
-<span class="kn">from</span> <span class="nn">ampel.types</span> <span class="kn">import</span> <span class="n">StockId</span>
+<span class="kn">from</span> <span class="nn">ampel.types</span> <span class="kn">import</span> <span class="n">StockId</span><span class="p">,</span> <span class="n">Tag</span>
 <span class="kn">from</span> <span class="nn">ampel.alert.AmpelAlert</span> <span class="kn">import</span> <span class="n">AmpelAlert</span><span class="p">,</span> <span class="n">osa</span>
 <span class="kn">from</span> <span class="nn">ampel.view.ReadOnlyDict</span> <span class="kn">import</span> <span class="n">ReadOnlyDict</span>
 
@@ -62,13 +62,15 @@
 	<span class="n">uls</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="n">ReadOnlyDict</span><span class="p">]]</span> <span class="c1">#: upper limits</span>
 	<span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="c1">#: transient name</span>
 	<span class="n">data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">ReadOnlyDict</span><span class="p">]]</span>
+	<span class="n">tag</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">Tag</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Tag</span><span class="p">]]]</span> <span class="c1">#: Optional tag associated with this alert</span>
 
 	<span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
 		<span class="nb">id</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">stock_id</span><span class="p">:</span> <span class="n">StockId</span><span class="p">,</span>
 		<span class="n">dps</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Dict</span><span class="p">],</span>
 		<span class="n">pps</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">ReadOnlyDict</span><span class="p">],</span>
 		<span class="n">uls</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="n">ReadOnlyDict</span><span class="p">]],</span>
-		<span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+		<span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+		<span class="n">tag</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">Tag</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Tag</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span>
 	<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 
 		<span class="n">osa</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="p">)</span>
@@ -77,6 +79,7 @@
 		<span class="n">osa</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;pps&#39;</span><span class="p">,</span> <span class="n">pps</span><span class="p">)</span>
 		<span class="n">osa</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;uls&#39;</span><span class="p">,</span> <span class="n">uls</span><span class="p">)</span>
 		<span class="n">osa</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+		<span class="n">osa</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;tag&#39;</span><span class="p">,</span> <span class="n">tag</span><span class="p">)</span>
 		<span class="n">osa</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;pps&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">pps</span><span class="p">,</span> <span class="s1">&#39;uls&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">uls</span><span class="p">,</span> <span class="s1">&#39;all&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">dps</span><span class="p">})</span>
 
 
