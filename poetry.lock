@@ -770,7 +770,7 @@ docs = ["Sphinx", "sphinx-autodoc-typehints", "tomlkit"]
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.9,<3.10"
-content-hash = "e1f034ce94912515223a97de45896db2fbbdf0e8ce5df6997f83dec5097d9508"
+content-hash = "0fb2603f37ce9420dbce0690daca30d4cc8193903aafb48dbe0917b8f1fdfc39"
 
 [metadata.files]
 aiohttp = [
