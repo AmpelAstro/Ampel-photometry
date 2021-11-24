@@ -39,14 +39,14 @@ python-versions = "*"
 
 [[package]]
 name = "ampel-core"
-version = "0.8.1a4"
+version = "0.8.1a7"
 description = "Asynchronous and Modular Platform with Execution Layers"
 category = "main"
 optional = false
 python-versions = ">=3.9,<3.10"
 
 [package.dependencies]
-ampel-interface = ">=0.8.1-alpha.4,<0.9.0"
+ampel-interface = ">=0.8.1-alpha.7,<0.9.0"
 prometheus-client = ">=0.10,<0.12"
 psutil = ">=5.8.0,<6.0.0"
 pydantic = ">=1.8.1,<2.0.0"
@@ -65,7 +65,7 @@ docs = ["Sphinx (>=3.5.1,<5.0.0)", "sphinx-press-theme (>=0.5.1,<0.9.0)", "sphin
 
 [[package]]
 name = "ampel-interface"
-version = "0.8.1a4"
+version = "0.8.1a7"
 description = "Base classes for the Ampel analysis platform"
 category = "main"
 optional = false
@@ -770,7 +770,7 @@ docs = ["Sphinx", "sphinx-autodoc-typehints", "tomlkit"]
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.9,<3.10"
-content-hash = "0fb2603f37ce9420dbce0690daca30d4cc8193903aafb48dbe0917b8f1fdfc39"
+content-hash = "6d6463e9875322bad8f138b570902b28dff1b9da9b8911f7034f54fff6eab3ba"
 
 [metadata.files]
 aiohttp = [
@@ -856,12 +856,12 @@ alabaster = [
     {file = "alabaster-0.7.12.tar.gz", hash = "sha256:a661d72d58e6ea8a57f7a86e37d86716863ee5e92788398526d58b26a4e4dc02"},
 ]
 ampel-core = [
-    {file = "ampel-core-0.8.1a4.tar.gz", hash = "sha256:19e202f0991b14a30cb8201c231b568341730415deeb7956de7ebc1c7f114ae4"},
-    {file = "ampel_core-0.8.1a4-py3-none-any.whl", hash = "sha256:d2170ae68a5863a45a9f5976f38a73d5339ee0aa0d873839ae8d47e5ae399c79"},
+    {file = "ampel-core-0.8.1a7.tar.gz", hash = "sha256:54312059fab6942792e194241b12605eed3bb1cef80fd627631242aec275e28f"},
+    {file = "ampel_core-0.8.1a7-py3-none-any.whl", hash = "sha256:2047e38b040cc6ba5198d10ee70d01f58901d0080ffae7de07a0b16e1705bd58"},
 ]
 ampel-interface = [
-    {file = "ampel-interface-0.8.1a4.tar.gz", hash = "sha256:a3f197035af4c54c446a6882822a09adce044e42fc0c0e77da9f399891b65c7d"},
-    {file = "ampel_interface-0.8.1a4-py3-none-any.whl", hash = "sha256:0ab8d7f8c745b1edd3427b150bb5319d561308f965f87efc55e06493d98d38ab"},
+    {file = "ampel-interface-0.8.1a7.tar.gz", hash = "sha256:cc189528122136cacb83f7e46b966ba8940a3c41f02410040b0a27ec5fcc914c"},
+    {file = "ampel_interface-0.8.1a7-py3-none-any.whl", hash = "sha256:29694ddf3aa2331820decff0372592c571e43ca240125a1bd3f34a0608f8b1e1"},
 ]
 argcomplete = [
     {file = "argcomplete-1.12.3-py2.py3-none-any.whl", hash = "sha256:291f0beca7fd49ce285d2f10e4c1c77e9460cf823eef2de54df0c0fec88b0d81"},
