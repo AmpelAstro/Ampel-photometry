@@ -4,14 +4,14 @@
 # License           : BSD-3-Clause
 # Author            : vb <vbrinnel@physik.hu-berlin.de>
 # Date              : 11.12.2019
-# Last Modified Date: 28.01.2020
+# Last Modified Date: 10.10.2021
 # Last Modified By  : vb <vbrinnel@physik.hu-berlin.de>
 
 from setuptools import setup, find_namespace_packages
 
 setup(
 	name='ampel-photometry',
-	version='0.8.0-alpha',
+	version='0.8.1-alpha.1',
 	packages=find_namespace_packages(),
 	package_data = {
 		'': ['py.typed'],
@@ -21,7 +21,7 @@ setup(
 			'*.yml', '**/*.yml', '**/**/*.yml'
 		]
 	},
-	zip_safe=False,
+	zip_safe = False,
 	install_requires = [
 		"ampel-interface",
 		"ampel-core",
