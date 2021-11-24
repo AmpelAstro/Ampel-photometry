@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>API reference &#8212; ampel-photometry 0.8.1-alpha.1 documentation</title>
+    <title>API reference &#8212; ampel-photometry 0.8.1-alpha.2 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinxdoc.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -26,7 +26,7 @@
         <li class="right" >
           <a href="index.html" title="Ampel-photometry"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">ampel-photometry 0.8.1-alpha.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">ampel-photometry 0.8.1-alpha.2 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">API reference</a></li> 
       </ul>
     </div>  
@@ -110,68 +110,6 @@ For example, AbsTiedCustomStateT2Unit[LightCurve] would return a
 </section>
 <section id="data-classes">
 <h2>Data classes<a class="headerlink" href="#data-classes" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="ampel.alert.PhotoAlert.PhotoAlert">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ampel.alert.PhotoAlert.</span></span><span class="sig-name descname"><span class="pre">PhotoAlert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stock_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ampel/alert/PhotoAlert.html#PhotoAlert"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ampel.alert.PhotoAlert.PhotoAlert" title="Permalink to this definition">¶</a></dt>
-<dd><p>Class with two collections (photopoints and upperlimits) of read-only dicts.
-The ampel AlertConsumer (repository Ampel-alerts) typically instantiates this class and feed T0 filters with it.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>an alert must contain at least one photopoint</p>
-</div>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ampel.alert.PhotoAlert.PhotoAlert.pps">
-<span class="sig-name descname"><span class="pre">pps</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://ampelproject.github.io/Ampel-interface/api.html#ampel.view.ReadOnlyDict.ReadOnlyDict" title="(in ampel-interface v0.8)"><span class="pre">ampel.view.ReadOnlyDict.ReadOnlyDict</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#ampel.alert.PhotoAlert.PhotoAlert.pps" title="Permalink to this definition">¶</a></dt>
-<dd><p>photopoints (positive detections)</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ampel.alert.PhotoAlert.PhotoAlert.uls">
-<span class="sig-name descname"><span class="pre">uls</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://ampelproject.github.io/Ampel-interface/api.html#ampel.view.ReadOnlyDict.ReadOnlyDict" title="(in ampel-interface v0.8)"><span class="pre">ampel.view.ReadOnlyDict.ReadOnlyDict</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#ampel.alert.PhotoAlert.PhotoAlert.uls" title="Permalink to this definition">¶</a></dt>
-<dd><p>upper limits</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ampel.alert.PhotoAlert.PhotoAlert.name">
-<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#ampel.alert.PhotoAlert.PhotoAlert.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>transient name</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ampel.alert.PhotoAlert.PhotoAlert.get_values">
-<span class="sig-name descname"><span class="pre">get_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pps'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ampel/alert/PhotoAlert.html#PhotoAlert.get_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ampel.alert.PhotoAlert.PhotoAlert.get_values" title="Permalink to this definition">¶</a></dt>
-<dd><p>ex: get_values(“magpsf”)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ampel.alert.PhotoAlert.PhotoAlert.get_tuples">
-<span class="sig-name descname"><span class="pre">get_tuples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pps'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ampel/alert/PhotoAlert.html#PhotoAlert.get_tuples"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ampel.alert.PhotoAlert.PhotoAlert.get_tuples" title="Permalink to this definition">¶</a></dt>
-<dd><p>ex: get_tuples(“jd”, “magpsf”)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ampel.alert.PhotoAlert.PhotoAlert.get_ntuples">
-<span class="sig-name descname"><span class="pre">get_ntuples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pps'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ampel/alert/PhotoAlert.html#PhotoAlert.get_ntuples"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ampel.alert.PhotoAlert.PhotoAlert.get_ntuples" title="Permalink to this definition">¶</a></dt>
-<dd><p>ex: get_ntuples([“fid”, “jd”, “magpsf”])</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code></a>]</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
 <dl class="py class">
 <dt class="sig sig-object py" id="ampel.view.LightCurve.LightCurve">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ampel.view.LightCurve.</span></span><span class="sig-name descname"><span class="pre">LightCurve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compound_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stock_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">photopoints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upperlimits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ampel/view/LightCurve.html#LightCurve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ampel.view.LightCurve.LightCurve" title="Permalink to this definition">¶</a></dt>
@@ -577,7 +515,7 @@ no_none = False -&gt; (1, None) | no_none = True -&gt; None</p>
         <li class="right" >
           <a href="index.html" title="Ampel-photometry"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">ampel-photometry 0.8.1-alpha.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">ampel-photometry 0.8.1-alpha.2 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">API reference</a></li> 
       </ul>
     </div>
