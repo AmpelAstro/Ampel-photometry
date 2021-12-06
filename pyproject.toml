@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ampel-photometry"
-version = "0.8.1-alpha.2"
+version = "0.8.1-alpha.3"
 description = "Photometry add-on for the Ampel system"
 authors = ["Valery Brinnel"]
 license = "BSD-3-Clause"
@@ -26,7 +26,7 @@ Sphinx = {version = ">=3.5.1,<5.0.0", optional = true}
 sphinx-autodoc-typehints = {version = "^1.11.1", optional = true}
 tomlkit = {version = "^0.7.0"}
 ampel-interface = {version = "^0.8.1-alpha.11"}
-ampel-core = {version = "^0.8.1-alpha.9"}
+ampel-core = {version = "^0.8.1-alpha.10"}
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"

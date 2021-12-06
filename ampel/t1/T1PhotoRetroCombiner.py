@@ -7,7 +7,8 @@
 # Last Modified Date: 25.05.2021
 # Last Modified By  : vb <vbrinnel@physik.hu-berlin.de>
 
-from typing import Optional, List
+from typing import Generator
+from ampel.content.DataPoint import DataPoint
 from ampel.types import DataPointId
 from ampel.t1.T1SimpleRetroCombiner import T1SimpleRetroCombiner
 
@@ -27,10 +28,13 @@ class T1PhotoRetroCombiner(T1SimpleRetroCombiner):
 	]
 	"""
 
-	def _prev_det_seq(self, datapoints: List[DataPointId]) -> Optional[List[DataPointId]]:
-
-		for i in range(1, len(datapoints)):
-			if datapoints[-(i+1)] > 0:
-				return datapoints[:-i]
-
-		return None
+	def generate_retro_sequences(self, datapoints: list[DataPoint]) -> Generator[list[DataPointId], None, None]:
+		while datapoints:
+			yield [dp["id"] for dp in datapoints]
+			# trim the list at the next most recent detection (positive id)
+			for i in range(len(datapoints)-2, -1, -1):
+				if datapoints[i]["id"] > 0:
+					datapoints = datapoints[:i+1]
+					break
+			else:
+				break
