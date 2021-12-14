@@ -7,11 +7,11 @@
 # Last Modified Date: 19.04.2021
 # Last Modified By  : vb <vbrinnel@physik.hu-berlin.de>
 
-from ampel.abstract.AbsT3StageUnit import AbsT3StageUnit
+from ampel.abstract.AbsT3ReviewUnit import AbsT3ReviewUnit
 from ampel.view.TransientView import TransientView
 
 
-class AbsPhotoT3Unit(AbsT3StageUnit[TransientView], abstract=True):
+class AbsPhotoT3Unit(AbsT3ReviewUnit[TransientView], abstract=True):
 	"""
 	Parametrized abstract class for T3 units receiving TransientView instances
 	(and potentially LightCurve instances as well)
