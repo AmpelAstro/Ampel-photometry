@@ -9,13 +9,14 @@
 
 import operator
 from dataclasses import dataclass
-from typing import Sequence, Dict, Optional, List, Any, Tuple, Union, Callable, Iterable
+from typing import Optional, Any, Union
+from collections.abc import Callable, Sequence, Iterable
 from ampel.types import StockId
 from ampel.content.T1Document import T1Document
 from ampel.content.DataPoint import DataPoint
 
 # Do not enable operator customizations by sub-classes for now
-ops: Dict[str, Callable[[str, Any], bool]] = {
+ops: dict[str, Callable[[str, Any], bool]] = {
 	'>': operator.gt,
 	'<': operator.lt,
 	'>=': operator.ge,
@@ -57,9 +58,9 @@ class LightCurve:
 
 	def get_values(self,
 		key: str,
-		filters: Optional[Union[Dict[str, Any], Sequence[Dict[str, Any]]]] = None,
+		filters: Optional[Union[dict[str, Any], Sequence[dict[str, Any]]]] = None,
 		of_upper_limits: bool = False
-	) -> Optional[List[Any]]:
+	) -> Optional[list[Any]]:
 		"""
 		:param filters: filter criteria for data points, e.g. ``{'attribute': 'magpsf', 'operator': '<', 'value': 18}``
 		:param of_upper_limits: return upper limits instead of photo points
@@ -77,9 +78,9 @@ class LightCurve:
 
 	def get_tuples(self,
 		key1: str, key2: str,
-		filters: Optional[Union[Dict[str, Any], Sequence[Dict[str, Any]]]] = None,
+		filters: Optional[Union[dict[str, Any], Sequence[dict[str, Any]]]] = None,
 		of_upper_limits: bool = False
-	) -> Optional[List[Tuple[Any, Any]]]:
+	) -> Optional[list[tuple[Any, Any]]]:
 		"""
 		:param filters: filter criteria for datapoints
 		:param of_upper_limits: return upper limits instead of photo points
@@ -100,9 +101,9 @@ class LightCurve:
 
 	def get_ntuples(self,
 		params: Sequence[str],
-		filters: Optional[Union[Dict[str, Any], Sequence[Dict[str, Any]]]] = None,
+		filters: Optional[Union[dict[str, Any], Sequence[dict[str, Any]]]] = None,
 		of_upper_limits: bool = False
-	) -> Optional[List[Tuple]]:
+	) -> Optional[list[tuple]]:
 		"""
 		:param params: list of keys
 		:param filters: filter criteria for datapoints
@@ -124,7 +125,7 @@ class LightCurve:
 
 
 	def get_photopoints(self,
-		filters: Optional[Union[Dict[str, Any], Sequence[Dict[str, Any]]]] = None
+		filters: Optional[Union[dict[str, Any], Sequence[dict[str, Any]]]] = None
 	) -> Optional[Sequence[DataPoint]]:
 		"""Get (filtered) photo points"""
 		if filters and self.photopoints:
@@ -133,7 +134,7 @@ class LightCurve:
 
 
 	def get_upperlimits(self,
-		filters: Optional[Union[Dict[str, Any], Sequence[Dict[str, Any]]]] = None
+		filters: Optional[Union[dict[str, Any], Sequence[dict[str, Any]]]] = None
 	) -> Optional[Sequence[DataPoint]]:
 		"""Get (filtered) upper limits"""
 		if filters and self.upperlimits:
@@ -144,8 +145,8 @@ class LightCurve:
 	# TODO: improve
 	def get_pos(
 		self, ret: str = "brightest",
-		filters: Optional[Union[Dict[str, Any], Sequence[Dict[str, Any]]]] = None,
-	) -> Optional[Union[Tuple[Any, Any], Sequence[Tuple[Any, Any]]]]:
+		filters: Optional[Union[dict[str, Any], Sequence[dict[str, Any]]]] = None,
+	) -> Optional[Union[tuple[Any, Any], Sequence[tuple[Any, Any]]]]:
 		"""
 		Calculate the position of the underlying object.
 
@@ -204,7 +205,7 @@ class LightCurve:
 
 
 	def _get_datapoints(self,
-		filters: Optional[Union[Dict[str, Any], Sequence[Dict[str, Any]]]] = None,
+		filters: Optional[Union[dict[str, Any], Sequence[dict[str, Any]]]] = None,
 		of_upper_limits: bool = False
 	) -> Optional[Sequence[DataPoint]]:
 		"""	"""
@@ -221,7 +222,7 @@ class LightCurve:
 	@staticmethod
 	def _apply_filter(
 		datapoints: Sequence[DataPoint],
-		filters: Union[Dict[str, Any], Sequence[Dict[str, Any]]]
+		filters: Union[dict[str, Any], Sequence[dict[str, Any]]]
 	) -> Sequence[DataPoint]:
 		"""
 		:raises ValueError: if datapoints is None or in case of bad filter values

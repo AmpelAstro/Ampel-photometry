@@ -7,7 +7,8 @@
 # Last Modified Date: 30.05.2021
 # Last Modified By  : vb <vbrinnel@physik.hu-berlin.de>
 
-from typing import Iterable, Dict, Sequence, Union, Optional, Literal
+from typing import Union, Optional, Literal
+from collections.abc import Iterable, Sequence
 from ampel.types import UBson, T
 from ampel.struct.UnitResult import UnitResult
 from ampel.base.decorator import abstractmethod
@@ -31,7 +32,7 @@ class AbsTiedLightCurveT2Unit(AbsTiedCustomStateT2Unit[LightCurve, T], abstract=
 
 	@staticmethod
 	def get_link(
-		link_override: Dict[Literal['pps', 'uls'], Literal['first', 'middle', 'last']],
+		link_override: dict[Literal['pps', 'uls'], Literal['first', 'middle', 'last']],
 		light_curve: LightCurve
 	) -> Optional[Union[int, bytes]]:
 		"""

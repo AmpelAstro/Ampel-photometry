@@ -12,5 +12,5 @@ from ampel.abstract.AbsApplicable import AbsApplicable
 from ampel.content.DataPoint import DataPoint
 
 class PPSFilter(AbsApplicable):
-	def apply(self, arg: List[DataPoint]) -> List[DataPoint]:
+	def apply(self, arg: list[DataPoint]) -> list[DataPoint]:
 		return [el for el in arg if el['id'] > 0]

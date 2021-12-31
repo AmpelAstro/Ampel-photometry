@@ -7,7 +7,8 @@
 # Last Modified Date: 17.06.2021
 # Last Modified By  : vb <vbrinnel@physik.hu-berlin.de>
 
-from typing import Optional, Sequence
+from typing import Optional
+from collections.abc import Sequence
 from ampel.content.DataPoint import DataPoint
 from ampel.view.LightCurve import LightCurve
 from ampel.view.SnapView import SnapView
