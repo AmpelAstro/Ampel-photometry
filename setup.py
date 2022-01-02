@@ -11,7 +11,7 @@ from setuptools import setup, find_namespace_packages
 
 setup(
 	name='ampel-photometry',
-	version='0.8.2-alpha.3',
+	version='0.8.3-alpha.1',
 	packages=find_namespace_packages(),
 	package_data = {
 		'': ['py.typed'],
