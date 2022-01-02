@@ -35,14 +35,14 @@
   <h1>Source code for ampel.abstract.AbsTiedLightCurveT2Unit</h1><div class="highlight"><pre>
 <span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
-<span class="c1"># File              : Ampel-photometry/ampel/abstract/AbsTiedLightCurveT2Unit.py</span>
-<span class="c1"># License           : BSD-3-Clause</span>
-<span class="c1"># Author            : vb &lt;vbrinnel@physik.hu-berlin.de&gt;</span>
-<span class="c1"># Date              : 11.03.2020</span>
-<span class="c1"># Last Modified Date: 30.05.2021</span>
-<span class="c1"># Last Modified By  : vb &lt;vbrinnel@physik.hu-berlin.de&gt;</span>
+<span class="c1"># File:                Ampel-photometry/ampel/abstract/AbsTiedLightCurveT2Unit.py</span>
+<span class="c1"># License:             BSD-3-Clause</span>
+<span class="c1"># Author:              valery brinnel &lt;firstname.lastname@gmail.com&gt;</span>
+<span class="c1"># Date:                11.03.2020</span>
+<span class="c1"># Last Modified Date:  30.05.2021</span>
+<span class="c1"># Last Modified By:    valery brinnel &lt;firstname.lastname@gmail.com&gt;</span>
 
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Literal</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Literal</span>
 <span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Sequence</span>
 <span class="kn">from</span> <span class="nn">ampel.types</span> <span class="kn">import</span> <span class="n">UBson</span><span class="p">,</span> <span class="n">T</span>
 <span class="kn">from</span> <span class="nn">ampel.struct.UnitResult</span> <span class="kn">import</span> <span class="n">UnitResult</span>
@@ -58,7 +58,7 @@
 
 
 <div class="viewcode-block" id="AbsTiedLightCurveT2Unit.process"><a class="viewcode-back" href="../../../api.html#ampel.abstract.AbsTiedLightCurveT2Unit.AbsTiedLightCurveT2Unit.process">[docs]</a>	<span class="nd">@abstractmethod</span>
-	<span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">light_curve</span><span class="p">:</span> <span class="n">LightCurve</span><span class="p">,</span> <span class="n">t2_views</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">T2DocView</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">UBson</span><span class="p">,</span> <span class="n">UnitResult</span><span class="p">]:</span>
+	<span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">light_curve</span><span class="p">:</span> <span class="n">LightCurve</span><span class="p">,</span> <span class="n">t2_views</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">T2DocView</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">UBson</span> <span class="o">|</span> <span class="n">UnitResult</span><span class="p">:</span>
 		<span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">		Returned object should contain computed science results to be saved into the DB.</span>
 <span class="sd">		Notes: dict must have only string keys and values must be bson encodable</span>
@@ -69,7 +69,7 @@
 	<span class="k">def</span> <span class="nf">get_link</span><span class="p">(</span>
 		<span class="n">link_override</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;pps&#39;</span><span class="p">,</span> <span class="s1">&#39;uls&#39;</span><span class="p">],</span> <span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">,</span> <span class="s1">&#39;middle&#39;</span><span class="p">,</span> <span class="s1">&#39;last&#39;</span><span class="p">]],</span>
 		<span class="n">light_curve</span><span class="p">:</span> <span class="n">LightCurve</span>
-	<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">]]:</span>
+	<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">bytes</span><span class="p">:</span>
 		<span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">		Method used by T2Processor.</span>
 <span class="sd">		:param link_override: value associated with key &#39;link_override&#39; of `T2Dependency &lt;ampel.struct.T2Dependency.T2Dependency&gt;`</span>

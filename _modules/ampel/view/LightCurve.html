@@ -35,18 +35,18 @@
   <h1>Source code for ampel.view.LightCurve</h1><div class="highlight"><pre>
 <span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
-<span class="c1"># File              : Ampel-photometry/ampel/view/LightCurve.py</span>
-<span class="c1"># License           : BSD-3-Clause</span>
-<span class="c1"># Author            : vb &lt;vbrinnel@physik.hu-berlin.de&gt;</span>
-<span class="c1"># Date              : 13.01.2018</span>
-<span class="c1"># Last Modified Date: 13.06.2021</span>
-<span class="c1"># Last Modified By  : vb &lt;vbrinnel@physik.hu-berlin.de&gt;</span>
+<span class="c1"># File:                Ampel-photometry/ampel/view/LightCurve.py</span>
+<span class="c1"># License:             BSD-3-Clause</span>
+<span class="c1"># Author:              valery brinnel &lt;firstname.lastname@gmail.com&gt;</span>
+<span class="c1"># Date:                13.01.2018</span>
+<span class="c1"># Last Modified Date:  13.06.2021</span>
+<span class="c1"># Last Modified By:    valery brinnel &lt;firstname.lastname@gmail.com&gt;</span>
 
 <span class="kn">import</span> <span class="nn">operator</span>
 <span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Union</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
 <span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Iterable</span>
-<span class="kn">from</span> <span class="nn">ampel.types</span> <span class="kn">import</span> <span class="n">StockId</span>
+<span class="kn">from</span> <span class="nn">ampel.types</span> <span class="kn">import</span> <span class="n">JDict</span><span class="p">,</span> <span class="n">OneOrMany</span><span class="p">,</span> <span class="n">StockId</span>
 <span class="kn">from</span> <span class="nn">ampel.content.T1Document</span> <span class="kn">import</span> <span class="n">T1Document</span>
 <span class="kn">from</span> <span class="nn">ampel.content.DataPoint</span> <span class="kn">import</span> <span class="n">DataPoint</span>
 
@@ -71,9 +71,9 @@
 <span class="sd">	&quot;&quot;&quot;</span>
 
 	<span class="n">compound_id</span><span class="p">:</span> <span class="nb">int</span>
-	<span class="n">stock_id</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">StockId</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">StockId</span><span class="p">]]</span>
-	<span class="n">photopoints</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="n">DataPoint</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
-	<span class="n">upperlimits</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="n">DataPoint</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+	<span class="n">stock_id</span><span class="p">:</span> <span class="n">StockId</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">StockId</span><span class="p">]</span>
+	<span class="n">photopoints</span><span class="p">:</span> <span class="kc">None</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">DataPoint</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+	<span class="n">upperlimits</span><span class="p">:</span> <span class="kc">None</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">DataPoint</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
 
 	<span class="nd">@classmethod</span>
@@ -93,9 +93,9 @@
 
 <div class="viewcode-block" id="LightCurve.get_values"><a class="viewcode-back" href="../../../api.html#ampel.view.LightCurve.LightCurve.get_values">[docs]</a>	<span class="k">def</span> <span class="nf">get_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
 		<span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-		<span class="n">filters</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+		<span class="n">filters</span><span class="p">:</span> <span class="kc">None</span> <span class="o">|</span> <span class="n">OneOrMany</span><span class="p">[</span><span class="n">JDict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 		<span class="n">of_upper_limits</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
-	<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">Any</span><span class="p">]]:</span>
+	<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
 		<span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">		:param filters: filter criteria for data points, e.g. ``{&#39;attribute&#39;: &#39;magpsf&#39;, &#39;operator&#39;: &#39;&lt;&#39;, &#39;value&#39;: 18}``</span>
 <span class="sd">		:param of_upper_limits: return upper limits instead of photo points</span>
@@ -113,9 +113,9 @@
 
 <div class="viewcode-block" id="LightCurve.get_tuples"><a class="viewcode-back" href="../../../api.html#ampel.view.LightCurve.LightCurve.get_tuples">[docs]</a>	<span class="k">def</span> <span class="nf">get_tuples</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
 		<span class="n">key1</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">key2</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-		<span class="n">filters</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+		<span class="n">filters</span><span class="p">:</span> <span class="kc">None</span> <span class="o">|</span> <span class="n">OneOrMany</span><span class="p">[</span><span class="n">JDict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 		<span class="n">of_upper_limits</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
-	<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]:</span>
+	<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="n">Any</span> <span class="o">|</span> <span class="n">Any</span><span class="p">]]:</span>
 		<span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">		:param filters: filter criteria for datapoints</span>
 <span class="sd">		:param of_upper_limits: return upper limits instead of photo points</span>
@@ -136,9 +136,9 @@
 
 <div class="viewcode-block" id="LightCurve.get_ntuples"><a class="viewcode-back" href="../../../api.html#ampel.view.LightCurve.LightCurve.get_ntuples">[docs]</a>	<span class="k">def</span> <span class="nf">get_ntuples</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
 		<span class="n">params</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
-		<span class="n">filters</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+		<span class="n">filters</span><span class="p">:</span> <span class="kc">None</span> <span class="o">|</span> <span class="n">OneOrMany</span><span class="p">[</span><span class="n">JDict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 		<span class="n">of_upper_limits</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
-	<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">]]:</span>
+	<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">]:</span>
 		<span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">		:param params: list of keys</span>
 <span class="sd">		:param filters: filter criteria for datapoints</span>
@@ -160,8 +160,8 @@
 
 
 <div class="viewcode-block" id="LightCurve.get_photopoints"><a class="viewcode-back" href="../../../api.html#ampel.view.LightCurve.LightCurve.get_photopoints">[docs]</a>	<span class="k">def</span> <span class="nf">get_photopoints</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-		<span class="n">filters</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]]</span> <span class="o">=</span> <span class="kc">None</span>
-	<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="n">DataPoint</span><span class="p">]]:</span>
+		<span class="n">filters</span><span class="p">:</span> <span class="kc">None</span> <span class="o">|</span> <span class="n">OneOrMany</span><span class="p">[</span><span class="n">JDict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+	<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">DataPoint</span><span class="p">]:</span>
 		<span class="sd">&quot;&quot;&quot;Get (filtered) photo points&quot;&quot;&quot;</span>
 		<span class="k">if</span> <span class="n">filters</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">photopoints</span><span class="p">:</span>
 			<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_apply_filter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">photopoints</span><span class="p">,</span> <span class="n">filters</span><span class="p">)</span>
@@ -169,8 +169,8 @@
 
 
 <div class="viewcode-block" id="LightCurve.get_upperlimits"><a class="viewcode-back" href="../../../api.html#ampel.view.LightCurve.LightCurve.get_upperlimits">[docs]</a>	<span class="k">def</span> <span class="nf">get_upperlimits</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-		<span class="n">filters</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]]</span> <span class="o">=</span> <span class="kc">None</span>
-	<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="n">DataPoint</span><span class="p">]]:</span>
+		<span class="n">filters</span><span class="p">:</span> <span class="kc">None</span> <span class="o">|</span> <span class="n">OneOrMany</span><span class="p">[</span><span class="n">JDict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+	<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">DataPoint</span><span class="p">]:</span>
 		<span class="sd">&quot;&quot;&quot;Get (filtered) upper limits&quot;&quot;&quot;</span>
 		<span class="k">if</span> <span class="n">filters</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">upperlimits</span><span class="p">:</span>
 			<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_apply_filter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">upperlimits</span><span class="p">,</span> <span class="n">filters</span><span class="p">)</span>
@@ -180,8 +180,8 @@
 	<span class="c1"># TODO: improve</span>
 <div class="viewcode-block" id="LightCurve.get_pos"><a class="viewcode-back" href="../../../api.html#ampel.view.LightCurve.LightCurve.get_pos">[docs]</a>	<span class="k">def</span> <span class="nf">get_pos</span><span class="p">(</span>
 		<span class="bp">self</span><span class="p">,</span> <span class="n">ret</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;brightest&quot;</span><span class="p">,</span>
-		<span class="n">filters</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-	<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]]:</span>
+		<span class="n">filters</span><span class="p">:</span> <span class="kc">None</span> <span class="o">|</span> <span class="n">OneOrMany</span><span class="p">[</span><span class="n">JDict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+	<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
 		<span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">		Calculate the position of the underlying object.</span>
 
@@ -240,9 +240,9 @@
 
 
 	<span class="k">def</span> <span class="nf">_get_datapoints</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-		<span class="n">filters</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+		<span class="n">filters</span><span class="p">:</span> <span class="kc">None</span> <span class="o">|</span> <span class="n">OneOrMany</span><span class="p">[</span><span class="n">JDict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 		<span class="n">of_upper_limits</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
-	<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="n">DataPoint</span><span class="p">]]:</span>
+	<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="o">|</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">DataPoint</span><span class="p">]:</span>
 		<span class="sd">&quot;&quot;&quot;	&quot;&quot;&quot;</span>
 
 		<span class="k">if</span> <span class="n">filters</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -257,7 +257,7 @@
 	<span class="nd">@staticmethod</span>
 	<span class="k">def</span> <span class="nf">_apply_filter</span><span class="p">(</span>
 		<span class="n">datapoints</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">DataPoint</span><span class="p">],</span>
-		<span class="n">filters</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]</span>
+		<span class="n">filters</span><span class="p">:</span> <span class="kc">None</span> <span class="o">|</span> <span class="n">OneOrMany</span><span class="p">[</span><span class="n">JDict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 	<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">DataPoint</span><span class="p">]:</span>
 		<span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">		:raises ValueError: if datapoints is None or in case of bad filter values</span>
