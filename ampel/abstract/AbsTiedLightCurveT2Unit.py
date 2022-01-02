@@ -7,7 +7,7 @@
 # Last Modified Date:  30.05.2021
 # Last Modified By:    valery brinnel <firstname.lastname@gmail.com>
 
-from typing import Union, Optional, Literal
+from typing import Literal
 from collections.abc import Iterable, Sequence
 from ampel.types import UBson, T
 from ampel.struct.UnitResult import UnitResult
@@ -23,7 +23,7 @@ class AbsTiedLightCurveT2Unit(AbsTiedCustomStateT2Unit[LightCurve, T], abstract=
 
 
 	@abstractmethod
-	def process(self, light_curve: LightCurve, t2_views: Sequence[T2DocView]) -> Union[UBson, UnitResult]:
+	def process(self, light_curve: LightCurve, t2_views: Sequence[T2DocView]) -> UBson | UnitResult:
 		"""
 		Returned object should contain computed science results to be saved into the DB.
 		Notes: dict must have only string keys and values must be bson encodable
@@ -34,7 +34,7 @@ class AbsTiedLightCurveT2Unit(AbsTiedCustomStateT2Unit[LightCurve, T], abstract=
 	def get_link(
 		link_override: dict[Literal['pps', 'uls'], Literal['first', 'middle', 'last']],
 		light_curve: LightCurve
-	) -> Optional[Union[int, bytes]]:
+	) -> None | int | bytes:
 		"""
 		Method used by T2Processor.
 		:param link_override: value associated with key 'link_override' of `T2Dependency <ampel.struct.T2Dependency.T2Dependency>`

@@ -8,7 +8,7 @@
 # Last Modified By:    valery brinnel <firstname.lastname@gmail.com>
 
 from time import time
-from typing import Union, ClassVar
+from typing import ClassVar
 from ampel.types import UBson
 from ampel.struct.UnitResult import UnitResult
 from ampel.content.DataPoint import DataPoint
@@ -22,5 +22,5 @@ class DemoEvery4PhotoPointT2Unit(AbsPointT2Unit):
 		filter='PPSFilter', sort='jd', select=[2, None, 4]
 	)
 
-	def process(self, datapoint: DataPoint) -> Union[UBson, UnitResult]:
+	def process(self, datapoint: DataPoint) -> UBson | UnitResult:
 		return {"id": datapoint['id'], "time": time()}

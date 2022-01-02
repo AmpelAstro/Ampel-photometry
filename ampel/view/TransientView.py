@@ -7,7 +7,6 @@
 # Last Modified Date:  17.06.2021
 # Last Modified By:    valery brinnel <firstname.lastname@gmail.com>
 
-from typing import Optional
 from collections.abc import Sequence
 from ampel.content.DataPoint import DataPoint
 from ampel.view.LightCurve import LightCurve
@@ -18,13 +17,13 @@ class TransientView(SnapView):
 
 	__slots__ = "lightcurve",
 
-	lightcurve: Optional[Sequence[LightCurve]]
+	lightcurve: None | Sequence[LightCurve]
 
 	def __init__(self, *args, **kwargs) -> None:
 		super().__init__(*args, **kwargs)
 
 		if self.t0 and self.t1:
-			lightcurve: Optional[Sequence[LightCurve]] = tuple(
+			lightcurve: None | Sequence[LightCurve] = tuple(
 				LightCurve.build(comp, tuple(el for el in self.t0 if el['id'] in comp['dps']))
 				for comp in self.t1
 			)
@@ -33,7 +32,7 @@ class TransientView(SnapView):
 		object.__setattr__(self, "lightcurve", lightcurve)
 
 
-	def get_photopoints(self) -> Optional[Sequence[DataPoint]]:
+	def get_photopoints(self) -> None | Sequence[DataPoint]:
 
 		if not self.t0:
 			return None
@@ -42,7 +41,7 @@ class TransientView(SnapView):
 		return [dp for dp in self.t0 if dp['id'] > 0]
 
 
-	def get_upperlimits(self) -> Optional[Sequence[DataPoint]]:
+	def get_upperlimits(self) -> None | Sequence[DataPoint]:
 
 		if not self.t0:
 			return None
@@ -51,5 +50,5 @@ class TransientView(SnapView):
 		return [dp for dp in self.t0 if dp['id'] < 0]
 
 
-	def get_lightcurves(self) -> Optional[Sequence[LightCurve]]:
+	def get_lightcurves(self) -> None | Sequence[LightCurve]:
 		return self.lightcurve

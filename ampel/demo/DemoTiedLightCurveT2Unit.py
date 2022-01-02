@@ -21,7 +21,7 @@ class DemoTiedLightCurveT2Unit(AbsTiedLightCurveT2Unit):
 
 	test_parameter: int = 0
 
-	def process(self, lightcurve: LightCurve, t2_views: Sequence[T2DocView]) -> Union[UBson, UnitResult]:
+	def process(self, lightcurve: LightCurve, t2_views: Sequence[T2DocView]) -> UBson | UnitResult:
 		return {
 			"jds": lightcurve.get_values("jd"),
 			"time": time(),

@@ -19,7 +19,7 @@ class DemoLightCurveT2Unit(AbsLightCurveT2Unit):
 
 	test_parameter: int = 0
 
-	def process(self, lightcurve: LightCurve) -> Union[UBson, UnitResult]:
+	def process(self, lightcurve: LightCurve) -> UBson | UnitResult:
 		return {
 			"id": lightcurve.get_values("jd"),
 			"time": time(),
