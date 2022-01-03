@@ -1536,6 +1536,8 @@ xxhash = [
     {file = "xxhash-2.0.2-cp27-cp27mu-manylinux1_x86_64.whl", hash = "sha256:227f7f40ebc2cd84a7136b9310d676f3896a6f40982e4cfd3c300c64adce3e14"},
     {file = "xxhash-2.0.2-cp27-cp27mu-manylinux2010_i686.whl", hash = "sha256:be3e1910eee343b7b820726f94664dce22b4f89c12fc5f819a5fbc01508cc967"},
     {file = "xxhash-2.0.2-cp27-cp27mu-manylinux2010_x86_64.whl", hash = "sha256:2298b9dbb034145f9e9a14e6265aff2b6a31eaf833d9d76b16f4aced24ff6099"},
+    {file = "xxhash-2.0.2-cp310-cp310-win32.whl", hash = "sha256:7e1540906c4991794627c4c7ab2b3db126178e44fb5a661ffcb6a24bd826529a"},
+    {file = "xxhash-2.0.2-cp310-cp310-win_amd64.whl", hash = "sha256:c972196226dc7c2dbe4e09f473f444948dda7999345a164f43ad9b3121db7d34"},
     {file = "xxhash-2.0.2-cp35-cp35m-macosx_10_9_x86_64.whl", hash = "sha256:653ad179ae6b3572a7350f96c15692393ac562791a50487ca237116ee53e1d8f"},
     {file = "xxhash-2.0.2-cp35-cp35m-manylinux1_i686.whl", hash = "sha256:c626ae46448bfb8892a8033dbe5a4791817bc638dd6f48d4c3145f1db5149595"},
     {file = "xxhash-2.0.2-cp35-cp35m-manylinux1_x86_64.whl", hash = "sha256:9287075f2241c2284e5c5510c25715534adafec8fc232a5592a744a33d802eee"},
@@ -1588,6 +1590,8 @@ xxhash = [
     {file = "xxhash-2.0.2-pp37-pypy37_pp73-manylinux1_x86_64.whl", hash = "sha256:e81678120f294129700505dce3caf6a476a47ad4700bca85ef050201c7d16ba5"},
     {file = "xxhash-2.0.2-pp37-pypy37_pp73-manylinux2010_x86_64.whl", hash = "sha256:0d9639887ab3571fdad9b86ec1b35bcca89fbb7a683937ac2759fa83327abeb6"},
     {file = "xxhash-2.0.2-pp37-pypy37_pp73-win32.whl", hash = "sha256:b604af9eda27972d6c397ce44ba42324a696a1304342d65d584888a778369ef6"},
+    {file = "xxhash-2.0.2-pp37-pypy37_pp73-win_amd64.whl", hash = "sha256:fbc47553eed9bad75c5049a16071f44095ebc40de416148005306948fb2adec1"},
+    {file = "xxhash-2.0.2-pp38-pypy38_pp73-win_amd64.whl", hash = "sha256:ba94e48a9cc1fe90dfa24154cfe2bb0e6162e68ac9c8107980131bb57d8ba3cc"},
     {file = "xxhash-2.0.2.tar.gz", hash = "sha256:6d041553a13628b60376429b562ff64224e16807d65ade9a34e2e7750a2d1891"},
 ]
 yarl = [
