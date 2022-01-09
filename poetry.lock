@@ -39,14 +39,14 @@ python-versions = "*"
 
 [[package]]
 name = "ampel-core"
-version = "0.8.3a5"
+version = "0.8.3a6"
 description = "Asynchronous and Modular Platform with Execution Layers"
 category = "main"
 optional = false
 python-versions = ">=3.10,<3.11"
 
 [package.dependencies]
-ampel-interface = ">=0.8.3-alpha.6,<0.9.0"
+ampel-interface = ">=0.8.3-alpha.8,<0.9.0"
 prometheus-client = ">=0.10,<0.12"
 psutil = ">=5.8.0,<6.0.0"
 pymongo = ">=4.0,<5.0"
@@ -61,7 +61,7 @@ docs = ["Sphinx (>=3.5.1,<5.0.0)", "sphinx-press-theme (>=0.5.1,<0.9.0)", "sphin
 
 [[package]]
 name = "ampel-interface"
-version = "0.8.3a7"
+version = "0.8.3a8"
 description = "Base classes for the Ampel analysis platform"
 category = "main"
 optional = false
@@ -753,7 +753,7 @@ docs = ["Sphinx", "sphinx-autodoc-typehints", "tomlkit"]
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.10,<3.11"
-content-hash = "d4350b99f6cc438ce29506e4d7477dddcd610cdbd262ef018d06fd465cb937e5"
+content-hash = "0eccc5df79077d6102fd625004f1e4f4fdf94936f4d3ac8bbb1b29ef24e16462"
 
 [metadata.files]
 aiohttp = [
@@ -839,12 +839,12 @@ alabaster = [
     {file = "alabaster-0.7.12.tar.gz", hash = "sha256:a661d72d58e6ea8a57f7a86e37d86716863ee5e92788398526d58b26a4e4dc02"},
 ]
 ampel-core = [
-    {file = "ampel-core-0.8.3a5.tar.gz", hash = "sha256:83023c1c3a5c5acd8ccde24e21c9491167f2593d07b0ac2300be1a633b64172a"},
-    {file = "ampel_core-0.8.3a5-py3-none-any.whl", hash = "sha256:e3b83cf677ef28d84ef3e5cc182a7d7cd713e6a32186a8cf74c160a63ac215f6"},
+    {file = "ampel-core-0.8.3a6.tar.gz", hash = "sha256:114417aef6288292aed87a235aac1f26e40bceace562e1f5dc6f9f3be2de5b60"},
+    {file = "ampel_core-0.8.3a6-py3-none-any.whl", hash = "sha256:73f30fa2b2572022ddbc599d579952a6fd3f8bf7bea3bbff7db04e1ae74535be"},
 ]
 ampel-interface = [
-    {file = "ampel-interface-0.8.3a7.tar.gz", hash = "sha256:a5be2e8fa11d6ce2ac50294a21ac5913fb8c4780052613a4c4067ff65e01db0c"},
-    {file = "ampel_interface-0.8.3a7-py3-none-any.whl", hash = "sha256:7f29c3fed5c7197b197fba823c5f6d77c7ac096d81a4796d45929e37e582ef51"},
+    {file = "ampel-interface-0.8.3a8.tar.gz", hash = "sha256:c4948b5a8a4609435839b8f4d2f02ad0276a9f96e987e485bd0644bfd816d4d1"},
+    {file = "ampel_interface-0.8.3a8-py3-none-any.whl", hash = "sha256:f637d1bcea14fbdb61f84a909cf81a96f86d636664d93c449d3e693e63201bea"},
 ]
 argcomplete = [
     {file = "argcomplete-1.12.3-py2.py3-none-any.whl", hash = "sha256:291f0beca7fd49ce285d2f10e4c1c77e9460cf823eef2de54df0c0fec88b0d81"},
@@ -1219,6 +1219,11 @@ psutil = [
     {file = "psutil-5.9.0-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:742c34fff804f34f62659279ed5c5b723bb0195e9d7bd9907591de9f8f6558e2"},
     {file = "psutil-5.9.0-cp310-cp310-win32.whl", hash = "sha256:8293942e4ce0c5689821f65ce6522ce4786d02af57f13c0195b40e1edb1db61d"},
     {file = "psutil-5.9.0-cp310-cp310-win_amd64.whl", hash = "sha256:9b51917c1af3fa35a3f2dabd7ba96a2a4f19df3dec911da73875e1edaf22a40b"},
+    {file = "psutil-5.9.0-cp36-cp36m-macosx_10_9_x86_64.whl", hash = "sha256:e9805fed4f2a81de98ae5fe38b75a74c6e6ad2df8a5c479594c7629a1fe35f56"},
+    {file = "psutil-5.9.0-cp36-cp36m-manylinux_2_12_i686.manylinux2010_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:c51f1af02334e4b516ec221ee26b8fdf105032418ca5a5ab9737e8c87dafe203"},
+    {file = "psutil-5.9.0-cp36-cp36m-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:32acf55cb9a8cbfb29167cd005951df81b567099295291bcfd1027365b36591d"},
+    {file = "psutil-5.9.0-cp36-cp36m-win32.whl", hash = "sha256:e5c783d0b1ad6ca8a5d3e7b680468c9c926b804be83a3a8e95141b05c39c9f64"},
+    {file = "psutil-5.9.0-cp36-cp36m-win_amd64.whl", hash = "sha256:d62a2796e08dd024b8179bd441cb714e0f81226c352c802fca0fd3f89eeacd94"},
     {file = "psutil-5.9.0-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:3d00a664e31921009a84367266b35ba0aac04a2a6cad09c550a89041034d19a0"},
     {file = "psutil-5.9.0-cp37-cp37m-manylinux_2_12_i686.manylinux2010_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:7779be4025c540d1d65a2de3f30caeacc49ae7a2152108adeaf42c7534a115ce"},
     {file = "psutil-5.9.0-cp37-cp37m-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:072664401ae6e7c1bfb878c65d7282d4b4391f1bc9a56d5e03b5a490403271b5"},
