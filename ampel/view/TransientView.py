@@ -9,6 +9,7 @@
 
 from typing import TYPE_CHECKING, Any
 from ampel.view.SnapView import SnapView
+from ampel.view.LightCurve import LightCurve
 
 if TYPE_CHECKING:
 	from ampel.types import StockId
@@ -16,7 +17,6 @@ if TYPE_CHECKING:
 	from ampel.content.LogDocument import LogDocument
 	from ampel.content.T1Document import T1Document
 	from ampel.types import OneOrMany
-	from ampel.view.LightCurve import LightCurve
 	from collections.abc import Sequence
 	from ampel.view.T2DocView import T2DocView
 	from ampel.content.DataPoint import DataPoint
