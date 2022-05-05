@@ -4,10 +4,10 @@
 # License           : BSD-3-Clause
 # Author            : Marcus Fenner <mf@physik.hu-berlin.de>
 # Date              : 08.08.2021
-# Last Modified Date: 17.03.2022
+# Last Modified Date: 05.05.2022
 # Last Modified By  : Marcus Fenner <mf@physik.hu-berlin.de>
 
-from typing import Any, ClassVar, Dict, List, Optional, Sequence, Union
+from typing import Any, ClassVar, Dict, List, Optional, Sequence, Union, Tuple
 
 from ampel.base.AmpelABC import AmpelABC
 from ampel.base.AuxUnitRegister import AuxUnitRegister
@@ -77,3 +77,33 @@ class AbsTabulatedT2Unit(AmpelABC, LogicalUnit, abstract=True):
             for tab in self._tab_engines
             for name in tab.get_stock_name(dps)
         ]
+
+    def get_positions(
+        self, dps: List[DataPoint]
+    ) -> List[Tuple[float, float, float]]:
+        """
+        Get a tuple (time, ra, dec)
+        """
+        return [
+            pos for tab in self._tab_engines for pos in tab.get_positions(dps)
+        ]
+
+    def get_pos(
+        self, dps: List[DataPoint], which: str = "mean"
+    ) -> Tuple[float, float]:
+        positions = self.get_positions(dps)
+        print(positions)
+
+        if which == "mean":
+            import numpy as np
+
+            return (
+                np.mean(list(zip(*positions))[1]),
+                np.mean(list(zip(*positions))[2]),
+            )
+        elif which == "last":
+            return sorted(positions, key=lambda x: x[0])[-1][1:3]
+        elif which == "first":
+            return sorted(positions, key=lambda x: x[0])[0][1:3]
+        else:
+            raise NotImplementedError
