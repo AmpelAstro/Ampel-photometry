@@ -192,10 +192,12 @@ class LightCurve:
 			return (sum(ras) / len(ras), sum(decs) / len(decs))
 
 		if ret == "brightest":
+            mags = list(pps)
 			mags.sort(key=lambda x: x['body'].get('magpsf', 99))
 			return (mags[0]['body']['ra'], mags[0]['body']['dec'])
 
 		if ret == "latest":
+            mags = list(pps)
 			mags.sort(key=lambda x: x['body']['obs_date'])
 			return (mags[-1]['body']['ra'], mags[-1]['body']['dec'])
 
