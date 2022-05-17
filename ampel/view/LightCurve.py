@@ -4,8 +4,8 @@
 # License:             BSD-3-Clause
 # Author:              valery brinnel <firstname.lastname@gmail.com>
 # Date:                13.01.2018
-# Last Modified Date:  13.06.2021
-# Last Modified By:    valery brinnel <firstname.lastname@gmail.com>
+# Last Modified Date:  17.05.2022
+# Last Modified By:    Simeon Reusch <simeon.reusch@desy.de>
 
 import operator
 from dataclasses import dataclass
@@ -192,12 +192,10 @@ class LightCurve:
 			return (sum(ras) / len(ras), sum(decs) / len(decs))
 
 		if ret == "brightest":
-			mags = list(pps)
-			mags.sort(key=lambda x: x['body']['magpsf'])
-			return (mags[-1]['body']['ra'], mags[-1]['body']['dec'])
+			mags.sort(key=lambda x: x['body'].get('magpsf', 99))
+			return (mags[0]['body']['ra'], mags[0]['body']['dec'])
 
 		if ret == "latest":
-			mags = list(pps)
 			mags.sort(key=lambda x: x['body']['obs_date'])
 			return (mags[-1]['body']['ra'], mags[-1]['body']['dec'])
 
