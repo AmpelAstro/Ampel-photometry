@@ -174,8 +174,8 @@ class LightCurve:
 
 		"""
 
-		if ret == "raw":
-			return self.get_tuples("ra", "dec", filters=filters)
+		if ret == 'raw':
+			return self.get_tuples('ra', 'dec', filters=filters)
 
 		if not self.photopoints:
 			return None
@@ -186,29 +186,26 @@ class LightCurve:
 		if not pps:
 			return None
 
-		if ret == "mean":
-			ras = [pp['body']["ra"] for pp in pps]
-			decs = [pp['body']["dec"] for pp in pps]
+		if ret == 'mean':
+			ras = [pp['body']['ra'] for pp in pps]
+			decs = [pp['body']['dec'] for pp in pps]
 			return (sum(ras) / len(ras), sum(decs) / len(decs))
 
-		if ret == "brightest":
-            mags = list(pps)
-			mags.sort(key=lambda x: x['body'].get('magpsf', 99))
-			return (mags[0]['body']['ra'], mags[0]['body']['dec'])
+		if ret == 'brightest':
+			mags = sorted(pps, key=lambda x: x['body'].get('magpsf', 99))
+			return mags[0]['body']['ra'], mags[0]['body']['dec']
 
-		if ret == "latest":
-            mags = list(pps)
-			mags.sort(key=lambda x: x['body']['obs_date'])
-			return (mags[-1]['body']['ra'], mags[-1]['body']['dec'])
+		if ret == 'latest':
+			mags = sorted(pps, key=lambda x: x['body']['obs_date'])
+			return mags[-1]['body']['ra'], mags[-1]['body']['dec']
 
-		raise NotImplementedError("ret method: %s is not implemented" % ret)
+		raise NotImplementedError(f'ret method: {ret} is not implemented')
 
 
 	def _get_datapoints(self,
 		filters: None | OneOrMany[JDict] = None,
 		of_upper_limits: bool = False
 	) -> None | Sequence[DataPoint]:
-		"""	"""
 
 		if filters is None:
 			if of_upper_limits:
