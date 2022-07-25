@@ -63,7 +63,7 @@ docs = ["Sphinx (>=3.5.1,<5.0.0)", "sphinx-press-theme (>=0.5.1,<0.9.0)", "sphin
 
 [[package]]
 name = "ampel-interface"
-version = "0.8.3a13"
+version = "0.8.3a14"
 description = "Base classes for the Ampel analysis platform"
 category = "main"
 optional = false
@@ -100,7 +100,7 @@ optional = false
 python-versions = ">=3.6"
 
 [package.extras]
-test = ["coverage", "flake8", "pexpect", "wheel"]
+test = ["wheel", "pexpect", "flake8", "coverage"]
 
 [[package]]
 name = "async-timeout"
@@ -329,8 +329,8 @@ optional = false
 python-versions = ">=3.6"
 
 [package.extras]
-dev = ["pre-commit", "tox"]
-testing = ["pytest", "pytest-benchmark"]
+testing = ["pytest-benchmark", "pytest"]
+dev = ["tox", "pre-commit"]
 
 [[package]]
 name = "prometheus-client"
@@ -465,7 +465,7 @@ coverage = {version = ">=5.2.1", extras = ["toml"]}
 pytest = ">=4.6"
 
 [package.extras]
-testing = ["fields", "hunter", "process-tests", "six", "pytest-xdist", "virtualenv"]
+testing = ["virtualenv", "pytest-xdist", "six", "process-tests", "hunter", "fields"]
 
 [[package]]
 name = "pytz"
@@ -597,8 +597,8 @@ optional = true
 python-versions = ">=3.5"
 
 [package.extras]
-lint = ["flake8", "mypy", "docutils-stubs"]
 test = ["pytest"]
+lint = ["docutils-stubs", "mypy", "flake8"]
 
 [[package]]
 name = "sphinxcontrib-devhelp"
@@ -609,8 +609,8 @@ optional = true
 python-versions = ">=3.5"
 
 [package.extras]
-lint = ["flake8", "mypy", "docutils-stubs"]
 test = ["pytest"]
+lint = ["docutils-stubs", "mypy", "flake8"]
 
 [[package]]
 name = "sphinxcontrib-htmlhelp"
@@ -621,8 +621,8 @@ optional = true
 python-versions = ">=3.6"
 
 [package.extras]
-lint = ["flake8", "mypy", "docutils-stubs"]
-test = ["pytest", "html5lib"]
+test = ["html5lib", "pytest"]
+lint = ["docutils-stubs", "mypy", "flake8"]
 
 [[package]]
 name = "sphinxcontrib-jsmath"
@@ -633,7 +633,7 @@ optional = true
 python-versions = ">=3.5"
 
 [package.extras]
-test = ["pytest", "flake8", "mypy"]
+test = ["mypy", "flake8", "pytest"]
 
 [[package]]
 name = "sphinxcontrib-qthelp"
@@ -644,8 +644,8 @@ optional = true
 python-versions = ">=3.5"
 
 [package.extras]
-lint = ["flake8", "mypy", "docutils-stubs"]
 test = ["pytest"]
+lint = ["docutils-stubs", "mypy", "flake8"]
 
 [[package]]
 name = "sphinxcontrib-serializinghtml"
@@ -768,7 +768,7 @@ docs = ["Sphinx", "sphinx-autodoc-typehints", "tomlkit"]
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.10,<3.11"
-content-hash = "22a4fb7d378f801f9a7d3e88c77d33e58058bde394fc7f35bbd9a533b435b662"
+content-hash = "a15839bade1cfc9cf1efaaefa0933164f599d256d09d98daf95802ffda61ca52"
 
 [metadata.files]
 aiohttp = [
@@ -858,8 +858,8 @@ ampel-core = [
     {file = "ampel_core-0.8.3a18-py3-none-any.whl", hash = "sha256:b7d0d0dd5753f385f4b401b5a91dbd652261219db500d86cf15d159ede80fe03"},
 ]
 ampel-interface = [
-    {file = "ampel-interface-0.8.3a13.tar.gz", hash = "sha256:35a8454015c52e8d9a76ead438cb54bb065eb89da343bb34415eda2f85625d97"},
-    {file = "ampel_interface-0.8.3a13-py3-none-any.whl", hash = "sha256:8c2cf8ae4a5931f3dad4c3c8062287c6b9b13889dd71e717c344fb66f6ca1594"},
+    {file = "ampel-interface-0.8.3a14.tar.gz", hash = "sha256:41c4d3261c5fef037eab89f3d6d9c24aa75bfc97feab7bf404fe7c4d2b51cb89"},
+    {file = "ampel_interface-0.8.3a14-py3-none-any.whl", hash = "sha256:03968d43fe94e69be92fdbdd403b5e2f1bd8740a73405633fb9a1e97da28ce51"},
 ]
 appdirs = [
     {file = "appdirs-1.4.4-py2.py3-none-any.whl", hash = "sha256:cdeeb96b1f938fa126c2bd3b7b5af799f07ca82c5ed57cf048e09c31d7d67136"},
