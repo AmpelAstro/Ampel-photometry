@@ -14,6 +14,7 @@ from ampel.base.AuxUnitRegister import AuxUnitRegister
 from ampel.base.LogicalUnit import LogicalUnit
 from ampel.content.DataPoint import DataPoint
 from ampel.model.UnitModel import UnitModel
+from ampel.types import StockId
 from astropy.table import Table, vstack
 
 from ampel.abstract.AbsT2Tabulator import AbsT2Tabulator
@@ -61,7 +62,7 @@ class AbsTabulatedT2Unit(AmpelABC, LogicalUnit, abstract=True):
     def get_stock_id(
         self,
         dps: List[DataPoint],
-    ) -> List[int]:
+    ) -> List[StockId]:
         return [
             stock
             for tab in self._tab_engines

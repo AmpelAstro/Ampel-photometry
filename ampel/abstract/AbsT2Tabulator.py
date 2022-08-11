@@ -13,6 +13,7 @@ from ampel.base.AmpelABC import AmpelABC
 from ampel.base.AmpelBaseModel import AmpelBaseModel
 from ampel.base.decorator import abstractmethod
 from ampel.content.DataPoint import DataPoint
+from ampel.types import StockId
 from astropy.table import Table
 
 
@@ -34,7 +35,7 @@ class AbsT2Tabulator(AmpelABC, AmpelBaseModel, abstract=True):
         ...
 
     @abstractmethod
-    def get_stock_id(self, dps: List[DataPoint]) -> set[int]:
+    def get_stock_id(self, dps: List[DataPoint]) -> set[StockId]:
         ...
 
     @abstractmethod
