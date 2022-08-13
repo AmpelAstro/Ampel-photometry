@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
@@ -12,6 +12,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -37,9 +38,9 @@
           <div class="body" role="main">
             
   <section id="api-reference">
-<h1>API reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h1>
+<h1>API reference<a class="headerlink" href="#api-reference" title="Permalink to this heading">¶</a></h1>
 <section id="processing-units">
-<h2>Processing units<a class="headerlink" href="#processing-units" title="Permalink to this headline">¶</a></h2>
+<h2>Processing units<a class="headerlink" href="#processing-units" title="Permalink to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="ampel.abstract.AbsLightCurveT2Unit.AbsLightCurveT2Unit">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ampel.abstract.AbsLightCurveT2Unit.</span></span><span class="sig-name descname"><span class="pre">AbsLightCurveT2Unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ampel/abstract/AbsLightCurveT2Unit.html#AbsLightCurveT2Unit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ampel.abstract.AbsLightCurveT2Unit.AbsLightCurveT2Unit" title="Permalink to this definition">¶</a></dt>
@@ -57,12 +58,18 @@ For example, AbsCustomStateT2Unit[LightCurve] would return a
 </dl>
 </dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ampel.abstract.AbsLightCurveT2Unit.AbsLightCurveT2Unit.require">
+<span class="sig-name descname"><span class="pre">require</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#ampel.abstract.AbsLightCurveT2Unit.AbsLightCurveT2Unit.require" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resources requirements as class variable (passed on to and merged with subclasses).</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="ampel.abstract.AbsTiedLightCurveT2Unit.AbsTiedLightCurveT2Unit">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ampel.abstract.AbsTiedLightCurveT2Unit.</span></span><span class="sig-name descname"><span class="pre">AbsTiedLightCurveT2Unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ampel/abstract/AbsTiedLightCurveT2Unit.html#AbsTiedLightCurveT2Unit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ampel.abstract.AbsTiedLightCurveT2Unit.AbsTiedLightCurveT2Unit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://ampelproject.github.io/Ampel-interface/api.html#ampel.abstract.AbsTiedCustomStateT2Unit.AbsTiedCustomStateT2Unit" title="(in ampel-interface v0.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ampel.abstract.AbsTiedCustomStateT2Unit.AbsTiedCustomStateT2Unit</span></code></a>[<a class="reference internal" href="#ampel.view.LightCurve.LightCurve" title="ampel.view.LightCurve.LightCurve"><code class="xref py py-class docutils literal notranslate"><span class="pre">ampel.view.LightCurve.LightCurve</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">ampel.types.T</span></code>]</p>
+<dd><p>Bases: <a class="reference external" href="https://ampelproject.github.io/Ampel-interface/api.html#ampel.abstract.AbsTiedCustomStateT2Unit.AbsTiedCustomStateT2Unit" title="(in ampel-interface v0.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbsTiedCustomStateT2Unit</span></code></a>[<a class="reference internal" href="#ampel.view.LightCurve.LightCurve" title="ampel.view.LightCurve.LightCurve"><code class="xref py py-class docutils literal notranslate"><span class="pre">LightCurve</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="ampel.abstract.AbsTiedLightCurveT2Unit.AbsTiedLightCurveT2Unit.process">
 <em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">light_curve</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t2_views</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ampel/abstract/AbsTiedLightCurveT2Unit.html#AbsTiedLightCurveT2Unit.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ampel.abstract.AbsTiedLightCurveT2Unit.AbsTiedLightCurveT2Unit.process" title="Permalink to this definition">¶</a></dt>
@@ -98,6 +105,12 @@ For example, AbsTiedCustomStateT2Unit[LightCurve] would return a
 </dl>
 </dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ampel.abstract.AbsTiedLightCurveT2Unit.AbsTiedLightCurveT2Unit.require">
+<span class="sig-name descname"><span class="pre">require</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#ampel.abstract.AbsTiedLightCurveT2Unit.AbsTiedLightCurveT2Unit.require" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resources requirements as class variable (passed on to and merged with subclasses).</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
@@ -105,11 +118,17 @@ For example, AbsTiedCustomStateT2Unit[LightCurve] would return a
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ampel.abstract.AbsPhotoT3Unit.</span></span><span class="sig-name descname"><span class="pre">AbsPhotoT3Unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ampel/abstract/AbsPhotoT3Unit.html#AbsPhotoT3Unit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ampel.abstract.AbsPhotoT3Unit.AbsPhotoT3Unit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parametrized abstract class for T3 units receiving TransientView instances
 (and potentially LightCurve instances as well)</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ampel.abstract.AbsPhotoT3Unit.AbsPhotoT3Unit.require">
+<span class="sig-name descname"><span class="pre">require</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#ampel.abstract.AbsPhotoT3Unit.AbsPhotoT3Unit.require" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resources requirements as class variable (passed on to and merged with subclasses).</p>
+</dd></dl>
+
 </dd></dl>
 
 </section>
 <section id="data-classes">
-<h2>Data classes<a class="headerlink" href="#data-classes" title="Permalink to this headline">¶</a></h2>
+<h2>Data classes<a class="headerlink" href="#data-classes" title="Permalink to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="ampel.view.LightCurve.LightCurve">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ampel.view.LightCurve.</span></span><span class="sig-name descname"><span class="pre">LightCurve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compound_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stock_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">photopoints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upperlimits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ampel/view/LightCurve.html#LightCurve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ampel.view.LightCurve.LightCurve" title="Permalink to this definition">¶</a></dt>
@@ -262,7 +281,7 @@ from internal collections.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="ampel.view.TransientView.TransientView">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ampel.view.TransientView.</span></span><span class="sig-name descname"><span class="pre">TransientView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stock</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ampel/view/TransientView.html#TransientView"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ampel.view.TransientView.TransientView" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://ampelproject.github.io/Ampel-interface/api.html#ampel.view.SnapView.SnapView" title="(in ampel-interface v0.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ampel.view.SnapView.SnapView</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://ampelproject.github.io/Ampel-interface/api.html#ampel.view.SnapView.SnapView" title="(in ampel-interface v0.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">SnapView</span></code></a></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ampel.view.TransientView.TransientView.lightcurve">
 <span class="sig-name descname"><span class="pre">lightcurve</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.10)"><span class="pre">collections.abc.Sequence</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#ampel.view.LightCurve.LightCurve" title="ampel.view.LightCurve.LightCurve"><span class="pre">ampel.view.LightCurve.LightCurve</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#ampel.view.TransientView.TransientView.lightcurve" title="Permalink to this definition">¶</a></dt>
@@ -451,7 +470,7 @@ get_t2_value((“T2NedSNCosmo”, “T2SNCosmo”), “fit_result”, dict)</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ampel.view.TransientView.TransientView.id">
-<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)"><span class="pre">bytes</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#ampel.view.TransientView.TransientView.id" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.10)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)"><span class="pre">bytes</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#ampel.view.TransientView.TransientView.id" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -471,7 +490,7 @@ get_t2_value((“T2NedSNCosmo”, “T2SNCosmo”), “fit_result”, dict)</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ampel.view.TransientView.TransientView.origin">
-<span class="sig-name descname"><span class="pre">origin</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.10)"><span class="pre">collections.abc.Sequence</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#ampel.view.TransientView.TransientView.origin" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">origin</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.10)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.10)"><span class="pre">Sequence</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#ampel.view.TransientView.TransientView.origin" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -508,7 +527,7 @@ get_t2_value((“T2NedSNCosmo”, “T2SNCosmo”), “fit_result”, dict)</p>
 
 </section>
 <section id="t1-machinery">
-<h2>T1 machinery<a class="headerlink" href="#t1-machinery" title="Permalink to this headline">¶</a></h2>
+<h2>T1 machinery<a class="headerlink" href="#t1-machinery" title="Permalink to this heading">¶</a></h2>
 </section>
 </section>
 
@@ -536,7 +555,7 @@ get_t2_value((“T2NedSNCosmo”, “T2SNCosmo”), “fit_result”, dict)</p>
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -556,7 +575,7 @@ get_t2_value((“T2NedSNCosmo”, “T2SNCosmo”), “fit_result”, dict)</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018-2021, Ampel Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
     </div>
   </body>
 </html>
