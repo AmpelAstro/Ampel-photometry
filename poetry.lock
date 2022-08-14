@@ -8,14 +8,14 @@ python-versions = "*"
 
 [[package]]
 name = "ampel-core"
-version = "0.8.3a24"
+version = "0.8.3a25"
 description = "Alice in Modular Provenance-Enabled Land"
 category = "main"
 optional = false
 python-versions = ">=3.10,<3.11"
 
 [package.dependencies]
-ampel-interface = ">=0.8.3-beta.1,<0.9.0"
+ampel-interface = ">=0.8.3-beta.2,<0.9.0"
 appdirs = ">=1.4.4,<2.0.0"
 prometheus-client = ">=0.10,<0.12"
 psutil = ">=5.8.0,<6.0.0"
@@ -23,6 +23,7 @@ pydantic = ">=1.9.0,<2.0.0"
 pymongo = ">=4.0,<5.0"
 schedule = ">=1.0.0,<2.0.0"
 sjcl = ">=0.2.1,<0.3.0"
+xxhash = ">=3.0.0,<4.0.0"
 yq = ">=3.0.0,<4.0.0"
 
 [package.extras]
@@ -32,7 +33,7 @@ server = ["uvicorn[standard] (>=0.13.3,<0.16.0)", "fastapi (>=0.63,<0.69)"]
 
 [[package]]
 name = "ampel-interface"
-version = "0.8.3b1"
+version = "0.8.3b2"
 description = "Base classes for the Ampel analysis platform"
 category = "main"
 optional = false
@@ -45,7 +46,7 @@ ujson = ">=5.1.0,<6.0.0"
 xxhash = ">=3.0.0,<4.0.0"
 
 [package.extras]
-docs = ["tomlkit (>=0.11.0,<0.12.0)", "sphinx-autodoc-typehints (>=1.11.1,<2.0.0)", "Sphinx (>=4.0.0,<5.0.0)"]
+docs = ["tomlkit (>=0.11.0,<0.12.0)", "sphinx-autodoc-typehints (>=1.11.1,<2.0.0)", "Sphinx (>=5.0.0,<6.0.0)"]
 
 [[package]]
 name = "appdirs"
@@ -687,7 +688,7 @@ docs = ["Sphinx", "sphinx-autodoc-typehints", "tomlkit"]
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.10,<3.11"
-content-hash = "0e3d8657dd9edcf8202fc560ea1c9045224e11a569db8f9919e08dd3c489a0f6"
+content-hash = "4981e4b4a7f99f733ae711ddded00e84a31395476516c010255073c7c5cac21d"
 
 [metadata.files]
 alabaster = [
@@ -695,12 +696,12 @@ alabaster = [
     {file = "alabaster-0.7.12.tar.gz", hash = "sha256:a661d72d58e6ea8a57f7a86e37d86716863ee5e92788398526d58b26a4e4dc02"},
 ]
 ampel-core = [
-    {file = "ampel-core-0.8.3a24.tar.gz", hash = "sha256:b0276f0b4a22f29b23e705ca2062e9ab017f004cc2dcf538e6408c1fbb6d892c"},
-    {file = "ampel_core-0.8.3a24-py3-none-any.whl", hash = "sha256:4b9efc171c64cff25066eb542d4b0d8ddbad75ef2f01fa5eaef7a7c71aefa9cb"},
+    {file = "ampel-core-0.8.3a25.tar.gz", hash = "sha256:3deb396cedeb79cea23ad39c4b3202e5ace0f5d8207b0182e02c21bcdb0ce771"},
+    {file = "ampel_core-0.8.3a25-py3-none-any.whl", hash = "sha256:eded5189d4deafe9505ef3413f61dc315fcabb032c3a8cd04180c5b62edd3dbc"},
 ]
 ampel-interface = [
-    {file = "ampel-interface-0.8.3b1.tar.gz", hash = "sha256:c757e1cc6579f9d9bd1dd92248959a2aed8c7102017b940ec5d65cb2dff98e05"},
-    {file = "ampel_interface-0.8.3b1-py3-none-any.whl", hash = "sha256:d983c909b9df4b11e25a4266fe56d569ce7847e474934e968aff9b45004f44dd"},
+    {file = "ampel-interface-0.8.3b2.tar.gz", hash = "sha256:fc24f78c4cb84ca6f60cad3bd0c42397d96fc6abfa6d6587f0a20717b8e1cbef"},
+    {file = "ampel_interface-0.8.3b2-py3-none-any.whl", hash = "sha256:e67eeab2a9af6b5402c69316e3c8f57b65757c32184be4fe76a6bc9cdee1bfc6"},
 ]
 appdirs = [
     {file = "appdirs-1.4.4-py2.py3-none-any.whl", hash = "sha256:cdeeb96b1f938fa126c2bd3b7b5af799f07ca82c5ed57cf048e09c31d7d67136"},
