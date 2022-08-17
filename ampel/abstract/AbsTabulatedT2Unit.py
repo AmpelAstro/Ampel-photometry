@@ -11,7 +11,7 @@ from typing import Any, ClassVar, Dict, List, Optional, Sequence, Union, Tuple
 
 from ampel.base.AmpelABC import AmpelABC
 from ampel.base.AuxUnitRegister import AuxUnitRegister
-from ampel.base.LogicalUnit import LogicalUnit
+from ampel.base.AmpelUnit import AmpelUnit
 from ampel.content.DataPoint import DataPoint
 from ampel.model.UnitModel import UnitModel
 from ampel.types import StockId
@@ -21,7 +21,7 @@ from ampel.abstract.AbsT2Tabulator import AbsT2Tabulator
 import math
 
 
-class AbsTabulatedT2Unit(AmpelABC, LogicalUnit, abstract=True):
+class AbsTabulatedT2Unit(AmpelABC, AmpelUnit, abstract=True):
     """
     Base class for T2s that operate on tabulated data.
     """
@@ -30,7 +30,6 @@ class AbsTabulatedT2Unit(AmpelABC, LogicalUnit, abstract=True):
     tabulator: Sequence[UnitModel] = []
 
     def __init__(self, **kwargs) -> None:
-        self.tabulator = kwargs["tabulator"]
         super().__init__(**kwargs)
         self._tab_engines: Sequence[AbsT2Tabulator] = [
             AuxUnitRegister.new_unit(model=el, sub_type=AbsT2Tabulator)
