@@ -9,7 +9,8 @@
 
 from typing import Literal
 from collections.abc import Iterable, Sequence
-from ampel.types import UBson, T
+from ampel.types import UBson
+from ampel.model.UnitModel import T
 from ampel.struct.UnitResult import UnitResult
 from ampel.base.decorator import abstractmethod
 from ampel.view.LightCurve import LightCurve
