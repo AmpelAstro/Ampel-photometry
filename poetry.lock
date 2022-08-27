@@ -8,7 +8,7 @@ python-versions = "*"
 
 [[package]]
 name = "ampel-core"
-version = "0.8.3b1"
+version = "0.8.3b2"
 description = "Alice in Modular Provenance-Enabled Land"
 category = "main"
 optional = false
@@ -691,7 +691,7 @@ docs = ["Sphinx", "sphinx-autodoc-typehints", "tomlkit"]
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.10,<3.11"
-content-hash = "4128a0997276a164cc75c853d04232d59be07d6dd17fbb6a4db5ef327780f1f2"
+content-hash = "e3183825280d94a5d5208b11962d30c81884784e76214631ed0b2399d6992f96"
 
 [metadata.files]
 alabaster = [
@@ -699,8 +699,8 @@ alabaster = [
     {file = "alabaster-0.7.12.tar.gz", hash = "sha256:a661d72d58e6ea8a57f7a86e37d86716863ee5e92788398526d58b26a4e4dc02"},
 ]
 ampel-core = [
-    {file = "ampel-core-0.8.3b1.tar.gz", hash = "sha256:61785392d4f9b573206286c7e9bf99741f5ba899d458441553beb97509982af1"},
-    {file = "ampel_core-0.8.3b1-py3-none-any.whl", hash = "sha256:0638773040bafbc0403b3b7d48d209b6c0adff25d93ec190ec1e86f82d8ad7a1"},
+    {file = "ampel-core-0.8.3b2.tar.gz", hash = "sha256:8fb3046ff6629ac531dde75973dbe3e8a8f01b2ddf3bd62fc102a7057aeaa385"},
+    {file = "ampel_core-0.8.3b2-py3-none-any.whl", hash = "sha256:d8a4521da71c5269856f42dd735f02436a61c0438016810558b96b46961be1fd"},
 ]
 ampel-interface = [
     {file = "ampel-interface-0.8.3b5.tar.gz", hash = "sha256:6984bc0a5fe1281b829c0409e6f4ceca6cd6d5c2571b353db25084b0a343d8fa"},
