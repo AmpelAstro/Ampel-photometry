@@ -27,6 +27,7 @@ sphinx-autodoc-typehints = {version = "^1.11.1", optional = true}
 tomlkit = {version = "^0.11.0"}
 ampel-interface = {version = "^0.8.3-beta.5"}
 ampel-core = {version = "^0.8.3-beta.3"}
+astropy = "^5"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1.2"
