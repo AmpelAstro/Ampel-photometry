@@ -7,7 +7,7 @@
 # Last Modified Date: 05.05.2022
 # Last Modified By  : Marcus Fenner <mf@physik.hu-berlin.de>
 
-from typing import Any, List, Sequence, Tuple, Union
+from typing import Any, List, Sequence, Tuple, Iterable
 
 from ampel.base.AmpelABC import AmpelABC
 from ampel.base.AmpelBaseModel import AmpelBaseModel
@@ -21,23 +21,23 @@ class AbsT2Tabulator(AmpelABC, AmpelBaseModel, abstract=True):
     """ """
 
     @abstractmethod
-    def get_flux_table(self, dps: List[DataPoint]) -> Table:
+    def get_flux_table(self, dps: Iterable[DataPoint]) -> Table:
         ...
 
     @abstractmethod
     def get_positions(
-        self, dps: List[DataPoint]
+        self, dps: Iterable[DataPoint]
     ) -> Sequence[Tuple[float, float, float]]:
         ...
 
     @abstractmethod
-    def get_jd(self, dps: List[DataPoint]) -> Sequence[Any]:
+    def get_jd(self, dps: Iterable[DataPoint]) -> Sequence[Any]:
         ...
 
     @abstractmethod
-    def get_stock_id(self, dps: List[DataPoint]) -> set[StockId]:
+    def get_stock_id(self, dps: Iterable[DataPoint]) -> set[StockId]:
         ...
 
     @abstractmethod
-    def get_stock_name(self, dps: List[DataPoint]) -> list[str]:
+    def get_stock_name(self, dps: Iterable[DataPoint]) -> list[str]:
         ...

@@ -7,7 +7,7 @@
 # Last Modified Date: 05.05.2022
 # Last Modified By  : Marcus Fenner <mf@physik.hu-berlin.de>
 
-from typing import Any, ClassVar, Dict, List, Optional, Sequence, Union, Tuple
+from typing import Any, ClassVar, Sequence, Union, Iterable, Literal
 
 from ampel.base.AmpelABC import AmpelABC
 from ampel.base.AuxUnitRegister import AuxUnitRegister
@@ -26,7 +26,7 @@ class AbsTabulatedT2Unit(AmpelABC, AmpelUnit, abstract=True):
     Base class for T2s that operate on tabulated data.
     """
 
-    ingest: ClassVar[Dict[str, Any]]
+    ingest: ClassVar[dict[str, Any]]
     tabulator: Sequence[UnitModel] = []
 
     def __init__(self, **kwargs) -> None:
@@ -38,9 +38,9 @@ class AbsTabulatedT2Unit(AmpelABC, AmpelUnit, abstract=True):
 
     def get_flux_table(
         self,
-        dps: List[DataPoint],
-        jd_start: Optional[float] = None,
-        jd_end: Optional[float] = None,
+        dps: Iterable[DataPoint],
+        jd_start: None | float = None,
+        jd_end: None | float = None,
     ) -> Table:
         tables = [tab.get_flux_table(dps) for tab in self._tab_engines]
         if len(tables) == 1:
@@ -60,8 +60,8 @@ class AbsTabulatedT2Unit(AmpelABC, AmpelUnit, abstract=True):
 
     def get_stock_id(
         self,
-        dps: List[DataPoint],
-    ) -> List[StockId]:
+        dps: Iterable[DataPoint],
+    ) -> list[StockId]:
         return [
             stock
             for tab in self._tab_engines
@@ -70,8 +70,8 @@ class AbsTabulatedT2Unit(AmpelABC, AmpelUnit, abstract=True):
 
     def get_stock_name(
         self,
-        dps: List[DataPoint],
-    ) -> List[Union[str, int]]:
+        dps: Iterable[DataPoint],
+    ) -> list[Union[str, int]]:
         return [
             name
             for tab in self._tab_engines
@@ -79,8 +79,8 @@ class AbsTabulatedT2Unit(AmpelABC, AmpelUnit, abstract=True):
         ]
 
     def get_positions(
-        self, dps: List[DataPoint]
-    ) -> List[Tuple[float, float, float]]:
+        self, dps: Iterable[DataPoint]
+    ) -> list[tuple[float, float, float]]:
         """
         Get a tuple (time, ra, dec)
         """
@@ -89,8 +89,8 @@ class AbsTabulatedT2Unit(AmpelABC, AmpelUnit, abstract=True):
         ]
 
     def get_pos(
-        self, dps: List[DataPoint], which: str = "mean"
-    ) -> Tuple[float, float]:
+        self, dps: Iterable[DataPoint], which: Literal["mean", "last", "first"] = "mean"
+    ) -> tuple[float, float]:
         positions = self.get_positions(dps)
         print(positions)
 
