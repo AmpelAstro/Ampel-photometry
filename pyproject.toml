@@ -50,3 +50,7 @@ module = [
   "astropy.*",
 ]
 ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = "ampel.abstract.*"
+disable_error_code = "empty-body"
