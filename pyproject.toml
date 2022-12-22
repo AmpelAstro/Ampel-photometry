@@ -25,8 +25,8 @@ python = ">=3.10,<3.11"
 Sphinx = {version = ">=5.2.1,<5.3.0", optional = true}
 sphinx-autodoc-typehints = {version = "^1.11.1", optional = true}
 tomlkit = {version = "^0.11.0"}
-ampel-interface = {version = "^0.8.3-beta.5"}
-ampel-core = {version = "^0.8.3-beta.5"}
+ampel-interface = {version = "^0.8.3-beta.13"}
+ampel-core = {version = "^0.8.3-beta.18"}
 astropy = "^5"
 
 [tool.poetry.dev-dependencies]
