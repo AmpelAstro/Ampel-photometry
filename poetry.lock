@@ -1488,4 +1488,4 @@ docs = ["Sphinx", "sphinx-autodoc-typehints", "tomlkit"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10,<3.11"
-content-hash = "c4a3908f6e75bfaefa65d9821e59d43d3c935dad9b42782ed88d11b5c12b704a"
+content-hash = "ba7485c49a94727676cd7b5cfd84241d442f609143e0a3efd0a60b6e39a28249"
