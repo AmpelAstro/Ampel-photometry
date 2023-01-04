@@ -14,18 +14,18 @@ files = [
 
 [[package]]
 name = "ampel-core"
-version = "0.8.3b19"
+version = "0.8.3b20"
 description = "Alice in Modular Provenance-Enabled Land"
 category = "main"
 optional = false
 python-versions = ">=3.10,<3.11"
 files = [
-    {file = "ampel_core-0.8.3b19-py3-none-any.whl", hash = "sha256:9152c8877b6d8df278f3e8a9286a3c09f8d5cc3f2c30f33004b0338c99e634be"},
-    {file = "ampel_core-0.8.3b19.tar.gz", hash = "sha256:7f0daabf2e80c27d8ed9fb8fe808bd202c4d4951bb76f81901ed278c03b55774"},
+    {file = "ampel_core-0.8.3b20-py3-none-any.whl", hash = "sha256:289c7368df7778d4b048849944301f4338da0450d992f8467236decfdafc766b"},
+    {file = "ampel_core-0.8.3b20.tar.gz", hash = "sha256:2ee5ef2d9867f14d9b17ba18db2f17195e00568b554503db0b1e719b3eb7e52e"},
 ]
 
 [package.dependencies]
-ampel-interface = ">=0.8.3-beta.13,<0.9.0"
+ampel-interface = ">=0.8.3-beta.14,<0.9.0"
 appdirs = ">=1.4.4,<2.0.0"
 prometheus-client = ">=0.10,<0.12"
 psutil = ">=5.8.0,<6.0.0"
@@ -37,20 +37,20 @@ xxhash = ">=3.0.0,<4.0.0"
 yq = ">=3.0.0,<4.0.0"
 
 [package.extras]
-docs = ["Sphinx (>=5.1.1,<5.2.0)", "sphinx-autodoc-typehints (>=1.11.1,<2.0.0)", "sphinx-press-theme (>=0.5.1,<0.9.0)", "tomlkit (>=0.7.0,<0.8.0)"]
+docs = ["Sphinx (>=6.0.0,<6.1.0)", "sphinx-autodoc-typehints (>=1.11.1,<2.0.0)", "sphinx-press-theme (>=0.5.1,<0.9.0)", "tomlkit (>=0.7.0,<0.8.0)"]
 server = ["fastapi (>=0.63,<0.69)", "uvicorn[standard] (>=0.13.3,<0.16.0)"]
 slack = ["slack-sdk (>=3.18.1,<4.0.0)"]
 
 [[package]]
 name = "ampel-interface"
-version = "0.8.3b13"
+version = "0.8.3b14"
 description = "Base classes for the Ampel analysis platform"
 category = "main"
 optional = false
 python-versions = ">=3.10,<4.0"
 files = [
-    {file = "ampel_interface-0.8.3b13-py3-none-any.whl", hash = "sha256:cf11416d93f1c5fd7f78fc8c74b290cced015c16eb5a2ab0c58606fbddb1fad8"},
-    {file = "ampel_interface-0.8.3b13.tar.gz", hash = "sha256:ea837ae7a4fb8cf0fb20b7d6c0af2b4f64e51e0f3443e181b21cf678456debe3"},
+    {file = "ampel_interface-0.8.3b14-py3-none-any.whl", hash = "sha256:d99ee831c87f07e27b1b6b366e05b466974f071c70c4a28d767f3c11c1fb576a"},
+    {file = "ampel_interface-0.8.3b14.tar.gz", hash = "sha256:20dcfccb1a6367bbc23cb6498923fa9cf577fd6cffa3d07e51478bba37d30de0"},
 ]
 
 [package.dependencies]
@@ -60,7 +60,7 @@ ujson = ">=5.1.0,<6.0.0"
 xxhash = ">=3.0.0,<4.0.0"
 
 [package.extras]
-docs = ["Sphinx (>=5.0.0,<6.0.0)", "sphinx-autodoc-typehints (>=1.11.1,<2.0.0)", "tomlkit (>=0.11.0,<0.12.0)"]
+docs = ["Sphinx (>=6.0.0,<7.0.0)", "sphinx-autodoc-typehints (>=1.11.1,<2.0.0)", "tomlkit (>=0.11.0,<0.12.0)"]
 
 [[package]]
 name = "appdirs"
@@ -1488,4 +1488,4 @@ docs = ["Sphinx", "sphinx-autodoc-typehints", "tomlkit"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10,<3.11"
-content-hash = "235382dab309d7c0542bbbc52a00586012dcadc603779ee22db02ee4c621b0c3"
+content-hash = "37f3b0a2d2a50af0d153f0bb2aff450e56e50c3d552232172c586d3394ab3d0e"
