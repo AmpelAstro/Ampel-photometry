@@ -30,7 +30,7 @@ ampel-core = {version = "^0.8.3-beta.21"}
 astropy = "^5"
 
 [tool.poetry.dev-dependencies]
-pytest = "^7.2.0"
+pytest = "^7.2.1"
 mypy = "^0.991"
 pytest-cov = "^4.0.0"
 
