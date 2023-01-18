@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ampel-photometry"
-version = "0.8.3-alpha.2"
+version = "0.8.3a3"
 description = "Photometry add-on for the Ampel system"
 authors = ["Valery Brinnel"]
 license = "BSD-3-Clause"
