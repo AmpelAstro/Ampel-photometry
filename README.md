@@ -1,4 +1,4 @@
-<img align="left" src="https://user-images.githubusercontent.com/17532220/213287939-c3f2db40-9c43-4d4c-8d55-68531cddcad7.png" width="150" height="150"/>  
+<img align="left" src="https://user-images.githubusercontent.com/17532220/213293469-3b8eb278-1304-4748-859f-16c87be2dd97.png" width="150" height="150"/>  
 <br>
 
 # Photometry for AMPEL
