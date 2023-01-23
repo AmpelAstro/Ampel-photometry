@@ -14,18 +14,18 @@ files = [
 
 [[package]]
 name = "ampel-core"
-version = "0.8.3b21"
+version = "0.8.3"
 description = "Alice in Modular Provenance-Enabled Land"
 category = "main"
 optional = false
 python-versions = ">=3.10,<3.12"
 files = [
-    {file = "ampel_core-0.8.3b21-py3-none-any.whl", hash = "sha256:c2eac1b29edb256d8a6278e7b8c7b0473349696a82a3b337a5f09724df796d61"},
-    {file = "ampel_core-0.8.3b21.tar.gz", hash = "sha256:463fb4381c408dbdeeb4c56bb584aede079f0a0ae6f844b3103fb1d652a2991f"},
+    {file = "ampel_core-0.8.3-py3-none-any.whl", hash = "sha256:0b94463d06682ece4b41e907ad268ae16df811ae2e9a34a4cb3572151bee7534"},
+    {file = "ampel_core-0.8.3.tar.gz", hash = "sha256:20939717a4d81b2dd4d8b1f56ed23a75d4a8893b71ff254c5dfa6bbc6366b7d2"},
 ]
 
 [package.dependencies]
-ampel-interface = ">=0.8.3-beta.14,<0.9.0"
+ampel-interface = ">=0.8.3,<0.9.0"
 appdirs = ">=1.4.4,<2.0.0"
 prometheus-client = ">=0.15,<0.16"
 psutil = ">=5.8.0,<6.0.0"
@@ -43,14 +43,14 @@ slack = ["slack-sdk (>=3.18.1,<4.0.0)"]
 
 [[package]]
 name = "ampel-interface"
-version = "0.8.3b14"
+version = "0.8.3"
 description = "Base classes for the Ampel analysis platform"
 category = "main"
 optional = false
 python-versions = ">=3.10,<4.0"
 files = [
-    {file = "ampel_interface-0.8.3b14-py3-none-any.whl", hash = "sha256:d99ee831c87f07e27b1b6b366e05b466974f071c70c4a28d767f3c11c1fb576a"},
-    {file = "ampel_interface-0.8.3b14.tar.gz", hash = "sha256:20dcfccb1a6367bbc23cb6498923fa9cf577fd6cffa3d07e51478bba37d30de0"},
+    {file = "ampel_interface-0.8.3-py3-none-any.whl", hash = "sha256:4b1fed3ee763f7ff599f75fa31f4381169008cd5549344897f1fc533d3a79981"},
+    {file = "ampel_interface-0.8.3.tar.gz", hash = "sha256:33fe2f2d7108033bd777831e4f66c75e731c495e6ab70e8086c4cf68fc9400a7"},
 ]
 
 [package.dependencies]
@@ -1488,4 +1488,4 @@ docs = ["Sphinx", "sphinx-autodoc-typehints", "tomlkit"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10,<3.12"
-content-hash = "971d225ceee8028012c7a77494d2964117fed45adfc54d6454bbf2509eae79f3"
+content-hash = "8dd08e9ec0122c1b9de4c871c1b32c7535cd6ea492f7655349e7dd9df6b7a743"
