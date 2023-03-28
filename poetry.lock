@@ -14,14 +14,14 @@ files = [
 
 [[package]]
 name = "ampel-core"
-version = "0.8.5"
+version = "0.8.6"
 description = "Alice in Modular Provenance-Enabled Land"
 category = "main"
 optional = false
 python-versions = ">=3.10,<3.12"
 files = [
-    {file = "ampel_core-0.8.5-py3-none-any.whl", hash = "sha256:10d21ec55a17c8327e6a72fc747f31e706fa5a2d820a2a4353b9d161fd06dbd8"},
-    {file = "ampel_core-0.8.5.tar.gz", hash = "sha256:f3aa65578a7abee50d07068436156c03f1b59a2613a91813a8ff0ece6bc25994"},
+    {file = "ampel_core-0.8.6-py3-none-any.whl", hash = "sha256:c3132fbe9b585a33c4e747d4d79e4ba454368ecb38e917ddc6b9c01c196c89d4"},
+    {file = "ampel_core-0.8.6.tar.gz", hash = "sha256:d0fca9bc7ef33223f962da275b7008aad89355e3d20d5294b97ab8cb02e38126"},
 ]
 
 [package.dependencies]
@@ -39,7 +39,7 @@ yq = ">=3.0.0,<4.0.0"
 
 [package.extras]
 docs = ["Sphinx (>=6.1.2,<6.2.0)", "sphinx-autodoc-typehints (>=1.11.1,<2.0.0)", "sphinx-press-theme (>=0.5.1,<0.9.0)", "tomlkit (>=0.11.0,<0.12.0)"]
-server = ["fastapi (>=0.92,<0.93)", "uvicorn[standard] (>=0.20.0,<0.21.0)"]
+server = ["fastapi (>=0.95,<0.96)", "uvicorn[standard] (>=0.21.1,<0.22.0)"]
 slack = ["slack-sdk (>=3.18.1,<4.0.0)"]
 
 [[package]]
@@ -1485,4 +1485,4 @@ docs = ["Sphinx", "sphinx-autodoc-typehints", "tomlkit"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10,<3.12"
-content-hash = "cebb5ddd1a07bac9f7f777bcc4953ef267e204f5da92510f8c0da698484cadd3"
+content-hash = "99f465ada4108ddeaddc04d9360bf52e170339c2b356b01462306a4e24c2a74d"
