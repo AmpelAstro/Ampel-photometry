@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ampel.abstract.AbsTiedLightCurveT2Unit &#8212; ampel-photometry 0.8.3 documentation</title>
+    <title>ampel.abstract.AbsTiedLightCurveT2Unit &#8212; ampel-photometry 0.9.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinxdoc.css" />
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
@@ -20,7 +20,7 @@
         <li class="right" style="margin-right: 10px">
           <a href="../../../genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">ampel-photometry 0.8.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">ampel-photometry 0.9.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">ampel.abstract.AbsTiedLightCurveT2Unit</a></li> 
       </ul>
@@ -59,7 +59,7 @@
 
 <div class="viewcode-block" id="AbsTiedLightCurveT2Unit.process"><a class="viewcode-back" href="../../../api.html#ampel.abstract.AbsTiedLightCurveT2Unit.AbsTiedLightCurveT2Unit.process">[docs]</a>	<span class="nd">@abstractmethod</span>
 	<span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">light_curve</span><span class="p">:</span> <span class="n">LightCurve</span><span class="p">,</span> <span class="n">t2_views</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">T2DocView</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">UBson</span> <span class="o">|</span> <span class="n">UnitResult</span><span class="p">:</span>
-		<span class="sd">&quot;&quot;&quot;</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">		Returned object should contain computed science results to be saved into the DB.</span>
 <span class="sd">		Notes: dict must have only string keys and values must be bson encodable</span>
 <span class="sd">		&quot;&quot;&quot;</span></div>
@@ -70,7 +70,7 @@
 		<span class="n">link_override</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;pps&#39;</span><span class="p">,</span> <span class="s1">&#39;uls&#39;</span><span class="p">],</span> <span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">,</span> <span class="s1">&#39;middle&#39;</span><span class="p">,</span> <span class="s1">&#39;last&#39;</span><span class="p">]],</span>
 		<span class="n">light_curve</span><span class="p">:</span> <span class="n">LightCurve</span>
 	<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">bytes</span><span class="p">:</span>
-		<span class="sd">&quot;&quot;&quot;</span>
+<span class="w">		</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">		Method used by T2Processor.</span>
 <span class="sd">		:param link_override: value associated with key &#39;link_override&#39; of `T2Dependency &lt;ampel.struct.T2Dependency.T2Dependency&gt;`</span>
 <span class="sd">		:returns: the value of &#39;link&#39; (tied t2 documents) to be matched</span>
@@ -129,7 +129,7 @@
         <li class="right" style="margin-right: 10px">
           <a href="../../../genindex.html" title="General Index"
              >index</a></li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">ampel-photometry 0.8.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">ampel-photometry 0.9.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">ampel.abstract.AbsTiedLightCurveT2Unit</a></li> 
       </ul>
