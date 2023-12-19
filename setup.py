@@ -4,14 +4,14 @@
 # License:             BSD-3-Clause
 # Author:              valery brinnel <firstname.lastname@gmail.com>
 # Date:                11.12.2019
-# Last Modified Date:  15.12.2021
+# Last Modified Date:  06.04.2023
 # Last Modified By:    valery brinnel <firstname.lastname@gmail.com>
 
 from setuptools import setup, find_namespace_packages
 
 setup(
 	name='ampel-photometry',
-	version='0.8.3-alpha.1',
+	version='0.9.0',
 	packages=find_namespace_packages(),
 	package_data = {
 		'': ['py.typed'],
