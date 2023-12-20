@@ -1,4 +1,5 @@
 {
   "extends": ["github>AmpelProject/renovate-config"],
+  "rangeStrategy": "widen",
   "enabledManagers": ["github-actions", "poetry"]
 }
