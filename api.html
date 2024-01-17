@@ -5,10 +5,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>API reference &#8212; ampel-photometry 0.9.1a0 documentation</title>
+    <title>API reference &#8212; ampel-photometry 0.10.0a0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/sphinxdoc.css?v=d59dc883" />
-    <script src="_static/documentation_options.js?v=1a5dcacc"></script>
+    <script src="_static/documentation_options.js?v=3f8aba6c"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -24,7 +24,7 @@
         <li class="right" >
           <a href="index.html" title="Ampel-photometry"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">ampel-photometry 0.9.1a0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">ampel-photometry 0.10.0a0 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">API reference</a></li> 
       </ul>
     </div>  
@@ -66,7 +66,7 @@ For example, AbsCustomStateT2Unit[LightCurve] would return a
 <dl class="py class">
 <dt class="sig sig-object py" id="ampel.abstract.AbsTiedLightCurveT2Unit.AbsTiedLightCurveT2Unit">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ampel.abstract.AbsTiedLightCurveT2Unit.</span></span><span class="sig-name descname"><span class="pre">AbsTiedLightCurveT2Unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ampel/abstract/AbsTiedLightCurveT2Unit.html#AbsTiedLightCurveT2Unit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ampel.abstract.AbsTiedLightCurveT2Unit.AbsTiedLightCurveT2Unit" title="Link to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://ampelproject.github.io/Ampel-interface/api.html#ampel.abstract.AbsTiedCustomStateT2Unit.AbsTiedCustomStateT2Unit" title="(in ampel-interface v0.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbsTiedCustomStateT2Unit</span></code></a>[<a class="reference internal" href="#ampel.view.LightCurve.LightCurve" title="ampel.view.LightCurve.LightCurve"><code class="xref py py-class docutils literal notranslate"><span class="pre">LightCurve</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
+<dd><p>Bases: <a class="reference external" href="https://ampelproject.github.io/Ampel-interface/api.html#ampel.abstract.AbsTiedCustomStateT2Unit.AbsTiedCustomStateT2Unit" title="(in ampel-interface v0.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbsTiedCustomStateT2Unit</span></code></a>[<a class="reference internal" href="#ampel.view.LightCurve.LightCurve" title="ampel.view.LightCurve.LightCurve"><code class="xref py py-class docutils literal notranslate"><span class="pre">LightCurve</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="ampel.abstract.AbsTiedLightCurveT2Unit.AbsTiedLightCurveT2Unit.process">
 <em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">light_curve</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t2_views</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ampel/abstract/AbsTiedLightCurveT2Unit.html#AbsTiedLightCurveT2Unit.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ampel.abstract.AbsTiedLightCurveT2Unit.AbsTiedLightCurveT2Unit.process" title="Link to this definition">¶</a></dt>
@@ -270,7 +270,7 @@ from internal collections.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="ampel.view.TransientView.TransientView">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ampel.view.TransientView.</span></span><span class="sig-name descname"><span class="pre">TransientView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stock</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ampel/view/TransientView.html#TransientView"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ampel.view.TransientView.TransientView" title="Link to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://ampelproject.github.io/Ampel-interface/api.html#ampel.view.SnapView.SnapView" title="(in ampel-interface v0.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">SnapView</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://ampelproject.github.io/Ampel-interface/api.html#ampel.view.SnapView.SnapView" title="(in ampel-interface v0.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">SnapView</span></code></a></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ampel.view.TransientView.TransientView.lightcurve">
 <span class="sig-name descname"><span class="pre">lightcurve</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.12)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a><span class="pre">[</span><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a><span class="pre">[</span><a class="reference internal" href="#ampel.view.LightCurve.LightCurve" title="ampel.view.LightCurve.LightCurve"><code class="xref py py-class docutils literal notranslate"><span class="pre">LightCurve</span></code></a><span class="pre">]]</span></em><a class="headerlink" href="#ampel.view.TransientView.TransientView.lightcurve" title="Link to this definition">¶</a></dt>
@@ -334,7 +334,7 @@ from internal collections.</p>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterator" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference external" href="https://ampelproject.github.io/Ampel-interface/api.html#ampel.content.JournalRecord.JournalRecord" title="(in ampel-interface v0.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">JournalRecord</span></code></a>]</span></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterator" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference external" href="https://ampelproject.github.io/Ampel-interface/api.html#ampel.content.JournalRecord.JournalRecord" title="(in ampel-interface v0.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">JournalRecord</span></code></a>]</span></p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>journal entries corresponding to a given tier and/or job,
@@ -464,7 +464,7 @@ get_t2_value((“T2NedSNCosmo”, “T2SNCosmo”), “fit_result”, dict)</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ampel.view.TransientView.TransientView.logs">
-<span class="sig-name descname"><span class="pre">logs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.12)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a><span class="pre">[</span><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a><span class="pre">[</span><a class="reference external" href="https://ampelproject.github.io/Ampel-interface/api.html#ampel.content.LogDocument.LogDocument" title="(in ampel-interface v0.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogDocument</span></code></a><span class="pre">]]</span></em><a class="headerlink" href="#ampel.view.TransientView.TransientView.logs" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">logs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.12)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a><span class="pre">[</span><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a><span class="pre">[</span><a class="reference external" href="https://ampelproject.github.io/Ampel-interface/api.html#ampel.content.LogDocument.LogDocument" title="(in ampel-interface v0.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogDocument</span></code></a><span class="pre">]]</span></em><a class="headerlink" href="#ampel.view.TransientView.TransientView.logs" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -472,7 +472,7 @@ get_t2_value((“T2NedSNCosmo”, “T2SNCosmo”), “fit_result”, dict)</p>
 <em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">of</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ab</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freeze</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ampel.view.TransientView.TransientView.of" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://ampelproject.github.io/Ampel-interface/api.html#ampel.view.SnapView.SnapView" title="(in ampel-interface v0.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">SnapView</span></code></a></span></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://ampelproject.github.io/Ampel-interface/api.html#ampel.view.SnapView.SnapView" title="(in ampel-interface v0.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">SnapView</span></code></a></span></p>
 </dd>
 </dl>
 </dd></dl>
@@ -494,7 +494,7 @@ get_t2_value((“T2NedSNCosmo”, “T2SNCosmo”), “fit_result”, dict)</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ampel.view.TransientView.TransientView.stock">
-<span class="sig-name descname"><span class="pre">stock</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.12)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a><span class="pre">[</span><a class="reference external" href="https://ampelproject.github.io/Ampel-interface/api.html#ampel.content.StockDocument.StockDocument" title="(in ampel-interface v0.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">StockDocument</span></code></a><span class="pre">]</span></em><a class="headerlink" href="#ampel.view.TransientView.TransientView.stock" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">stock</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.12)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a><span class="pre">[</span><a class="reference external" href="https://ampelproject.github.io/Ampel-interface/api.html#ampel.content.StockDocument.StockDocument" title="(in ampel-interface v0.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">StockDocument</span></code></a><span class="pre">]</span></em><a class="headerlink" href="#ampel.view.TransientView.TransientView.stock" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -558,7 +558,7 @@ get_t2_value((“T2NedSNCosmo”, “T2SNCosmo”), “fit_result”, dict)</p>
         <li class="right" >
           <a href="index.html" title="Ampel-photometry"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">ampel-photometry 0.9.1a0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">ampel-photometry 0.10.0a0 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">API reference</a></li> 
       </ul>
     </div>
