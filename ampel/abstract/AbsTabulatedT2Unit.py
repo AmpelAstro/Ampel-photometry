@@ -93,18 +93,16 @@ class AbsTabulatedT2Unit(AmpelABC, AmpelUnit, abstract=True):
         self, dps: Iterable[DataPoint], which: Literal["mean", "last", "first"] = "mean"
     ) -> tuple[float, float]:
         positions = self.get_positions(dps)
-        print(positions)
 
         if which == "mean":
             import numpy as np
 
             return (
-                np.mean(list(zip(*positions))[1]),
-                np.mean(list(zip(*positions))[2]),
+                np.mean(list(zip(*positions, strict=False))[1]),
+                np.mean(list(zip(*positions, strict=False))[2]),
             )
-        elif which == "last":
+        if which == "last":
             return sorted(positions, key=lambda x: x[0])[-1][1:3]
-        elif which == "first":
+        if which == "first":
             return sorted(positions, key=lambda x: x[0])[0][1:3]
-        else:
-            raise NotImplementedError
+        raise NotImplementedError

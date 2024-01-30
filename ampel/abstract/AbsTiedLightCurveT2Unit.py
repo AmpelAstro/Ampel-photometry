@@ -54,12 +54,11 @@ class AbsTiedLightCurveT2Unit(AbsTiedCustomStateT2Unit[LightCurve, T], abstract=
 
 		if v == 'first':
 			return dps[0]['id'] if dps else None
-		elif v == 'middle':
+		if v == 'middle':
 			return dps[len(dps) // 2]['id'] if dps else None
-		elif v == 'last':
+		if v == 'last':
 			return dps[-1]['id'] if dps else None
-		else:
-			raise ValueError("Invalid value in link_override specs")
+		raise ValueError("Invalid value in link_override specs")
 
 
 	@staticmethod

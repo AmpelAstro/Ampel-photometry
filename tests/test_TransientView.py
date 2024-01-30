@@ -7,7 +7,7 @@ from ampel.util.json import AmpelEncoder, load
 from ampel.view.TransientView import TransientView
 
 
-@pytest.fixture
+@pytest.fixture()
 def view():
     return TransientView("stockystock")
 
