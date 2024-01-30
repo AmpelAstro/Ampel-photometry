@@ -7,7 +7,7 @@
 # Last Modified Date:  25.05.2021
 # Last Modified By:    valery brinnel <firstname.lastname@gmail.com>
 
-from typing import Generator
+from collections.abc import Generator
 
 from ampel.content.DataPoint import DataPoint
 from ampel.t1.T1SimpleRetroCombiner import T1SimpleRetroCombiner

@@ -7,7 +7,8 @@
 # Last Modified Date: 05.05.2022
 # Last Modified By  : Marcus Fenner <mf@physik.hu-berlin.de>
 
-from typing import Any, Iterable, Sequence, Tuple
+from collections.abc import Iterable, Sequence
+from typing import Any
 
 from astropy.table import Table
 
@@ -28,7 +29,7 @@ class AbsT2Tabulator(AmpelABC, AmpelBaseModel, abstract=True):
     @abstractmethod
     def get_positions(
         self, dps: Iterable[DataPoint]
-    ) -> Sequence[Tuple[float, float, float]]:
+    ) -> Sequence[tuple[float, float, float]]:
         ...
 
     @abstractmethod

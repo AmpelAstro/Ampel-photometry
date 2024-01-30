@@ -8,7 +8,8 @@
 # Last Modified By  : Marcus Fenner <mf@physik.hu-berlin.de>
 
 import math
-from typing import Any, ClassVar, Iterable, Literal, Sequence, Union
+from collections.abc import Iterable, Sequence
+from typing import Any, ClassVar, Literal
 
 from astropy.table import Table, vstack
 
@@ -71,7 +72,7 @@ class AbsTabulatedT2Unit(AmpelABC, AmpelUnit, abstract=True):
     def get_stock_name(
         self,
         dps: Iterable[DataPoint],
-    ) -> list[Union[str, int]]:
+    ) -> list[str | int]:
         return [
             name
             for tab in self._tab_engines
