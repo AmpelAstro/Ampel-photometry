@@ -7,14 +7,15 @@
 # Last Modified Date: 05.05.2022
 # Last Modified By  : Marcus Fenner <mf@physik.hu-berlin.de>
 
-from typing import Any, List, Sequence, Tuple, Iterable
+from typing import Any, Iterable, Sequence, Tuple
+
+from astropy.table import Table
 
 from ampel.base.AmpelABC import AmpelABC
 from ampel.base.AmpelBaseModel import AmpelBaseModel
 from ampel.base.decorator import abstractmethod
 from ampel.content.DataPoint import DataPoint
 from ampel.types import StockId
-from astropy.table import Table
 
 
 class AbsT2Tabulator(AmpelABC, AmpelBaseModel, abstract=True):

@@ -7,13 +7,14 @@
 # Last Modified Date:  28.09.2021
 # Last Modified By:    valery brinnel <firstname.lastname@gmail.com>
 
-from time import time
 from collections.abc import Sequence
-from ampel.types import UBson
-from ampel.struct.UnitResult import UnitResult
-from ampel.view.T2DocView import T2DocView
-from ampel.view.LightCurve import LightCurve
+from time import time
+
 from ampel.abstract.AbsTiedLightCurveT2Unit import AbsTiedLightCurveT2Unit
+from ampel.struct.UnitResult import UnitResult
+from ampel.types import UBson
+from ampel.view.LightCurve import LightCurve
+from ampel.view.T2DocView import T2DocView
 
 
 class DemoTiedLightCurveT2Unit(AbsTiedLightCurveT2Unit):

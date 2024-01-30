@@ -1,9 +1,8 @@
-from ampel.struct.T1CombineResult import T1CombineResult
 import pytest
 
-from ampel.t1.T1PhotoRetroCombiner import T1PhotoRetroCombiner
 from ampel.content.DataPoint import DataPoint
 from ampel.log.AmpelLogger import AmpelLogger
+from ampel.t1.T1PhotoRetroCombiner import T1PhotoRetroCombiner
 
 
 @pytest.fixture

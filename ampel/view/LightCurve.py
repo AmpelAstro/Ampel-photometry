@@ -8,12 +8,13 @@
 # Last Modified By:    Simeon Reusch <simeon.reusch@desy.de>
 
 import operator
+from collections.abc import Callable, Iterable, Sequence
 from dataclasses import dataclass
 from typing import Any
-from collections.abc import Callable, Sequence, Iterable
-from ampel.types import JDict, OneOrMany, StockId
-from ampel.content.T1Document import T1Document
+
 from ampel.content.DataPoint import DataPoint
+from ampel.content.T1Document import T1Document
+from ampel.types import JDict, OneOrMany, StockId
 
 # Do not enable operator customizations by sub-classes for now
 ops: dict[str, Callable[[str, Any], bool]] = {

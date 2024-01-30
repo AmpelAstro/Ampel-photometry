@@ -7,18 +7,18 @@
 # Last Modified Date: 05.05.2022
 # Last Modified By  : Marcus Fenner <mf@physik.hu-berlin.de>
 
-from typing import Any, ClassVar, Sequence, Union, Iterable, Literal
+import math
+from typing import Any, ClassVar, Iterable, Literal, Sequence, Union
 
-from ampel.base.AmpelABC import AmpelABC
-from ampel.base.AuxUnitRegister import AuxUnitRegister
-from ampel.base.AmpelUnit import AmpelUnit
-from ampel.content.DataPoint import DataPoint
-from ampel.model.UnitModel import UnitModel
-from ampel.types import StockId
 from astropy.table import Table, vstack
 
 from ampel.abstract.AbsT2Tabulator import AbsT2Tabulator
-import math
+from ampel.base.AmpelABC import AmpelABC
+from ampel.base.AmpelUnit import AmpelUnit
+from ampel.base.AuxUnitRegister import AuxUnitRegister
+from ampel.content.DataPoint import DataPoint
+from ampel.model.UnitModel import UnitModel
+from ampel.types import StockId
 
 
 class AbsTabulatedT2Unit(AmpelABC, AmpelUnit, abstract=True):

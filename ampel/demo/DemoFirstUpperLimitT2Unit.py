@@ -9,11 +9,12 @@
 
 from time import time
 from typing import ClassVar
-from ampel.types import UBson
-from ampel.struct.UnitResult import UnitResult
-from ampel.content.DataPoint import DataPoint
+
 from ampel.abstract.AbsPointT2Unit import AbsPointT2Unit
+from ampel.content.DataPoint import DataPoint
 from ampel.model.DPSelection import DPSelection
+from ampel.struct.UnitResult import UnitResult
+from ampel.types import UBson
 
 
 class DemoFirstUpperLimitT2Unit(AbsPointT2Unit):
