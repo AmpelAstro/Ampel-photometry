@@ -228,9 +228,8 @@ class LightCurve:
 
 		if isinstance(filters, dict):
 			filters = [filters]
-		else:
-			if filters is None or not isinstance(filters, list):
-				raise ValueError("filters must be of type dict or list")
+		elif filters is None or not isinstance(filters, list):
+			raise ValueError("filters must be of type dict or list")
 
 		for filtre in filters:
 			op = ops[filtre['operator']]
