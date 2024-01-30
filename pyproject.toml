@@ -50,3 +50,34 @@ ignore_missing_imports = true
 [[tool.mypy.overrides]]
 module = "ampel.abstract.*"
 disable_error_code = "empty-body"
+
+[tool.ruff]
+target-version = "py310"
+
+[tool.ruff.lint]
+select = [
+    "E4",
+    "E7",
+    "E9",
+    "F",
+    "I",
+    "UP",
+    "B",
+    "DTZ",
+    "T20",
+    "PT",
+    "RET",
+    "SLF",
+    "SIM",
+    "PL",
+    "PERF",
+    "RUF",
+]
+ignore = [
+    "UP009", # UTF-8 encoding declaration is unnecessary
+    "PLR09", # too many (arguments|branches)
+    "RUF012", # mutable class properties (are harmless everywhere BaseModel is used)
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["T20", "E731", "SLF001", "PLR2004"]
