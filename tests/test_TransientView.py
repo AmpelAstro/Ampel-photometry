@@ -1,13 +1,13 @@
-import pytest
+from functools import reduce
 from io import StringIO
 
-from functools import reduce
+import pytest
 
-from ampel.view.TransientView import TransientView
 from ampel.util.json import AmpelEncoder, load
+from ampel.view.TransientView import TransientView
 
 
-@pytest.fixture
+@pytest.fixture()
 def view():
     return TransientView("stockystock")
 

@@ -8,18 +8,19 @@
 # Last Modified By:    valery brinnel <firstname.lastname@gmail.com>
 
 from typing import TYPE_CHECKING, Any
-from ampel.view.SnapView import SnapView
+
 from ampel.view.LightCurve import LightCurve
+from ampel.view.SnapView import SnapView
 
 if TYPE_CHECKING:
-	from ampel.types import StockId
-	from ampel.content.StockDocument import StockDocument
-	from ampel.content.LogDocument import LogDocument
-	from ampel.content.T1Document import T1Document
-	from ampel.types import OneOrMany
 	from collections.abc import Sequence
-	from ampel.view.T2DocView import T2DocView
+
 	from ampel.content.DataPoint import DataPoint
+	from ampel.content.LogDocument import LogDocument
+	from ampel.content.StockDocument import StockDocument
+	from ampel.content.T1Document import T1Document
+	from ampel.types import OneOrMany, StockId
+	from ampel.view.T2DocView import T2DocView
 
 
 class TransientView(SnapView):

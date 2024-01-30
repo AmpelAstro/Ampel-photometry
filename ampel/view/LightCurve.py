@@ -8,12 +8,13 @@
 # Last Modified By:    Simeon Reusch <simeon.reusch@desy.de>
 
 import operator
+from collections.abc import Callable, Iterable, Sequence
 from dataclasses import dataclass
 from typing import Any
-from collections.abc import Callable, Sequence, Iterable
-from ampel.types import JDict, OneOrMany, StockId
-from ampel.content.T1Document import T1Document
+
 from ampel.content.DataPoint import DataPoint
+from ampel.content.T1Document import T1Document
+from ampel.types import JDict, OneOrMany, StockId
 
 # Do not enable operator customizations by sub-classes for now
 ops: dict[str, Callable[[str, Any], bool]] = {
@@ -227,9 +228,8 @@ class LightCurve:
 
 		if isinstance(filters, dict):
 			filters = [filters]
-		else:
-			if filters is None or not isinstance(filters, list):
-				raise ValueError("filters must be of type dict or list")
+		elif filters is None or not isinstance(filters, list):
+			raise ValueError("filters must be of type dict or list")
 
 		for filtre in filters:
 			op = ops[filtre['operator']]

@@ -7,18 +7,19 @@
 # Last Modified Date: 05.05.2022
 # Last Modified By  : Marcus Fenner <mf@physik.hu-berlin.de>
 
-from typing import Any, ClassVar, Sequence, Union, Iterable, Literal
+import math
+from collections.abc import Iterable, Sequence
+from typing import Any, ClassVar, Literal
 
-from ampel.base.AmpelABC import AmpelABC
-from ampel.base.AuxUnitRegister import AuxUnitRegister
-from ampel.base.AmpelUnit import AmpelUnit
-from ampel.content.DataPoint import DataPoint
-from ampel.model.UnitModel import UnitModel
-from ampel.types import StockId
 from astropy.table import Table, vstack
 
 from ampel.abstract.AbsT2Tabulator import AbsT2Tabulator
-import math
+from ampel.base.AmpelABC import AmpelABC
+from ampel.base.AmpelUnit import AmpelUnit
+from ampel.base.AuxUnitRegister import AuxUnitRegister
+from ampel.content.DataPoint import DataPoint
+from ampel.model.UnitModel import UnitModel
+from ampel.types import StockId
 
 
 class AbsTabulatedT2Unit(AmpelABC, AmpelUnit, abstract=True):
@@ -71,7 +72,7 @@ class AbsTabulatedT2Unit(AmpelABC, AmpelUnit, abstract=True):
     def get_stock_name(
         self,
         dps: Iterable[DataPoint],
-    ) -> list[Union[str, int]]:
+    ) -> list[str | int]:
         return [
             name
             for tab in self._tab_engines
@@ -92,18 +93,16 @@ class AbsTabulatedT2Unit(AmpelABC, AmpelUnit, abstract=True):
         self, dps: Iterable[DataPoint], which: Literal["mean", "last", "first"] = "mean"
     ) -> tuple[float, float]:
         positions = self.get_positions(dps)
-        print(positions)
 
         if which == "mean":
             import numpy as np
 
             return (
-                np.mean(list(zip(*positions))[1]),
-                np.mean(list(zip(*positions))[2]),
+                np.mean(list(zip(*positions, strict=False))[1]),
+                np.mean(list(zip(*positions, strict=False))[2]),
             )
-        elif which == "last":
+        if which == "last":
             return sorted(positions, key=lambda x: x[0])[-1][1:3]
-        elif which == "first":
+        if which == "first":
             return sorted(positions, key=lambda x: x[0])[0][1:3]
-        else:
-            raise NotImplementedError
+        raise NotImplementedError

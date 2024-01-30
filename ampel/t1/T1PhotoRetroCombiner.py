@@ -7,10 +7,11 @@
 # Last Modified Date:  25.05.2021
 # Last Modified By:    valery brinnel <firstname.lastname@gmail.com>
 
-from typing import Generator
+from collections.abc import Generator
+
 from ampel.content.DataPoint import DataPoint
-from ampel.types import DataPointId
 from ampel.t1.T1SimpleRetroCombiner import T1SimpleRetroCombiner
+from ampel.types import DataPointId
 
 
 class T1PhotoRetroCombiner(T1SimpleRetroCombiner):

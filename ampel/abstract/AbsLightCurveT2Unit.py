@@ -7,11 +7,12 @@
 # Last Modified Date:  01.03.2020
 # Last Modified By:    valery brinnel <firstname.lastname@gmail.com>
 
-from typing import Iterable
-from ampel.view.LightCurve import LightCurve
-from ampel.content.T1Document import T1Document
-from ampel.content.DataPoint import DataPoint
+from collections.abc import Iterable
+
 from ampel.abstract.AbsCustomStateT2Unit import AbsCustomStateT2Unit
+from ampel.content.DataPoint import DataPoint
+from ampel.content.T1Document import T1Document
+from ampel.view.LightCurve import LightCurve
 
 
 class AbsLightCurveT2Unit(AbsCustomStateT2Unit[LightCurve], abstract=True):

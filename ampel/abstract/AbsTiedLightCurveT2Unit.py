@@ -7,17 +7,18 @@
 # Last Modified Date:  30.05.2021
 # Last Modified By:    valery brinnel <firstname.lastname@gmail.com>
 
-from typing import Literal
 from collections.abc import Iterable, Sequence
-from ampel.types import UBson
+from typing import Literal
+
+from ampel.abstract.AbsTiedCustomStateT2Unit import AbsTiedCustomStateT2Unit
+from ampel.base.decorator import abstractmethod
+from ampel.content.DataPoint import DataPoint
+from ampel.content.T1Document import T1Document
 from ampel.model.UnitModel import T
 from ampel.struct.UnitResult import UnitResult
-from ampel.base.decorator import abstractmethod
+from ampel.types import UBson
 from ampel.view.LightCurve import LightCurve
 from ampel.view.T2DocView import T2DocView
-from ampel.content.T1Document import T1Document
-from ampel.content.DataPoint import DataPoint
-from ampel.abstract.AbsTiedCustomStateT2Unit import AbsTiedCustomStateT2Unit
 
 
 class AbsTiedLightCurveT2Unit(AbsTiedCustomStateT2Unit[LightCurve, T], abstract=True):
@@ -53,12 +54,11 @@ class AbsTiedLightCurveT2Unit(AbsTiedCustomStateT2Unit[LightCurve, T], abstract=
 
 		if v == 'first':
 			return dps[0]['id'] if dps else None
-		elif v == 'middle':
+		if v == 'middle':
 			return dps[len(dps) // 2]['id'] if dps else None
-		elif v == 'last':
+		if v == 'last':
 			return dps[-1]['id'] if dps else None
-		else:
-			raise ValueError("Invalid value in link_override specs")
+		raise ValueError("Invalid value in link_override specs")
 
 
 	@staticmethod
