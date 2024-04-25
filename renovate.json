@@ -1,4 +1,7 @@
 {
+  "lockFileMaintenance": {
+    "enabled": false
+  },
   "packageRules": [
     {
       "matchPackagePatterns": ["^ampel-.*"],
