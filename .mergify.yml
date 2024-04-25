@@ -1,0 +1,7 @@
+pull_request_rules:
+  - name: Merge Dependabot PRs
+    conditions:
+      - author=dependabot[bot]
+    actions:
+      merge:
+        method: squash
