@@ -43,7 +43,7 @@ class TransientView(SnapView):
 		super().__init__(id, stock=stock, origin=origin, t0=t0, t1=t1, t2=t2, logs=logs, extra=extra)
 
 		if self.t0 and self.t1:
-			lightcurve: "None | Sequence[LightCurve]" = tuple(
+			lightcurve: None | Sequence[LightCurve] = tuple(
 				LightCurve.build(comp, tuple(el for el in self.t0 if el['id'] in comp['dps']))
 				for comp in self.t1
 			)
