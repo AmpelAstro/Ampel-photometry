@@ -2,13 +2,13 @@
 
 [[package]]
 name = "ampel-core"
-version = "0.8.9"
+version = "0.8.10"
 description = "Alice in Modular Provenance-Enabled Land"
 optional = false
 python-versions = "<4.0,>=3.10"
 files = [
-    {file = "ampel_core-0.8.9-py3-none-any.whl", hash = "sha256:aa7b5cacc641f0d06f6dab9b3dd084c82690ea5e9034a03527f55cd7821a5362"},
-    {file = "ampel_core-0.8.9.tar.gz", hash = "sha256:3b60d14ad3fee1eea665920321d386ce3074afac2bbece3ef6f69fe20cd04e52"},
+    {file = "ampel_core-0.8.10-py3-none-any.whl", hash = "sha256:328731b3296d99a67211be8f5d469e5b1c7c01a3d8e569c6a86f2f1b971b9bd0"},
+    {file = "ampel_core-0.8.10.tar.gz", hash = "sha256:ed946c889fad8f0c89fbaf6069510a0e979d1a185301e30d395e0d23c8b1a9f1"},
 ]
 
 [package.dependencies]
@@ -18,7 +18,7 @@ prometheus-client = ">=0.16,<0.17"
 psutil = ">=5.8.0,<6.0.0"
 pymongo = ">=4.0,<5.0"
 requests = ">=2.0,<3.0"
-schedule = ">=1.0.0,<2.0.0"
+schedule = ">=1,<1.2.2"
 sjcl = ">=0.2.1,<0.3.0"
 xxhash = ">=3.0.0,<4.0.0"
 yq = ">=3.0.0,<4.0.0"
