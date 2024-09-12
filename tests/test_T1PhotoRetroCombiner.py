@@ -5,7 +5,7 @@ from ampel.log.AmpelLogger import AmpelLogger
 from ampel.t1.T1PhotoRetroCombiner import T1PhotoRetroCombiner
 
 
-@pytest.fixture()
+@pytest.fixture
 def ampel_logger():
     return AmpelLogger.get_logger()
 
