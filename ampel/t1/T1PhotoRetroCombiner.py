@@ -7,14 +7,15 @@
 # Last Modified Date:  25.05.2021
 # Last Modified By:    valery brinnel <firstname.lastname@gmail.com>
 
-from collections.abc import Generator
+from collections.abc import Generator, Iterable
 
+from ampel.abstract.AbsT1RetroCombineUnit import AbsT1RetroCombineUnit
 from ampel.content.DataPoint import DataPoint
-from ampel.t1.T1SimpleRetroCombiner import T1SimpleRetroCombiner
+from ampel.struct.T1CombineResult import T1CombineResult
 from ampel.types import DataPointId
 
 
-class T1PhotoRetroCombiner(T1SimpleRetroCombiner):
+class T1PhotoRetroCombiner(AbsT1RetroCombineUnit):
 	"""
 	combine(
 		[
@@ -28,6 +29,19 @@ class T1PhotoRetroCombiner(T1SimpleRetroCombiner):
 	  	[6, -4]
 	]
 	"""
+
+	def combine(self, datapoints: Iterable[DataPoint]) -> list[T1CombineResult]:
+		"""
+		:param datapoints: dict instances representing datapoints
+		"""
+
+		chan = self.channel
+		dps = [
+			dp for dp in datapoints
+			if not("excl" in dp and chan in dp['excl'])
+		]
+
+		return [T1CombineResult(dps=el) for el in reversed(list(self.generate_retro_sequences(dps)))]
 
 	def generate_retro_sequences(self, datapoints: list[DataPoint]) -> Generator[list[DataPointId], None, None]:
 		while datapoints:

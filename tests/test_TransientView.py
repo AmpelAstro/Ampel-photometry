@@ -1,9 +1,7 @@
 from functools import reduce
-from io import StringIO
 
 import pytest
 
-from ampel.util.json import AmpelEncoder, load
 from ampel.view.TransientView import TransientView
 
 
@@ -18,9 +16,9 @@ def gather_slots(typ):
     )
 
 
-def test_json_serialization(view: TransientView):
-    f = StringIO(AmpelEncoder().encode(view))
-    tview = next(load(f))
+def test_reduce(view: TransientView):
+    cls, args = view.__reduce__()
+    tview = cls(*args)
     slots = gather_slots(type(tview))
     assert slots
     for attr in gather_slots(type(tview)):
