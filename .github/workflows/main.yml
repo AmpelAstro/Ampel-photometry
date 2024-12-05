@@ -24,5 +24,7 @@ jobs:
       lint: true
       # renovate: datasource=conda depName=conda-forge/python
       python-version: "3.13.1"
+      # renovate: datasource=pypi depName=poetry versioning=pep440
+      poetry-version: "1.8.4"
       # renovate: datasource=pypi depName=ruff
       ruff-version: "0.8.1"
