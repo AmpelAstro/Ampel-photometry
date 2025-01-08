@@ -7,6 +7,9 @@ license = "BSD-3-Clause"
 packages = [
     {include = "ampel"}
 ]
+exclude = [
+    "ampel/py.typed",
+]
 include = [
     'conf/*/*.json',
     'conf/*/*/*.json',
@@ -19,7 +22,6 @@ include = [
 [tool.poetry.dependencies]
 python = "^3.10"
 ampel-interface = {version = ">=0.10.4.post0,<0.11"}
-
 astropy = ">=5"
 
 [tool.poetry.dev-dependencies]
