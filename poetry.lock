@@ -2,13 +2,13 @@
 
 [[package]]
 name = "ampel-interface"
-version = "0.10.4"
+version = "0.10.4.post0"
 description = "Base classes for the Ampel analysis platform"
 optional = false
 python-versions = "<4.0,>=3.10"
 files = [
-    {file = "ampel_interface-0.10.4-py3-none-any.whl", hash = "sha256:7de3ea34e17f48b84563085a0225551605297e05437ecbc3ea872c1b2b20459e"},
-    {file = "ampel_interface-0.10.4.tar.gz", hash = "sha256:f2c5071ffcba58519933e1368e337dae1a15d5db514f352580f68064b59f028f"},
+    {file = "ampel_interface-0.10.4.post0-py3-none-any.whl", hash = "sha256:edc4c10b2434164812bdb16702625ad6d0730722841a2c89b04ee93c6dc23269"},
+    {file = "ampel_interface-0.10.4.post0.tar.gz", hash = "sha256:57826027648076299a78966821870e08b8e3000d65947d4c1ab37d98668e0830"},
 ]
 
 [package.dependencies]
@@ -921,4 +921,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "406cce73578152104fe4cd17c94f2a53d1a1b8019b3707a192fb6771654e10a5"
+content-hash = "ae0ac4822d34c155b218c7b2a53836d21f2433820bf468439550f36da85ef111"

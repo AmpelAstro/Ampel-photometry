@@ -1,3 +1,4 @@
+import pickle
 from functools import reduce
 
 import pytest
@@ -7,7 +8,7 @@ from ampel.view.TransientView import TransientView
 
 @pytest.fixture
 def view():
-    return TransientView("stockystock")
+    return TransientView(id="stockystock")
 
 
 def gather_slots(typ):
@@ -17,9 +18,24 @@ def gather_slots(typ):
 
 
 def test_reduce(view: TransientView):
-    cls, args = view.__reduce__()
-    tview = cls(*args)
+    tview = pickle.loads(pickle.dumps(view))
     slots = gather_slots(type(tview))
-    assert slots
+    assert len(slots) > 1
     for attr in gather_slots(type(tview)):
         assert getattr(tview, attr) == getattr(view, attr)
+
+def test_build_lightcurve():
+    view = TransientView(
+        id=1,
+        t0=[
+            {"id": 1, "body": {"jd": 2450000.0, "mag": 12.0}},
+            {"id": 2, "body": {"jd": 2450001.0, "mag": 13.0}},
+        ],
+        t1=[
+            {"stock": 1, "link": 1, "dps": [1, 2]},
+        ],
+    )
+    assert view.lightcurve
+    assert len(view.lightcurve) == 1
+    assert view.lightcurve[0].get_values("jd") == [2450000.0, 2450001.0]
+    assert view.lightcurve[0].get_values("mag") == [12.0, 13.0]

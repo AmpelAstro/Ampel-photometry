@@ -10,6 +10,8 @@
 from collections.abc import Sequence
 from time import time
 
+from pydantic import TypeAdapter
+
 from ampel.abstract.AbsTiedLightCurveT2Unit import AbsTiedLightCurveT2Unit
 from ampel.struct.UnitResult import UnitResult
 from ampel.types import UBson
@@ -25,7 +27,9 @@ class DemoTiedLightCurveT2Unit(AbsTiedLightCurveT2Unit):
 		return {
 			"jds": lightcurve.get_values("jd"),
 			"time": time(),
-			"linked_views": [el.serialize() for el in t2_views],
+			"linked_views": [serialize(el, mode="json") for el in t2_views],
 			"linked_results": [el.get_payload() for el in t2_views],
 			"test_parameter": self.test_parameter
 		}
+
+serialize = TypeAdapter(T2DocView).dump_python
