@@ -82,5 +82,8 @@ ignore = [
     "RUF012", # mutable class properties (are harmless everywhere BaseModel is used)
 ]
 
+[tool.ruff.lint.isort]
+known-first-party = ["ampel"]
+
 [tool.ruff.lint.per-file-ignores]
 "tests/*" = ["T20", "E731", "SLF001", "PLR2004"]

@@ -95,7 +95,7 @@ class AbsTabulatedT2Unit(AmpelABC, AmpelUnit, abstract=True):
         positions = self.get_positions(dps)
 
         if which == "mean":
-            import numpy as np
+            import numpy as np  # noqa: PLC0415 
 
             return (
                 np.mean(list(zip(*positions, strict=False))[1]),
