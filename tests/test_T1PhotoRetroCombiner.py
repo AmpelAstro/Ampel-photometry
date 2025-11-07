@@ -9,7 +9,10 @@ from ampel.t1.T1PhotoRetroCombiner import T1PhotoRetroCombiner
 
 @pytest.fixture
 def ampel_logger():
-    return logging.getLogger()
+    logger = logging.getLogger()
+    # conform to LoggerProtocol
+    logger.verbose = 0
+    return logger
 
 
 def test_prev_det_sequences(ampel_logger):
