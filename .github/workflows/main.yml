@@ -27,4 +27,4 @@ jobs:
       # renovate: datasource=pypi depName=poetry versioning=pep440
       poetry-version: "2.2.1"
       # renovate: datasource=pypi depName=ruff
-      ruff-version: "0.14.4"
+      ruff-version: "0.14.5"
