@@ -24,7 +24,7 @@ astropy = ">=5"
 
 [tool.poetry.dev-dependencies]
 pytest = "^9.0.2"
-mypy = "^1.13.0"
+mypy = "^1.19.1"
 pytest-cov = "^7.0.0"
 
 [build-system]
