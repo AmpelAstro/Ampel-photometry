@@ -36,7 +36,7 @@ class AbsTiedLightCurveT2Unit(AbsTiedCustomStateT2Unit[LightCurve, T], abstract=
 	def get_link(
 		link_override: dict[Literal['pps', 'uls'], Literal['first', 'middle', 'last']],
 		light_curve: LightCurve
-	) -> None | int | bytes:
+	) -> int | bytes | None:
 		"""
 		Method used by T2Processor.
 		:param link_override: value associated with key 'link_override' of `T2Dependency <ampel.struct.T2Dependency.T2Dependency>`

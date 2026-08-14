@@ -38,8 +38,8 @@ class LightCurve:
 
 	compound_id: int
 	stock_id: StockId | Sequence[StockId]
-	photopoints: None | Sequence[DataPoint] = None
-	upperlimits: None | Sequence[DataPoint] = None
+	photopoints: Sequence[DataPoint] | None = None
+	upperlimits: Sequence[DataPoint] | None = None
 
 
 	@classmethod
@@ -59,9 +59,9 @@ class LightCurve:
 
 	def get_values(self,
 		key: str,
-		filters: None | OneOrMany[JDict] = None,
+		filters: OneOrMany[JDict] | None = None,
 		of_upper_limits: bool = False
-	) -> None | list[Any]:
+	) -> list[Any] | None:
 		"""
 		:param filters: filter criteria for data points, e.g. ``{'attribute': 'magpsf', 'operator': '<', 'value': 18}``
 		:param of_upper_limits: return upper limits instead of photo points
@@ -79,9 +79,9 @@ class LightCurve:
 
 	def get_tuples(self,
 		key1: str, key2: str,
-		filters: None | OneOrMany[JDict] = None,
+		filters: OneOrMany[JDict] | None = None,
 		of_upper_limits: bool = False
-	) -> None | list[tuple[Any, Any]]:
+	) -> list[tuple[Any, Any]] | None:
 		"""
 		:param filters: filter criteria for datapoints
 		:param of_upper_limits: return upper limits instead of photo points
@@ -102,9 +102,9 @@ class LightCurve:
 
 	def get_ntuples(self,
 		params: Sequence[str],
-		filters: None | OneOrMany[JDict] = None,
+		filters: OneOrMany[JDict] | None = None,
 		of_upper_limits: bool = False
-	) -> None | list[tuple]:
+	) -> list[tuple] | None:
 		"""
 		:param params: list of keys
 		:param filters: filter criteria for datapoints
@@ -126,8 +126,8 @@ class LightCurve:
 
 
 	def get_photopoints(self,
-		filters: None | OneOrMany[JDict] = None,
-	) -> None | Sequence[DataPoint]:
+		filters: OneOrMany[JDict] | None = None,
+	) -> Sequence[DataPoint] | None:
 		"""Get (filtered) photo points"""
 		if filters and self.photopoints:
 			return self._apply_filter(self.photopoints, filters)
@@ -135,8 +135,8 @@ class LightCurve:
 
 
 	def get_upperlimits(self,
-		filters: None | OneOrMany[JDict] = None,
-	) -> None | Sequence[DataPoint]:
+		filters: OneOrMany[JDict] | None = None,
+	) -> Sequence[DataPoint] | None:
 		"""Get (filtered) upper limits"""
 		if filters and self.upperlimits:
 			return self._apply_filter(self.upperlimits, filters)
@@ -146,8 +146,8 @@ class LightCurve:
 	# TODO: improve
 	def get_pos(
 		self, ret: str = "brightest",
-		filters: None | OneOrMany[JDict] = None,
-	) -> None | tuple[Any, Any] | Sequence[tuple[Any, Any]]:
+		filters: OneOrMany[JDict] | None = None,
+	) -> tuple[Any, Any] | Sequence[tuple[Any, Any]] | None:
 		"""
 		Calculate the position of the underlying object.
 
@@ -204,9 +204,9 @@ class LightCurve:
 
 
 	def _get_datapoints(self,
-		filters: None | OneOrMany[JDict] = None,
+		filters: OneOrMany[JDict] | None = None,
 		of_upper_limits: bool = False
-	) -> None | Sequence[DataPoint]:
+	) -> Sequence[DataPoint] | None:
 
 		if filters is None:
 			if of_upper_limits:
@@ -220,7 +220,7 @@ class LightCurve:
 	@staticmethod
 	def _apply_filter(
 		datapoints: Sequence[DataPoint],
-		filters: None | OneOrMany[JDict] = None,
+		filters: OneOrMany[JDict] | None = None,
 	) -> Sequence[DataPoint]:
 		"""
 		:raises ValueError: if datapoints is None or in case of bad filter values

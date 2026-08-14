@@ -22,12 +22,12 @@ if TYPE_CHECKING:
 @dataclass(frozen=True)
 class TransientView(SnapView):
 
-	lightcurve: "None | Sequence[LightCurve]" = field(init=False)
+	lightcurve: "Sequence[LightCurve] | None" = field(init=False)
 
 	def __post_init__(self) -> None:
 
 		if self.t0 and self.t1:
-			lightcurve: None | Sequence[LightCurve] = tuple(
+			lightcurve: Sequence[LightCurve] | None = tuple(
 				LightCurve.build(comp, tuple(el for el in self.t0 if el['id'] in comp['dps']))
 				for comp in self.t1
 			)
@@ -36,7 +36,7 @@ class TransientView(SnapView):
 		object.__setattr__(self, "lightcurve", lightcurve)
 
 
-	def get_photopoints(self) -> "None | Sequence[DataPoint]":
+	def get_photopoints(self) -> "Sequence[DataPoint] | None":
 
 		if not self.t0:
 			return None
@@ -45,7 +45,7 @@ class TransientView(SnapView):
 		return [dp for dp in self.t0 if dp['id'] > 0]
 
 
-	def get_upperlimits(self) -> "None | Sequence[DataPoint]":
+	def get_upperlimits(self) -> "Sequence[DataPoint] | None":
 
 		if not self.t0:
 			return None
@@ -54,5 +54,5 @@ class TransientView(SnapView):
 		return [dp for dp in self.t0 if dp['id'] < 0]
 
 
-	def get_lightcurves(self) -> "None | Sequence[LightCurve]":
+	def get_lightcurves(self) -> "Sequence[LightCurve] | None":
 		return self.lightcurve

@@ -40,8 +40,8 @@ class AbsTabulatedT2Unit(AmpelABC, AmpelUnit, abstract=True):
     def get_flux_table(
         self,
         dps: Iterable[DataPoint],
-        jd_start: None | float = None,
-        jd_end: None | float = None,
+        jd_start: float | None = None,
+        jd_end: float | None = None,
     ) -> Table:
         tables = [tab.get_flux_table(dps) for tab in self._tab_engines]
         if len(tables) == 1:
