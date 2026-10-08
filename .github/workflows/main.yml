@@ -23,8 +23,8 @@ jobs:
       mongo: false
       lint: true
       # renovate: datasource=python-version depName=python
-      python-version: "3.14.7"
+      python-version: "3.14.8"
       # renovate: datasource=pypi depName=poetry versioning=pep440
-      poetry-version: "2.4.3"
+      poetry-version: "2.5.1"
       # renovate: datasource=pypi depName=ruff
-      ruff-version: "0.16.6"
+      ruff-version: "0.16.10"
